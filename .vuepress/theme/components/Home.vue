@@ -4,11 +4,11 @@
             <img v-if="data.heroImage" :src="$withBase(data.heroImage)" :alt="data.heroAlt || 'hero'">
 
             <!--<h1 v-if="data.heroText !== null" id="main-title">{{ data.heroText || $title || 'Hello' }}</h1>-->
-            <h1 id="main-title">
-                <span>E</span><em>veryone</em>
-                <span>E</span><em>asy</em>
-                <span>U</span><em>ser</em>
-                <span>I</span><em>nterface</em>
+            <h1 id="main-title" @mouseover="titleShow=false" @mouseleave="titleShow=true">
+                <span>E</span><transition name="title-fade"><em v-if="titleShow">veryone</em></transition>
+                <span>E</span><transition name="title-fade"><em v-if="titleShow">asy</em></transition>
+                <span>U</span><transition name="title-fade"><em v-if="titleShow">ser</em></transition>
+                <span>I</span><transition name="title-fade"><em v-if="titleShow">nterface</em></transition>
             </h1>
 
             <p class="description">{{ data.tagline || $description || 'Welcome to your VuePress site' }}</p>
@@ -47,6 +47,12 @@
                     text: this.data.actionText
                 }
             }
+        },
+
+        data() {
+            return {
+                titleShow: true
+            }
         }
     }
 </script>
@@ -78,10 +84,15 @@
                     display inline-block
 
                 em
-                    opacity 1
-                    transition all 1s
+                    opacity 0.8
                     font-style normal
                     display inline-block
+
+                .title-fade-enter-active, .title-fade-leave-active
+                    transition opacity 1s
+
+                .title-fade-enter, .title-fade-leave-to
+                    opacity 0
 
             h1, .description, .action
                 margin 1.8rem auto
@@ -105,11 +116,6 @@
 
                 &:hover
                     background-color lighten($accentColor, 10%)
-
-            &:hover
-                h1
-                    em
-                        opacity 0.1
 
         .features
             border-top 1px solid $borderColor
