@@ -1,0 +1,101 @@
+@font-face {
+    font-family: 'eeuiicon';
+    src: url('../fonts/eeuiicon.eot?kblgnz');
+    src: url('../fonts/eeuiicon.eot?kblgnz#iefix') format('embedded-opentype'),
+    url('../fonts/eeuiicon.ttf?kblgnz') format('truetype'),
+    url('../fonts/eeuiicon.woff?kblgnz') format('woff'),
+    url('../fonts/eeuiicon.svg?kblgnz#eeuiicon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.eeuiicon {
+    font-family: "eeuiicon" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.sreach {
+    position: fixed;
+    top: 25px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.sreach input {
+    width: 520px;
+    height: 42px;
+    line-height: 42px;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 4px;
+    background: #f5f5f5;
+    text-align: center;
+    font-size: 14px;
+    margin: 0 auto;
+    -webkit-appearance: none;
+    outline: none
+}
+
+.sreach-placeholder {
+    height: 92px;
+}
+
+.title,
+.lists {
+    width: 100%;
+    max-width: 990px;
+    margin: 0 auto;
+}
+
+.title {
+    padding: 18px 0 12px 18px;
+    font-size: 18px;
+    color: #959daa;
+}
+
+ul.lists {
+    list-style: none;
+    text-align: center;
+}
+
+ul.lists li {
+    display: inline-block;
+    width: 110px;
+    height: 120px;
+    padding-top: 3px;
+    vertical-align: top;
+    text-align: center;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+ul.lists li .name {
+    font-size: 12px;
+    padding: 0 6px;
+    color: #666666;
+    line-height: 18px;
+}
+
+ul.lists li .icon {
+    width: 42px;
+    height: 48px;
+    line-height: 48px;
+    font-size: 32px;
+    color: #5c6b77;
+    -webkit-transition: font-size 0.25s ease-out 0s;
+    -moz-transition: font-size 0.25s ease-out 0s;
+    transition: font-size 0.25s ease-out 0s;
+}
+
+ul.lists li:hover .icon {
+    font-size: 38px;
+}
+
+ul.lists li .code {
+    display: none;
+}

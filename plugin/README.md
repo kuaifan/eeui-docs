@@ -1,0 +1,1 @@
+<script> module.exports = { created(){ this.$router.push('citypicker') } } </script>

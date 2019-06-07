@@ -1,0 +1,17 @@
+{
+    "name": "eeui-docs",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "dev": "vuepress dev",
+        "build": "vuepress build && npm run indexes && vuepress build",
+        "indexes": "php ./.vuepress/sreach.php",
+        "git-push": "git add -A && git commit -m 'no msg' && git push --progress 'origin' master:master"
+    },
+    "devDependencies": {
+        "core-js": "^2.6.9",
+        "vuepress": "^1.0.0-alpha.48",
+        "vuepress-plugin-container": "^2.0.1"
+    }
+}
