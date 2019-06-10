@@ -132,15 +132,13 @@
             display inline-block
             margin-left 1.5rem
             line-height 2rem
-            vertical-align middle
-            margin-top -6px
 
             &:first-child
                 margin-left 0
 
         .repo-link
             margin-left 1.4rem
-            vertical-align middle
+            vertical-align top
             .github-icon
                 width 2.2rem
                 height 2.2rem

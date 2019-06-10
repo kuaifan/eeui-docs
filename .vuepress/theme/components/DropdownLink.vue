@@ -86,7 +86,7 @@ export default {
     .arrow
       vertical-align middle
       margin-top -1px
-      margin-left 0.4rem
+      margin-left 0.2rem
   .nav-dropdown
     .dropdown-item
       color inherit
