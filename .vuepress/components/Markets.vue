@@ -1,6 +1,6 @@
 <template>
     <div class="eeui-markets">
-        <iframe ref="myFrame" src="http://eeui-console.vip/#/markets" frameborder="0" scrolling="no" class="eeui-frame"></iframe>
+        <iframe ref="myFrame" src="//console.eeui.app/#/markets" frameborder="0" scrolling="no" class="eeui-frame"></iframe>
     </div>
 </template>
 
