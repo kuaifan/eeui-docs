@@ -53,6 +53,11 @@
             window.addEventListener('message', (e) => { this.height = e.data.height; }, false);
             setTimeout(() => { this.loading = 'start'; }, 100);
         },
+        watch: {
+            loading(val) {
+                console.log("loading::" + val);
+            }
+        },
         methods: {
             loadFinish() {
                 this.$refs.myLoading.addEventListener("transitionend", (e) => {
