@@ -50,8 +50,23 @@
             parent.style.setProperty('max-width', 'none', 'important');
             parent.style.setProperty('padding', '0', 'important');
             parent.nextElementSibling.style.setProperty('display', 'none', 'important');
-            window.addEventListener('message', (e) => { this.height = e.data.height; }, false);
-            setTimeout(() => { this.loading = 'start'; }, 100);
+            //
+            setTimeout(() => {
+                if (this.loading === '') {
+                    this.loading = 'start';
+                }
+            }, 100);
+            //
+            window.addEventListener('message', (e) => {
+                switch (e.data.status) {
+                    case 'height':
+                        this.height = e.data.height;
+                        break;
+                    case 'complete':
+                        this.loadFinish();
+                        break;
+                }
+            }, false);
         },
         watch: {
             loading(val) {
@@ -60,11 +75,13 @@
         },
         methods: {
             loadFinish() {
-                this.$refs.myLoading.addEventListener("transitionend", (e) => {
-                    setTimeout(() => { this.loading = 'finish'; }, 100);
-                }, false);
-                setTimeout(() => { this.loading = 'finish'; }, 1000);
-                this.loading = 'end';
+                if (this.loading === 'start') {
+                    this.$refs.myLoading.addEventListener("transitionend", (e) => {
+                        setTimeout(() => { this.loading = 'finish'; }, 100);
+                    }, false);
+                    setTimeout(() => { this.loading = 'finish'; }, 1000);
+                    this.loading = 'end';
+                }
             }
         }
     }
