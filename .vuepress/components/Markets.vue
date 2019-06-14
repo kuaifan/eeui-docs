@@ -65,6 +65,9 @@
                     case 'complete':
                         this.loadFinish();
                         break;
+                    case 'scrollTop':
+                        window.scrollTo(0, e.data.top);
+                        break;
                 }
             }, false);
         },
