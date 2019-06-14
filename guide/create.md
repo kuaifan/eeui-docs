@@ -65,7 +65,7 @@ pod install
 ├── src                     // 开发路径
 │   ├── components          // ├── 封装的组件
 │   └── pages               // └── 开发页面  
-├── eeui.config.js         // 客户端相关配置
+├── eeui.config.js          // 客户端相关配置
 └── package.json            // npm项目及依赖说明
 ```
 

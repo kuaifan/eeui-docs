@@ -4,11 +4,11 @@
     "main": "index.js",
     "license": "MIT",
     "scripts": {
+        "git-push": "git add -A && git commit -m 'no msg' && git push --progress 'origin' master:master",
         "dev": "vuepress dev",
         "build": "vuepress build",
         "indexes": "php ./.vuepress/sreach.php",
-        "indexes+build": "vuepress build && npm run indexes && vuepress build",
-        "git-push": "git add -A && git commit -m 'no msg' && git push --progress 'origin' master:master"
+        "indexes+build+git-push": "vuepress build && npm run indexes && vuepress build && npm run git-push"
     },
     "devDependencies": {
         "core-js": "^2.6.9",
