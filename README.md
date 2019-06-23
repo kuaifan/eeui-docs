@@ -12,3 +12,5 @@ features:
   details: 支持了最常用 CSS 样式以及最流行的前端框架，在未来或许还可以支持更多。
 footer: MIT Licensed | Copyright © 2019 eeui.app
 ---
+
+<Home/>

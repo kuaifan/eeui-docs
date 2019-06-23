@@ -1,7 +1,7 @@
 <template>
     <div class="eeui-markets">
         <div ref="myLoading" class="eeui-loading" :class="'eeui-loading-' + loading"></div>
-        <iframe ref="myFrame" class="eeui-frame" src="//console.eeui.app/#/markets" frameborder="0" scrolling="no" @load="loadFinish" :style="{height:height + 'px'}"></iframe>
+        <iframe v-if="frameUrl" ref="myFrame" class="eeui-frame" :src="frameUrl" frameborder="0" scrolling="no" @load="loadFinish" :style="{height:height + 'px'}"></iframe>
     </div>
 </template>
 
@@ -42,10 +42,17 @@
         data() {
             return {
                 height: 580,
-                loading: ''
+                loading: '',
+                frameUrl: ''
             }
         },
         mounted() {
+            let hash = this.$route.hash;
+            if (this.leftExists(hash, "#/")) {
+                this.frameUrl = '//console.eeui.app/#/markets/' + hash.substring(2);
+            }else{
+                this.frameUrl = '//console.eeui.app/#/markets';
+            }
             let parent = this.$el.parentNode;
             parent.style.setProperty('max-width', 'none', 'important');
             parent.style.setProperty('padding', '0', 'important');
@@ -71,11 +78,6 @@
                 }
             }, false);
         },
-        watch: {
-            loading(val) {
-                console.log("loading::" + val);
-            }
-        },
         methods: {
             loadFinish() {
                 if (this.loading === 'start') {
@@ -85,7 +87,16 @@
                     setTimeout(() => { this.loading = 'finish'; }, 1000);
                     this.loading = 'end';
                 }
-            }
+            },
+            leftExists(string, find, lower) {
+                string += "";
+                find += "";
+                if (lower !== true) {
+                    string = string.toLowerCase();
+                    find = find.toLowerCase();
+                }
+                return (string.substring(0, find.length) === find);
+            },
         }
     }
 </script>
