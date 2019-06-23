@@ -160,8 +160,8 @@ let sidebar = {
 };
 
 module.exports = {
-    title: 'EEUI',
-    description: '一个基于 Vue.js 的高质量跨平台开发框架。',
+    title: 'EEUI.APP',
+    description: '一个基于 Vue.js 的高质量跨平台APP开发框架。',
 
     themeConfig: {
         editLinks: true,

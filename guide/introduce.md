@@ -1,8 +1,17 @@
+---
+pageClass: getting-started
+---
+
 # 框架介绍
 
 ## 开始使用
 
-> 一个基于 Vue.js 的高质量跨平台开发框架。
+[![NPM version](https://img.shields.io/npm/v/eeui-cli.svg)](https://www.npmjs.com/package/eeui-cli)
+[![GitHub release](https://img.shields.io/github/release/kuaifan/eeui.svg)](https://github.com/kuaifan/eeui/releases)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/kuaifan/eeui/blob/master/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/kuaifan/eeui.svg?style=social&label=Stars)](https://github.com/kuaifan/eeui)
+
+一个基于 Vue.js 的高质量跨平台APP开发框架。
 
 ## 演示
 
