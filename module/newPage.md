@@ -226,7 +226,7 @@ eeui.setSoftInputMode('pageName_1', 'resize');
 
 ## eeui.setPageBackPressed
 
-* 拦截返回按键事件
+* 拦截返回按键事件<Android/>
 
 ```js
 /**
