@@ -372,6 +372,7 @@
                 if (this.loadIng === 'start') {
                     this.$refs.myLoading.addEventListener("transitionend", (e) => {
                         setTimeout(() => { this.loadIng = 'finish'; }, 100);
+                        setTimeout(() => { if (this.loadIng === 'finish') { this.loadIng = 'ready' } }, 300);
                     }, false);
                     setTimeout(() => { this.loadIng = 'finish'; }, 1000);
                     this.loadIng = 'end';
@@ -395,7 +396,6 @@
             },
 
             load() {
-                this.loadIng = 'ready';
                 this.loadIng = 'start';
                 //
                 axios.get('https://console.eeui.app/api/plugin/' + this.name + '?__Access-Control-Allow-Origin=1', {
