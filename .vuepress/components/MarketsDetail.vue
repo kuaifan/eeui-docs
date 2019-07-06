@@ -394,7 +394,7 @@
             load() {
                 this.loadIng = 'start';
                 //
-                axios.get('http://eeui-console.vip/api/plugin/' + this.name + '?__Access-Control-Allow-Origin=1', {
+                axios.get('https://console.eeui.app/api/plugin/' + this.name + '?__Access-Control-Allow-Origin=1', {
                     params : {
                         detail: 1
                     }

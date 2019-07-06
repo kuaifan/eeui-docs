@@ -491,7 +491,7 @@
                 this.loadError = '';
                 this.loadIng = 'start';
                 //
-                axios.get('http://eeui-console.vip/api/plugin?__Access-Control-Allow-Origin=1', {
+                axios.get('https://console.eeui.app/api/plugin?__Access-Control-Allow-Origin=1', {
                     params : {
                         where: {
                             name: this.key,
