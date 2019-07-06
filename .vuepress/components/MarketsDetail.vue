@@ -121,9 +121,6 @@
         opacity: 1;
         background-color: #3fcc25;
         transition: all 5s ease-in-out;
-        &.eeui-loading-ready {
-            width: 0;
-        }
         &.eeui-loading-start {
             width: 90%;
         }
@@ -372,7 +369,6 @@
                 if (this.loadIng === 'start') {
                     this.$refs.myLoading.addEventListener("transitionend", (e) => {
                         setTimeout(() => { this.loadIng = 'finish'; }, 100);
-                        setTimeout(() => { if (this.loadIng === 'finish') { this.loadIng = 'ready' } }, 300);
                     }, false);
                     setTimeout(() => { this.loadIng = 'finish'; }, 1000);
                     this.loadIng = 'end';
