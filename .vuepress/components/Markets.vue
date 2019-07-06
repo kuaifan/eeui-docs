@@ -68,6 +68,9 @@
         opacity: 1;
         background-color: #3fcc25;
         transition: all 5s ease-in-out;
+        &.eeui-loading-ready {
+            width: 0;
+        }
         &.eeui-loading-start {
             width: 90%;
         }
@@ -489,6 +492,7 @@
             },
             load() {
                 this.loadError = '';
+                this.loadIng = 'ready';
                 this.loadIng = 'start';
                 //
                 axios.get('https://console.eeui.app/api/plugin?__Access-Control-Allow-Origin=1', {
