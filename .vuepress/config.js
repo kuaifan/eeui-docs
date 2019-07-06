@@ -201,5 +201,9 @@ module.exports = {
             '/plugin/': sidebar.plugin(),
         },
         sidebarDepth: 1,
-    }
+    },
+
+    head: [
+        ['script', { src: '//libs.baidu.com/jquery/2.0.3/jquery.min.js' }]
+    ]
 };

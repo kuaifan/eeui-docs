@@ -136,6 +136,12 @@ export default {
     }
   },
 
+  watch: {
+    '$route'(To, From) {
+      window.sessionStorage['__FromPath__'] = From.path;
+    }
+  },
+
   methods: {
     isArray(obj) {
       return typeof obj === "object" && obj !== null && typeof obj.length === 'number';
