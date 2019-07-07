@@ -1,7 +1,7 @@
 <template>
     <div class="markets-main">
 
-        <div ref="myLoading" class="eeui-loading" :class="'eeui-loading-' + loadIng"></div>
+        <v-progress ref="myLoading"/>
 
         <div class="markets-body markets-detail">
 
@@ -112,35 +112,13 @@
         position: relative;
         background-color: #ffffff;
     }
-    .eeui-loading {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 0;
-        height: 2px;
-        opacity: 1;
-        background-color: #3fcc25;
-        transition: all 5s ease-in-out;
-        &.eeui-loading-start {
-            width: 90%;
-        }
-        &.eeui-loading-end {
-            width: 100%;
-            transition: all .3s ease-in-out;
-        }
-        &.eeui-loading-finish {
-            opacity: 0;
-            width: 100%;
-            transition: all .1s ease-in-out;
-        }
-    }
 
     .markets-body {
         max-width: 1200px;
         margin: 0 auto;
         font-family: PingFang SC, Helvetica Neue, Hiragino Sans GB, Segoe UI, Microsoft YaHei, 微软雅黑, sans-serif;
         color: #232f40;
-        padding: 46px 0;
+        padding: 46px 0 0;
         box-sizing: border-box;
         font-size: 14px;
         -webkit-font-smoothing: antialiased;
@@ -341,12 +319,12 @@
     import {each, count, leftExists, pluginsTypes} from "./js/common";
 
     import "./css/markets.code.scss"
+    import VProgress from "./Progress";
 
     export default {
+        components: {VProgress},
         data() {
             return {
-                loadIng: '',
-
                 name: '',
                 detail: {},
 
@@ -354,30 +332,12 @@
             }
         },
         mounted() {
-            let parent = this.$el.parentNode;
-            parent.style.setProperty('max-width', 'none', 'important');
-            parent.style.setProperty('padding', '0', 'important');
-            parent.nextElementSibling.style.setProperty('display', 'none', 'important');
-            //
             this.name = this.getName();
             this.marketMenu = '';
             this.detail = {};
             this.load();
         },
         methods: {
-            loadFinish(timeOut) {
-                if (typeof timeOut !== 'undefined') {
-                    clearInterval(timeOut);
-                }
-                if (this.loadIng === 'start') {
-                    this.$refs.myLoading.addEventListener("transitionend", (e) => {
-                        setTimeout(() => { this.loadIng = 'finish'; }, 100);
-                    }, false);
-                    setTimeout(() => { this.loadIng = 'finish'; }, 1000);
-                    this.loadIng = 'end';
-                }
-            },
-
             goBack() {
                 if (window.sessionStorage['__FromPath__'] === '/markets/') {
                     window.history.go(-1);
@@ -395,14 +355,16 @@
             },
 
             load() {
-                let timeOut = setTimeout(() => { this.loadIng = 'start' }, 1000);
+                let timeOut = setTimeout(() => { this.$refs.myLoading.start(); }, 1000);
                 //
                 axios.get('https://console.eeui.app/api/plugin/' + this.name + '?__Access-Control-Allow-Origin=1', {
                     params : {
                         detail: 1
                     }
                 }).then((response) => {
-                    this.loadFinish(timeOut);
+                    clearInterval(timeOut);
+                    this.$refs.myLoading.end();
+                    //
                     if (response.status !== 200) {
                         return;
                     }

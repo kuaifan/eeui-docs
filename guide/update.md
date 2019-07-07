@@ -33,7 +33,7 @@ eeui update
 
 2、将旧项目的`src`下的所有文件移到新项目`src`目录下。
 
-3、修改新项目[eeui.config.js配置文件](./config.html)、[应用图标](./icons.html)、[应用启动图](./launch.html)、应用版本号及版本名称。
+3、修改新项目[eeui.config.js配置文件](./config.html)、[应用图标](./icons.html)、[应用启动图](./launch.html)、[应用版本号及版本名称](./setting.html)。
 
 > 注：如果因为自动升级过程中失败导致旧项目`src`文件夹内文件被重置可在`common/backup/*.zip`找到升级前系统自动备份包。
 

@@ -2,9 +2,9 @@
     <div :class="['md-badge-new', show ? 'md-badge-show' : '']">新</div>
 </template>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
     .md-badge-new {
-        display:inline-block;
+        display:none;
         font-size:12px;
         height:16px;
         line-height:16px;
@@ -16,6 +16,9 @@
         transform: scale(0.92, 0.92);
         background-color:#73C33B;
         vertical-align:middle
+    }
+    .md-badge-show {
+        display:inline-block;
     }
 </style>
 <script>
@@ -29,7 +32,7 @@
         mounted() {
             let reg = /^(\d{4})(\d{2})(\d{2})*/g;
             let exc = reg.exec(this.date);
-            if (new Date(exc[1] + "-" + exc[2] + "-" + exc[3]).getTime() > new Date().getTime() - 86400000 * 30) {
+            if (new Date(exc[1] + "/" + exc[2] + "/" + exc[3]).getTime() > new Date().getTime() - 86400000 * 30) {
                 this.show = true;
             }
         }

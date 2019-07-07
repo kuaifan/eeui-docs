@@ -1,7 +1,7 @@
 <template>
     <div class="markets-main">
 
-        <div ref="myLoading" class="eeui-loading" :class="'eeui-loading-' + loadIng"></div>
+        <v-progress ref="myLoading"/>
 
         <div class="markets-body">
 
@@ -13,8 +13,7 @@
             </div>
 
             <div class="type">
-                <div :class="[type==='all' ? 'active' : '']" @click="type='all'">　全部　</div>
-                <div v-for="(item, index) in pluginsTypes" :key="index" :class="[type===item.name ? 'active' : '']" @click="type=item.name">{{item.title}}</div>
+                <div :class="[type==='all' ? 'active' : '']" @click="type='all'">　全部　</div><div v-for="(item, index) in pluginsTypes" :key="index" :class="[type===item.name ? 'active' : '']" @click="type=item.name">{{item.title}}</div>
             </div>
 
             <div class="lists">
@@ -59,36 +58,13 @@
         background-color: #ffffff;
     }
 
-    .eeui-loading {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 0;
-        height: 2px;
-        opacity: 1;
-        background-color: #3fcc25;
-        transition: all 5s ease-in-out;
-        &.eeui-loading-start {
-            width: 90%;
-        }
-        &.eeui-loading-end {
-            width: 100%;
-            transition: all .3s ease-in-out;
-        }
-        &.eeui-loading-finish {
-            opacity: 0;
-            width: 100%;
-            transition: all .1s ease-in-out;
-        }
-    }
-
     .markets-body {
         max-width: 1200px;
         margin: 0 auto;
         text-align: center;
         font-family: PingFang SC, Helvetica Neue, Hiragino Sans GB, Segoe UI, Microsoft YaHei, 微软雅黑, sans-serif;
         color: #232f40;
-        padding: 50px 0;
+        padding: 50px 0 0;
         box-sizing: border-box;
         font-size: 14px;
         -webkit-font-smoothing: antialiased;
@@ -135,20 +111,19 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                background: url("./images/sreach.png") no-repeat center;
                 background-size: 16px;
-                background-repeat: no-repeat;
-                background-position: center;
-                background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAM1BMVEUAAACAhpWAhZWAhpSAhZSAgI+AhpWAh5eAhZWAhZWAhpWAhpSAhpSAh5OAhZWAhpaAhpVgr1AcAAAAEHRSTlMAwGCg8BCAILAw4NBwQJBQa7gVNwAAAT9JREFUSMftVUuWxCAIRPzG+Lv/aWeM4/RTxHR63bWMFFUIGJgQjUnCmHDAG9Doyj+UzHfxQZURHnfh2RcKwTszfxEh6mouprMZQ8Z9M580vGDbN7MkiHrk7Hxjl0oCisSk0rIeUFc4fCap1DHnqdcZYI2q4RffJNvMk6jbqqqBgyUSkhawP/fEJJVw8MIxXDXXpGkm4n4ofyMy5e89mYEgYI+RoN4gDCF816gJSqfoJp7W4AaC38frWvTYebsl4DgbmZltNqW+rVpNpt3NbOC8vkgk6D5aMo2ZJRja2UgWfdJXVWCu4lwv6dEfCLro50ojqnrC5FF5tToVuGTQtzKKUnhGe6wl9lJsaOFCMgzd0wmRTBIXv3WMY0D2zP+EZQCeQ7jrA8MzwKK7rCkhc6+GMHh8GZ8yFDxkeHiEIO0P26AbJrtO6I4AAAAASUVORK5CYII=");
                 cursor: pointer;
             }
         }
 
         .type {
-            display: flex;
+            display: block;
             align-items: center;
             justify-content: center;
             margin: 38px auto;
             > div {
+                display: inline-block;
                 transition: all .2s ease-in-out;
                 cursor: pointer;
                 border: 1px solid #dcdee2;
@@ -171,6 +146,19 @@
                 &:last-child {
                     border-radius: 0 3px 3px 0;
                 }
+                &:after,
+                &:before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    width: 1px;
+                    height: 100%;
+                    left: -1px;
+                    top: 0;
+                    background: #dcdee2;
+                    -webkit-transition: all .2s ease-in-out;
+                    transition: all .2s ease-in-out;
+                }
                 &:hover {
                     color: #2d8cf0;
                 }
@@ -178,6 +166,18 @@
                     color: #2d8cf0;
                     border-color: #2d8cf0;
                     box-shadow: -1px 0 0 0 #2d8cf0;
+                    z-index: 1;
+                    &:before {
+                        background: #2d8cf0;
+                        opacity: .1;
+                    }
+                    &:after {
+                        height: 36px;
+                        left: -1px;
+                        top: -3px;
+                        background: rgba(45,140,240,.2);
+                        opacity: 0;
+                    }
                 }
             }
         }
@@ -436,12 +436,12 @@
 <script>
     import {each, pluginsTypes} from "./js/common";
     import axios from 'axios'
+    import VProgress from "./Progress";
 
     export default {
+        components: {VProgress},
         data() {
             return {
-                loadIng: '',
-
                 pluginsTypes: pluginsTypes(),
 
                 key: '',
@@ -453,11 +453,6 @@
             }
         },
         mounted() {
-            let parent = this.$el.parentNode;
-            parent.style.setProperty('max-width', 'none', 'important');
-            parent.style.setProperty('padding', '0', 'important');
-            parent.nextElementSibling.style.setProperty('display', 'none', 'important');
-            //
             this.initTypeOrKey();
             this.load();
         },
@@ -473,18 +468,6 @@
             }
         },
         methods: {
-            loadFinish(timeOut) {
-                if (typeof timeOut !== 'undefined') {
-                    clearInterval(timeOut);
-                }
-                if (this.loadIng === 'start') {
-                    this.$refs.myLoading.addEventListener("transitionend", (e) => {
-                        setTimeout(() => { this.loadIng = 'finish'; }, 100);
-                    }, false);
-                    setTimeout(() => { this.loadIng = 'finish'; }, 1000);
-                    this.loadIng = 'end';
-                }
-            },
             initTypeOrKey() {
                 let hash = this.$route.hash + "";
                 if (hash.indexOf("#") === 0) {
@@ -507,14 +490,14 @@
             },
             search() {
                 window.location.replace("#" + this.key);
-                this.type = '';
+                this.type = this.key ? '' : 'all';
                 this.nextPage = 1;
                 this.lists = [];
                 this.load();
             },
             load() {
                 this.loadError = '';
-                let timeOut = setTimeout(() => { this.loadIng = 'start' }, 1000);
+                let timeOut = setTimeout(() => { this.$refs.myLoading.start(); }, 1000);
                 //
                 axios.get('https://console.eeui.app/api/plugin?__Access-Control-Allow-Origin=1', {
                     params : {
@@ -526,7 +509,9 @@
                         pagesize: 30,
                     }
                 }).then((response) => {
-                    this.loadFinish(timeOut);
+                    clearInterval(timeOut);
+                    this.$refs.myLoading.end();
+                    //
                     if (response.status !== 200) {
                         this.nextPage = 0;
                         this.loadError = "网络繁忙，请稍后再试......";

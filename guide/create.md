@@ -12,6 +12,14 @@ eeui create projectName
 
 脚手架会自动从 github 上拉取最新的 [eeui-template 开发模板](https://github.com/kuaifan/eeui-template)
 
+
+::: tip 
+
+如遇到网络原因自动下载失败，请直接从github下载最新releases [https://github.com/kuaifan/eeui-template](https://github.com/kuaifan/eeui-template/releases)<br/>下载完解压缩到本地，终端cd进入解压得到的文件夹，然后执行`eeui setting`就可以按提示设置App名称、版本等App信息。
+
+:::
+
+
 然后进入开发目录，执行 `npm install` 加载`node_modules`
 
 ```bash
