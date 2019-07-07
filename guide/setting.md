@@ -9,8 +9,11 @@
 eeui setting
 ```
 
-
 ::: tip
 设置包含：应用名称、应用ID、应用版本号、应用版本名称。
 :::
+
+如图效果：
+
+<img style="border:18px solid #ddd;border-radius:15px;margin:10px auto 0;" src="./media/setting.png"/>
 
