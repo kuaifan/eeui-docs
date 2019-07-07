@@ -31,11 +31,11 @@
                         <div v-else class="purple">开发者</div>
                     </div>
                     <div class="divide"></div>
-                    <div class="installcount">
+                    <!--<div class="installcount">
                         <div class="download-outline"></div>
                         <span>{{detail.install}}</span>
                     </div>
-                    <div class="divide"></div>
+                    <div class="divide"></div>-->
                     <div class="score">
                         <div class="rate">
                             <em v-for="i in 5" :key="i"></em>
@@ -200,8 +200,8 @@
                 word-break: break-all;
                 > div {
                     display: inline-block;
-                    height: 22px;
-                    line-height: 20px;
+                    height: 24px;
+                    line-height: 22px;
                     margin: 2px 4px 2px 0;
                     padding: 0 8px;
                     border: 1px solid #e8eaec;
@@ -365,7 +365,10 @@
             this.load();
         },
         methods: {
-            loadFinish() {
+            loadFinish(timeOut) {
+                if (typeof timeOut !== 'undefined') {
+                    clearInterval(timeOut);
+                }
                 if (this.loadIng === 'start') {
                     this.$refs.myLoading.addEventListener("transitionend", (e) => {
                         setTimeout(() => { this.loadIng = 'finish'; }, 100);
@@ -392,14 +395,14 @@
             },
 
             load() {
-                this.loadIng = 'start';
+                let timeOut = setTimeout(() => { this.loadIng = 'start' }, 1000);
                 //
                 axios.get('https://console.eeui.app/api/plugin/' + this.name + '?__Access-Control-Allow-Origin=1', {
                     params : {
                         detail: 1
                     }
                 }).then((response) => {
-                    this.loadFinish();
+                    this.loadFinish(timeOut);
                     if (response.status !== 200) {
                         return;
                     }

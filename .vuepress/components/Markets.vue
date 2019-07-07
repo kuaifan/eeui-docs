@@ -33,9 +33,9 @@
                             <div v-if="item.userid === 1" class="volcano">官方</div>
                             <div v-else class="purple">开发者</div>
                         </div>
-                        <div class="installcount">
+                        <!--<div class="installcount">
                             <div class="download-outline"></div><span>{{item.install}}</span>
-                        </div>
+                        </div>-->
                     </div>
                     <div class="desc"><span>{{item.desc}}</span></div>
                     <div class="low">
@@ -290,8 +290,7 @@
                     }
                 }
                 .installcount {
-                    /*display: flex;*/
-                    display: none;
+                    display: flex;
                     align-items: center;
                     .download-outline {
                         display: inline-block;
@@ -435,7 +434,7 @@
     }
 </style>
 <script>
-    import {pluginsTypes} from "./js/common";
+    import {each, pluginsTypes} from "./js/common";
     import axios from 'axios'
 
     export default {
@@ -459,11 +458,13 @@
             parent.style.setProperty('padding', '0', 'important');
             parent.nextElementSibling.style.setProperty('display', 'none', 'important');
             //
+            this.initTypeOrKey();
             this.load();
         },
         watch: {
             type(val) {
                 if (val) {
+                    window.location.replace("#" + (val === 'all' ? '' : val));
                     this.key = '';
                     this.nextPage = 1;
                     this.lists = [];
@@ -472,7 +473,10 @@
             }
         },
         methods: {
-            loadFinish() {
+            loadFinish(timeOut) {
+                if (typeof timeOut !== 'undefined') {
+                    clearInterval(timeOut);
+                }
                 if (this.loadIng === 'start') {
                     this.$refs.myLoading.addEventListener("transitionend", (e) => {
                         setTimeout(() => { this.loadIng = 'finish'; }, 100);
@@ -481,7 +485,28 @@
                     this.loadIng = 'end';
                 }
             },
+            initTypeOrKey() {
+                let hash = this.$route.hash + "";
+                if (hash.indexOf("#") === 0) {
+                    hash = hash.substr(1)
+                }
+                if (hash) {
+                    let isType = false;
+                    each(this.pluginsTypes, (index, item) => {
+                        if (hash === item.name) {
+                            this.key = '';
+                            this.type = hash;
+                            return isType = true;
+                        }
+                    });
+                    if (!isType) {
+                        this.key = decodeURIComponent(hash);
+                        this.type = '';
+                    }
+                }
+            },
             search() {
+                window.location.replace("#" + this.key);
                 this.type = '';
                 this.nextPage = 1;
                 this.lists = [];
@@ -489,7 +514,7 @@
             },
             load() {
                 this.loadError = '';
-                this.loadIng = 'start';
+                let timeOut = setTimeout(() => { this.loadIng = 'start' }, 1000);
                 //
                 axios.get('https://console.eeui.app/api/plugin?__Access-Control-Allow-Origin=1', {
                     params : {
@@ -501,7 +526,7 @@
                         pagesize: 30,
                     }
                 }).then((response) => {
-                    this.loadFinish();
+                    this.loadFinish(timeOut);
                     if (response.status !== 200) {
                         this.nextPage = 0;
                         this.loadError = "网络繁忙，请稍后再试......";
