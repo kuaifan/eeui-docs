@@ -10,6 +10,7 @@
 
 ```vue
 <tabbar-page 
+    ref="reflectName"
     :eeui="{ 
         tabName: 'name_3', 
         title:'圈子', 
@@ -38,6 +39,7 @@
 
 ```vue
 <tabbar-page 
+    ref="reflectName"
     :eeui="{ 
         tabName: 'name_3', 
         title:'圈子', 
@@ -49,11 +51,32 @@
 ```
 ## 事件回调 `callback`
 
-无
+```js
+
+/**
+ * 标签页下拉刷新事件
+ * 注：刷新处理完毕后请调用方法“refreshEnd()”标记刷新结束
+ * 返回参数：data = {tabName: 'tabName', title: 'title'}
+ */
+@refreshListener = function(data) { ... }
+
+```
 
 ## 调用方法 `methods`
 
-请参考父级组件 [tabbar](./tabbar.html#调用方法-methods)
+```js
+
+/**
+ * 设置下拉刷新状态
+ */
+this.$refs.reflectName.setRefresh();
+
+/**
+ * 标记下拉刷新结束
+ */
+this.$refs.reflectName.refreshEnd();
+
+```
 
 
 
