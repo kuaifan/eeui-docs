@@ -17,7 +17,7 @@
         "sass-loader": "^6.0.5",
         "stylus": "^0.54.5",
         "stylus-loader": "^3.0.1",
-        "vuepress": "^1.0.0-alpha.48",
+        "vuepress": "^1.0.2",
         "vuepress-plugin-container": "^2.0.1"
     }
 }

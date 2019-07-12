@@ -18,6 +18,7 @@ let sidebar = {
                 ['/guide/difference', '平台差异'],
                 ['/guide/variable', '环境变量'],
                 ['/guide/lifecycle', '生命周期'],
+                ['/guide/appboard', ['appboard', 20190713]],
                 ['/guide/icons', ['应用图标', 20190517]],
                 ['/guide/launch', ['启动图片', 20190517]],
                 ['/guide/setting', ['应用设置', 20190707]],
@@ -202,6 +203,10 @@ module.exports = {
             '/plugin/': sidebar.plugin(),
         },
         sidebarDepth: 1,
+
+        serviceWorker: {
+            updatePopup: true
+        }
     },
 
     head: [

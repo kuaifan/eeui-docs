@@ -15,5 +15,5 @@ eeui setting
 
 如图效果：
 
-<img style="border:18px solid #ddd;border-radius:15px;margin:10px auto 0;" src="./media/setting.png"/>
+<img style="border:8px solid #ddd;border-radius:15px;margin:10px auto 0;" src="./media/setting.png"/>
 

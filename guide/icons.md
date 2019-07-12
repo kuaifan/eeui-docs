@@ -4,7 +4,7 @@
 
 打开图标生成工具[https://console.eeui.app/#/tools/icons](https://console.eeui.app/#/tools/icons)上传并生成图片
 
-<img style="border:18px solid #ddd;border-radius:15px;margin:10px auto;" src="./media/icons.gif"/>
+<img style="border:8px solid #ddd;border-radius:15px;margin:10px auto;" src="./media/icons.gif"/>
 
 
 
@@ -12,7 +12,7 @@
 
 > iOS覆盖路径为：platforms/ios/eeuiApp/eeuiApp/Assets.xcassets/AppIcon.appiconset/
 
-<img style="border:18px solid #ddd;border-radius:15px;margin:10px auto;" src="./media/icons-ios.png"/>
+<img style="border:8px solid #ddd;border-radius:15px;margin:10px auto;" src="./media/icons-ios.png"/>
 
 
 
@@ -20,5 +20,5 @@
 
 > Android覆盖路径为：platforms/android/eeuiApp/app/src/main/res/mipmap-xxxx/
 
-<img style="border:18px solid #ddd;border-radius:15px;margin:10px auto;" src="./media/icons-android.png"/>
+<img style="border:8px solid #ddd;border-radius:15px;margin:10px auto;" src="./media/icons-android.png"/>
 

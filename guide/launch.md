@@ -10,7 +10,7 @@
 
 > iOS覆盖路径为：platforms/ios/eeuiApp/eeuiApp/Assets.xcassets/LaunchImage.launchimage/
 
-<img style="border:18px solid #ddd;border-radius:15px;margin:10px auto;" src="./media/launchimage-ios.png"/>
+<img style="border:8px solid #ddd;border-radius:15px;margin:10px auto;" src="./media/launchimage-ios.png"/>
 
 
 
@@ -18,5 +18,5 @@
 
 > Android覆盖路径为：platforms/android/eeuiApp/app/src/main/res/drawable-xxxx-xxxxx/
 
-<img style="border:18px solid #ddd;border-radius:15px;margin:10px auto;" src="./media/launchimage-android.png"/>
+<img style="border:8px solid #ddd;border-radius:15px;margin:10px auto;" src="./media/launchimage-android.png"/>
 
