@@ -1,6 +1,6 @@
 # &lt;navbar&gt;
 
-注：此组件与模块[navigationBar](../module/navigationBar.html)无关联。
+[[toc]]
 
 > 导航栏有4个主要部分：返回按钮、左侧、标题和右侧。每个部分可能包含任何内容，但建议按以下方式使用它们：
 
@@ -11,7 +11,7 @@
 
 ## 子组件
 
-仅支持子组件`<navbar-item>`详细请看 [这里](./navbar-item.html)
+仅支持子组件`<navbar-item>`详细请看 [这里](#navbar-item)
 
 ## 预览效果
 
@@ -162,4 +162,35 @@ this.$refs.reflectName.showBack();
 this.$refs.reflectName.hideBack();
 ```
 
+## navbar-item
 
+> 支持放置任何组件作为自己的子组件（除配置参数`type="back"`不支持以外）。
+
+### navbar-item 示例代码
+
+```vue
+<navbar-item type="title">
+    <text>标题</text>
+</navbar-item>
+```
+
+### navbar-item 配置参数
+
+>说明：子组件类型；数据格式：字符串。
+
+| 类型     | 描述                          | 默认值     |
+| ------ | -------------------------- | ------- |
+|`String`  | 所属类型 (`back`/`left`/`title`/`right`)           | -       |
+
+注意：`type='back'`类型不支持子组件
+> 例如：
+
+```vue
+<navbar-item type="title">
+    .....
+</navbar-item>
+```
+
+```vue
+<navbar-item type="back"></navbar-item>
+```

@@ -1,11 +1,14 @@
 # &lt;scroll-view&gt;
 
+[[toc]]
+
 > `<scroll-view>` 是一个列表容器。（android端使用recyler具有回收和复用的能力，可以大幅优化内存占用和渲染性能）
 
 ## 子组件
 
-支持包括 `<div>` 在内的任何组件作为自己的子组件。因此，在写一个组件时，推荐外层使用 `<div>` 作为根容器。
-**注意：android 4.x.x 嵌套层级最多支持5层**
+* 支持包括 `<div>` 在内的任何组件作为自己的子组件。因此，在写一个组件时，推荐外层使用 `<div>` 作为根容器。
+
+* `<scroll-header>`：当 [&lt;scroll-header&gt;](#scroll-header) 到达屏幕顶部时，吸附在屏幕顶部。
 
 ## 预览效果
 
@@ -237,4 +240,73 @@ this.$refs.reflectName.scrollToPosition(99);
 this.$refs.reflectName.smoothScrollToPosition(99);
 ```
 
+## scroll-header
 
+> 当 `<scroll-header>` 到达屏幕顶部时，吸附在屏幕顶部。
+
+### scroll-header 示例代码
+
+```vue
+<template>
+    <div class="app">
+
+        <scroll-view>
+            <div class="item">
+                <text style="font-size:24px">占位1</text>
+            </div>
+            <scroll-header class="layer">
+                <text style="font-size:24px">浮动层1</text>
+            </scroll-header>
+            <div class="item">
+                <text style="font-size:24px">占位2</text>
+            </div>
+            <scroll-header class="layer">
+                <text style="font-size:24px">浮动层2</text>
+            </scroll-header>
+            <div class="item">
+                <text style="font-size:24px">占位3</text>
+            </div>
+            <div class="item">
+                <text style="font-size:24px">占位4</text>
+            </div>
+            <div class="item">
+                <text style="font-size:24px">占位5</text>
+            </div>
+        </scroll-view>
+
+    </div>
+</template>
+<style scoped>
+    .app {
+        width: 750px;
+        flex: 1
+    }
+    .item {
+        width: 750px;
+        height: 500px;
+        background-color: #29B5FF;
+        justify-content: center;
+        align-items: center;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        border-bottom-color: #cccccc;
+    }
+    .layer {
+        width: 750px;
+        height: 90px;
+        background-color: #E78948;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+```
+
+### scroll-header 回调事件
+
+```js
+/**
+ * 状态变更
+ * 返回参数：data = {status: 'static|float'}
+ */
+@stateChanged = function(data) { ... }
+```

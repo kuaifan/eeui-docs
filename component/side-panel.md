@@ -1,10 +1,12 @@
 # &lt;side-panel&gt;
 
+[[toc]]
+
 > `<side-panel>` 是一个抽屉侧边栏。
 
 ## 子组件
 
-支持任何组件作为自己的子组件，其中仅有`<side-panel-menu>`组件作为侧边菜单详细请看 [这里](./side-panel-menu.html)，其他组件均为正文内容。
+支持任何组件作为自己的子组件，其中仅有`<side-panel-menu>`组件作为侧边菜单详细请看 [这里](#side-panel-menu)，其他组件均为正文内容。
 
 ## 预览效果
 
@@ -227,4 +229,30 @@ this.$refs.reflectName.setMenuScrollbar(true);
 this.$refs.reflectName.setMenuBackgroundColor('#0000ff');
 ```
 
+## side-panel-menu
 
+> 支持放置任何内容作为侧边菜单。
+
+### side-panel-menu 示例代码
+
+```vue
+<side-panel-menu class="panel_menu" name="菜单1">
+    <text>菜单①</text>
+</side-panel-menu>
+```
+
+### side-panel-menu 配置参数
+
+>说明：子组件类型；数据格式：字符串。
+
+| 属性名           | 类型     | 描述                          | 默认值     |
+| ------------- | ------ | -------------------------- | ------- |
+| name |`String`  | 菜单名称（用于父组件点击返回的标识）           | -       |
+
+> 例如：
+
+```vue
+<side-panel-menu name="menu_1">
+    .....
+</side-panel-menu>
+```

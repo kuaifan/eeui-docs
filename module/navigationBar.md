@@ -1,7 +1,5 @@
 # 导航标题栏
 
-注：此模块与组件[navbar](../component/navbar.html)无关联。
-
 > 需要加载的模块
 
 ```js

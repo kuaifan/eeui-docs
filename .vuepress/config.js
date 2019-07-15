@@ -55,14 +55,14 @@ let sidebar = {
                 ['/component/icon', ['<icon>', '字体图标']],
                 ['/component/marquee', ['<marquee>', '跑马文字']],
                 ['/component/navbar', ['<navbar>', '导航栏']],
-                ['/component/navbar-item', ['<navbar-item>', '导航栏项']],
+                /*['/component/navbar-item', ['<navbar-item>', '导航栏项']],*/
                 ['/component/ripple', ['<ripple>', '涟漪效果']],
                 ['/component/scroll-text', ['<scroll-text>', '滚动文字']],
                 ['/component/scroll-view', ['<scroll-view>', '列表容器']],
                 ['/component/side-panel', ['<side-panel>', '侧边栏容器']],
-                ['/component/side-panel-menu', ['<side-panel-menu>', '侧边栏菜单']],
-                ['/component/tabbar', ['<tabbar>', '导航页面']],
-                ['/component/tabbar-page', ['<tabbar-page>', '导航子页面']],
+                /*['/component/side-panel-menu', ['<side-panel-menu>', '侧边栏菜单']],*/
+                ['/component/tabbar', ['<tabbar>', '选项卡页面']],
+                /*['/component/tabbar-page', ['<tabbar-page>', '导航子页面']],*/
                 ['/component/web-view', ['<web-view>', '浏览器组件']],
             ]
         }, {

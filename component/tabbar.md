@@ -1,5 +1,7 @@
 # &lt;tabbar&gt;
 
+[[toc]]
+
 > `<tabbar>`为页面滑动切换组件（别名：标签页）
 
  * 常用于`tab`切换页面。
@@ -9,7 +11,7 @@
 
 ## 子组件
 
-仅支持`<tabbar-page>`组件作为标签页内容，详细请看 [这里](./tabbar-page.html)。
+仅支持`<tabbar-page>`组件作为标签页内容，详细请看 [这里](#tabbar-page)。
 
 ## 预览效果
 
@@ -426,4 +428,78 @@ this.$refs.reflectName.setTabIconHeight(50);
 this.$refs.reflectName.setTabPageAnimated(false);
 ```
 
+## tabbar-page
 
+> 支持放置任何内容作为标签页内容。
+
+### tabbar-page 示例代码
+
+```vue
+<tabbar-page 
+    ref="reflectName"
+    :eeui="{ 
+        tabName: 'name_3', 
+        title:'圈子', 
+        message:99, 
+        selectedIcon:'md-aperture' 
+    }">
+    <div>
+        <text>支持任何子组件</text>
+    </div>
+</tabbar-page>
+```
+
+### tabbar-page 配置参数
+>说明：ui自定义；数据格式：对象数据。
+
+| 属性名           | 类型     | 描述                          | 默认值     |
+| ------------- | ------ | -------------------------- | ------- |
+| tabName |`String`  | tab页签名称         | -       |
+| title |`String`  | tab名称         | New Page       |
+| unSelectedIcon |`String`  | tab未选图标         | home       |
+| selectedIcon |`String`  | tab已选图标         | home       |
+| message |`Number`  | tab未读信息数         | 0       |
+| dot |`Boolean`  | 是否显示tab未读红点         | false       |
+
+> 例如：
+
+```vue
+<tabbar-page 
+    ref="reflectName"
+    :eeui="{ 
+        tabName: 'name_3', 
+        title:'圈子', 
+        message:99, 
+        selectedIcon:'md-aperture' 
+    }">
+    .....
+</tabbar-page>
+```
+### tabbar-page 事件回调
+
+```js
+
+/**
+ * 标签页下拉刷新事件
+ * 注：刷新处理完毕后请调用方法“refreshEnd()”标记刷新结束
+ * 返回参数：data = {tabName: 'tabName', title: 'title'}
+ */
+@refreshListener = function(data) { ... }
+
+```
+
+### tabbar-page 调用方法
+
+```js
+
+/**
+ * 设置下拉刷新状态
+ */
+this.$refs.reflectName.setRefresh();
+
+/**
+ * 标记下拉刷新结束
+ */
+this.$refs.reflectName.refreshEnd();
+
+```
