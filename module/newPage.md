@@ -530,7 +530,7 @@ eeui.openWeb('https://eeui.app');
 
 ## eeui.goDesktop
 
-* 返回手机桌面
+* 返回手机桌面<Android/>
 
 ```js
 /**
