@@ -10,8 +10,7 @@
         mounted() {
             let hash = this.$route.hash;
             if (this.leftExists(hash, "#/markets/")) {
-                this.storage("markets", "to:" + hash.substring(10));
-                this.$router.push("markets")
+                this.$router.push("markets/detail.html#" + hash.substring(10))
             }
         },
         methods: {

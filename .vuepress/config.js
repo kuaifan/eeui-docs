@@ -55,14 +55,11 @@ let sidebar = {
                 ['/component/icon', ['<icon>', '字体图标']],
                 ['/component/marquee', ['<marquee>', '跑马文字']],
                 ['/component/navbar', ['<navbar>', '导航栏']],
-                /*['/component/navbar-item', ['<navbar-item>', '导航栏项']],*/
                 ['/component/ripple', ['<ripple>', '涟漪效果']],
                 ['/component/scroll-text', ['<scroll-text>', '滚动文字']],
                 ['/component/scroll-view', ['<scroll-view>', '列表容器']],
                 ['/component/side-panel', ['<side-panel>', '侧边栏容器']],
-                /*['/component/side-panel-menu', ['<side-panel-menu>', '侧边栏菜单']],*/
                 ['/component/tabbar', ['<tabbar>', '选项卡页面']],
-                /*['/component/tabbar-page', ['<tabbar-page>', '导航子页面']],*/
                 ['/component/web-view', ['<web-view>', '浏览器组件']],
             ]
         }, {
@@ -135,20 +132,7 @@ let sidebar = {
         }]
     },
     plugin() {
-        return [/*{
-            title: '插件化',
-            collapsable: false,
-            children: [
-                ['/plugin/citypicker', '城市选择'],
-                ['/plugin/picture', '图片选择'],
-                ['/plugin/screenshots', '组件截图'],
-                ['/plugin/rongim', '融云模块'],
-                ['/plugin/umeng', '友盟模块'],
-                ['/plugin/pay', '支付模块'],
-                ['/plugin/websocket', 'websocket'],
-                ['/plugin/audio', '音频播放'],
-            ]
-        }, */{
+        return [{
             title: '开发插件',
             collapsable: false,
             children: [

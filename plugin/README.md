@@ -1,1 +1,1 @@
-<script> module.exports = { created(){ this.$router.push('citypicker') } } </script>
+<script> module.exports = { created(){ this.$router.push('dev/create.html') } } </script>
