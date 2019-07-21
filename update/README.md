@@ -9,7 +9,7 @@
 
 #### 1、登录注册
 
-点击链接进入 [eeui.app管理中心](https://console.eeui.app/#/manage/) 即可一键注册登录。
+点击链接进入 [EEUI.APP控制台](https://console.eeui.app/#/manage/) 即可一键注册登录。
 
 #### 2、添加应用
 
