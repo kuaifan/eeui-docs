@@ -100,9 +100,9 @@ eeui.adDialog("http://..../xxx.png", function(res) {
 - `eeui`：综合模块，如：[eeui.adDialog](../module/adDialog.html)
 - `navigator`：[路由模块](../module/navigator.html)
 - `navigationBar`：[导航标题栏模块](../navigationBar.html)
-- `citypicker`：[城市选择器](../plugin/citypicker.html)
-- `picture`：[图片选择模块](../plugin/picture.html)
-- `pay`：[支付模块](../plugin/pay.html)
+- `citypicker`：[城市选择器](../markets/detail.html#citypicker)
+- `picture`：[图片选择模块](../markets/detail.html#picture)
+- `pay`：[支付模块](../markets/detail.html#pay)
 - `webview`：[浏览器调用方法](../component/web-view.html#浏览器调用方法)
 
 #### JS调用原生API示例

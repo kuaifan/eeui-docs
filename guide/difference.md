@@ -53,7 +53,7 @@ eeui 中并未提供浏览器中的 `window` 和 `screen` 对象，不支持使�
 在 eeui 中能够调用移动设备原生 API，使用方法是通过注册、调用模块来实现。详见：
 
 + [《模块》栏目](../module/adDialog.html)
-+ [《插件》栏目](../plugin/citypicker.html)
++ [《插件》栏目](../markets/detail.html#citypicker)
 
 为了保持框架的通用性，eeui 内置的原生模块有限，不过 eeui 提供了横向扩展的能力，可以扩展原生模块，具体的扩展方法请参考[《开发插件》](../plugin/dev/create.html)。
 
