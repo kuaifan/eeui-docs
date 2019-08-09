@@ -6,11 +6,11 @@
            @focus.stop="focused = true">
         <ul v-if="search !== '' && filterLists.length > 0" :class="['custom-search-result', focused ? 'custom-search-show': '']" :style="{maxHeight: maxHeight + 'px'}">
             <li v-for="(item, index) in filterLists" :key="index" v-if="index < 30">
-                <div class="custom-search-title" @click.stop="go(item.url, item.hash)" v-html="searchAccent(item.title, search)"></div>
+                <div class="custom-search-title" @click.stop="go(item.url, item.hash, item.plugin === 1)" v-html="searchAccent(item.title, search)"></div>
                 <ul class="custom-search-lists">
                     <li v-for="link in item.filterData">
-                        <div class="custom-search-subtitle" @click.stop="go(link.url, link.hash)" v-html="searchAccent(link.title, search)"></div>
-                        <div class="custom-search-content" @click.stop="go(link.url, link.hash)" v-html="searchAccent(link.content, search)"></div>
+                        <div class="custom-search-subtitle" @click.stop="go(link.url, link.hash, item.plugin === 1)" v-html="searchAccent(link.title, search)"></div>
+                        <div class="custom-search-content" @click.stop="go(link.url, link.hash, item.plugin === 1)" v-html="searchAccent(link.content, search)"></div>
                     </li>
                 </ul>
             </li>
@@ -95,11 +95,18 @@
                 });
             },
 
-            go(url, hash) {
+            go(url, hash, isPlugin) {
                 if (!url) {
                     return;
                 }
                 this.focused = false;
+                if (isPlugin === true) {
+                    if (hash) {
+                        url+= "#" + hash;
+                    }
+                    this.$router.push(url);
+                    return;
+                }
                 this.$router.push(url);
                 if (hash) {
                     let interNum = 0;

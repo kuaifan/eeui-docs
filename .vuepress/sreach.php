@@ -48,6 +48,13 @@ foreach ($lists AS $item) {
         }
     }
 }
+$console = file_get_contents('https://console.eeui.app/api/plugins/lists/createdocjson');
+$console = json_decode($console);
+if (is_array($console) && count($console) > 0) {
+    foreach ($console AS $item) {
+        $data[] = $item;
+    }
+}
 file_put_contents($path . "/../theme/components/sreach.json", json_encode($data, JSON_UNESCAPED_UNICODE));
 echo "Success \n";
 

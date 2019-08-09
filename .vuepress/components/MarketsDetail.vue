@@ -347,11 +347,16 @@
             },
 
             getName() {
-                let hash = this.$route.hash + "";
-                if (hash.indexOf("#") === 0) {
-                    hash = hash.substr(1)
+                let name = $.trim(this.$route.query.name);
+                return count(name) > 0 ? name : this.getHash();
+            },
+
+            getHash() {
+                let temp = this.$route.hash + "";
+                if (temp.indexOf("#") === 0) {
+                    temp = temp.substr(1)
                 }
-                return hash || this.$route.query.name;
+                return temp;
             },
 
             load() {
@@ -410,17 +415,25 @@
                             let title = $(item).text();
                             if (leftExists(title, "#")) title = title.substring(1);
                             if (count($.trim(title)) > 0) {
-                                html+= '<div class="menu-' + (size - min) + '" data-id="' + id + '">' + title + '</div>';
+                                html+= '<div class="menu-' + (size - min) + '" data-id="' + id + '" data-title="' + title + '">' + title + '</div>';
                                 $(item).attr("id", id);
                             }
                         }
                     });
                     this.marketMenu = html;
+                    this.$nextTick(() => {
+                        if (this.getHash() !== this.getName()) {
+                            let m = $(this.$refs.marketmenu).find("div[data-title='" + decodeURIComponent(this.getHash()) + "']");
+                            if (count(m) > 0) {
+                                this.clickMenu(m.attr("data-id"));
+                            }
+                        }
+                    });
                 });
             },
 
             clickMenu(e) {
-                let m = $(this.$refs.marketdoc).find("#" + $(e.target).attr("data-id"));
+                let m = $(this.$refs.marketdoc).find("#" + (typeof e === 'string' ? e : $(e.target).attr("data-id")));
                 if (count(m) > 0) {
                     $('html, body').scrollTop(m.offset().top - $("header").outerHeight());
                 }
