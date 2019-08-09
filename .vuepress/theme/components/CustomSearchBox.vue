@@ -52,7 +52,20 @@
                     ]).then(([data]) => {
                         this.loading = 2;
                         this.sreachData = data.default;
-                    })
+                        $.ajax({
+                            url: "https://console.eeui.app/api/plugins/lists/createdocjson",
+                            data: {
+                                '__Access-Control-Allow-Origin': 1,
+                            },
+                            success: (result) => {
+                                if (result.ret === 1) {
+                                    $.each(result.data.lists, (index, item) => {
+                                        this.sreachData.push(item);
+                                    });
+                                }
+                            }
+                        });
+                    });
                 }
             }
         },
