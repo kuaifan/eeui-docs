@@ -21,7 +21,7 @@ eeui默认采用的分包模式，即一个页面一个vue，这样做的缺点�
 建议在`appboard`中使用`混合（Minins）`方式使用对象函数，例如`src/appboard/common.js`中代码如下：
 
 ```js
-const eeui = app.requireModule('eeui');
+var eeui = app.requireModule('eeui');
 
 Vue.mixin({
     methods: {
