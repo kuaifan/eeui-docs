@@ -183,6 +183,7 @@
 | tabBackgroundColor |`String`  |   设置tab的背景颜色         |  #3EB4FF，底部位置：#ffffff     |
 | tabWidth |`Number`  |   设置tab固定大小         |  -     |
 | tabPageAnimated |`Boolean`  |   开关页面切换动画         |  true     |
+| tabSlideSwitch <New date="20190811"/> |`Boolean`  |   手势滑动切换页面         |  true     |
 | indicatorColor |`String`  |   设置tab显示器颜色         |  #ffffff    |
 | indicatorHeight |`Number`  |  设置tab显示器高度          |  4     |
 | indicatorWidth |`Number`  |   设置tab显示器固定宽度         |  20     |
@@ -426,6 +427,12 @@ this.$refs.reflectName.setTabIconHeight(50);
  * 参数一：true|false
  */
 this.$refs.reflectName.setTabPageAnimated(false);
+
+/**
+ * 手势滑动切换页面
+ * 参数一：true|false
+ */
+this.$refs.reflectName.setTabSlideSwitch(false);
 ```
 
 ## tabbar-page
