@@ -4,7 +4,7 @@
 
 打开启动图生成工具[https://console.eeui.app/#/tools/launchimage](https://console.eeui.app/#/tools/launchimage)上传并生成启动图
 
-<a href="https://console.eeui.app/statics/video/demo.mp4" target="target">查看制作视频教程▶️</a>
+<a href="https://console.eeui.app/video/demo.mp4" target="target">查看制作视频教程▶️</a>
 
 ## 修改iOS启动图
 
