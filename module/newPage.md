@@ -24,16 +24,18 @@ eeui.openPage({params}, callback(result))
 | --- | --- | :-: | --- | --- |
 | url | `String` | √ | `App Js`或`Web Url`地址<br/>①支持本地地址，如：`xxx.js`<br/>②支持远程地址，如：`http://abc.com/xxx.js` | - |
 | pageName | `String` | - | 页面名称 | - |
-| pageTitle <New date="20190318"/> | `String` | - | 页面标题，设置显示标题栏 | - |
-| pageType | `String` | - | 页面类型：`app`、`web`<br/>_可填写 auto 系统自动识别 (不建议)_ | app |
+| pageTitle <New date="20190318"/> | `String` | - | 页面标题，设置显示标题栏<br/><Stis>statusBarType 为 normal 时有效</Stis> | - |
+| pageType | `String` | - | 页面类型：`app`、`web`<br/><Stis>可填写 auto 系统自动识别 (不建议)</Stis> | app |
 | params |`Object`  | - | 页面传递参数，通过`app.config.params`获取         | -       |
 | cache | `Number` | - | 页面缓存时间，仅`app`类型且`非本地页面`有效，<br/>设置`0`不缓存（单位：毫秒） | 0 |
 | loading | `Boolean` | - | 是否显示等待效果：`true`、`false` | true |
 | animated <New date="20190318"/> | `Boolean` | - | 是否进入页面需要动画效果：`true`、`false` | true |
+| animatedType <New date="20190820"/> | `String` | - | 页面动画效果类型：<br/>`push` 右侧打开<br/>`present` 底部弹出<br/><Stis>animated 为 true 时有效</Stis> | iOS:push<br/>Android:跟随系统 |
 | swipeBack | `Boolean` | - | 是否支持滑动返回：`true`、`false` | true |
-| statusBarType | `String` | - | 状态栏样式：<br/>`normal` 正常<br/>`fullscreen` 全屏<br/>`immersion` 沉浸式<br/>_非默认下 pageTitle、statusBarType、statusBarAlpha 无效_ | normal |
+| swipeFullBack <New date="20190820"/> | `Boolean` | - | 是否支持全屏滑动返回：`true`、`false`<br/><Stis>swipeBack 为 true 时有效</Stis> | false |
+| statusBarType | `String` | - | 状态栏样式：<br/>`normal` 正常<br/>`fullscreen` 全屏<br/>`immersion` 沉浸式 | normal |
 | statusBarColor | `String` | - | 状态栏颜色值 | 继承 &gt; #3EB4FF |
-| statusBarAlpha | `Number` | - | 状态栏透明度， 0-255 | 0 |
+| statusBarAlpha | `Number` | - | 状态栏透明度， 0-255<br/><Stis>statusBarType 为 normal 时有效</Stis> | 0 |
 | statusBarStyle <New date="20190318"/> | `Boolean` | - | 状态栏字体颜色：<br/>`true` 状态栏的字体为白色<br/>`false` 状态栏的字体为黑色 | iOS:黑<br/>Android:白 |
 | softInputMode | `String` | - | 键盘弹出方式：<br/>`auto` 默认值，由系统决定如何处理<br/>`pan` 若键盘盖住输入框，页面不会自动上移<br/>`resize` 若键盘盖住输入框，页面会自动上移 | auto |
 | backgroundColor | `String` | - | 页面背景颜色 | 继承 &gt; #ffffff |
@@ -142,6 +144,7 @@ let variable = eeui.getPageInfo('pageName_1');
 　　"cache": 0,
 　　"loading": true,
 　　"swipeBack": true,
+　　"swipeFullBack": false,
 　　"statusBarType": "default",
 　　"statusBarColor": "#3EB4FF",
 　　"statusBarAlpha": 0,

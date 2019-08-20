@@ -227,7 +227,7 @@
 | cache | `Number` | tab页面缓存时间，设置`0`不缓存（单位：毫秒） | 0 |
 | message |`Number`  | tab未读信息数         | 0       |
 | dot |`Boolean`  | 是否显示tab未读红点         | false       |
-| statusBarColor | `String` | 状态栏颜色值，默认：隐藏<br/>_主要用于主页面沉浸式时设置每个页面不同的状态栏效果_ | - |
+| statusBarColor | `String` | 状态栏颜色值，默认：隐藏<br/><Stis>主要用于主页面沉浸式时设置每个页面不同的状态栏效果</Stis> | - |
 
 > 例如：
 
