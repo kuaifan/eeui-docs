@@ -86,14 +86,13 @@ pod install
 
 直接新建一个vue文件，如图所示:
 
- ![image](https://user-images.githubusercontent.com/22288837/56586354-281dd900-6612-11e9-8867-e5ea79893714.png)
+![](./media/newpage.png)
 
 不需要配置任何路由，路由自动生成的，你只需要再次 npm run dev 或者 npm run build
 
 #### 跳转页面
 
 ```js
-
 //示例①
 const eeui = app.requireModule('eeui');
 eeui.openPage({
@@ -119,7 +118,6 @@ navigator.push({
 }, function(result) {
     //......
 });
-
 ```
 
 详情可查看 [怎么创建一个页面并做跳转](https://github.com/kuaifan/eeui/issues/13)
