@@ -80,3 +80,43 @@ pod install
 
 首次打开我们已经为您内置了由一些 `demo`，您可以看到相关的页面，下面在开发之前还需要进行一些相关的配置和调试的学习。
 
+
+## 新建一个简单页面并跳转 
+
+#### 新建页面
+
+直接新建一个vue文件，如图所示:
+
+ ![image](https://user-images.githubusercontent.com/22288837/56586354-281dd900-6612-11e9-8867-e5ea79893714.png)
+
+不需要配置任何路由，路由自动生成的，你只需要再次 npm run dev 或者 npm run build
+#### 跳转页面
+
+```
+//示例①
+const eeui = app.requireModule('eeui');
+eeui.openPage({
+    url: 'mine.js',
+}, function(result) {
+    //......
+});
+
+//示例②
+const eeui = app.requireModule('eeui');
+eeui.openPage({
+    pageName: 'pageName_1',
+    pageType: 'app',
+    url: 'mine.js'
+}, function(result) {
+    //......
+});
+
+//示例③
+const navigator = app.requireModule('navigator');
+navigator.push({
+    url: 'mine.js'
+}, function(result) {
+    //......
+});
+```
+详情可查看 [怎么创建一个页面并做跳转](https://github.com/kuaifan/eeui/issues/13)
