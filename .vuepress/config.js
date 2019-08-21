@@ -164,7 +164,7 @@ module.exports = {
             {text: '模块', link: '/module/adDialog.html', actives: ['/module/', '/weex/modules/']},
             {text: '热更新', link: '/update/'},
             {text: '控制台', link: 'https://console.eeui.app/'},
-            {text: '社区', link: 'https://bbs.eeui.app/'},
+            {text: '社区', link: 'https://bbs.eeui.app/', isUnreadNotificationCount: true},
             {
                 text: '插件市场',
                 items: [

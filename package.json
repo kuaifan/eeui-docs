@@ -8,6 +8,7 @@
         "dev": "vuepress dev",
         "build": "vuepress build",
         "indexes": "php ./.vuepress/sreach.php",
+        "build+git-push": "vuepress build && npm run git-push",
         "indexes+build+git-push": "vuepress build && npm run indexes && vuepress build && npm run git-push"
     },
     "devDependencies": {
