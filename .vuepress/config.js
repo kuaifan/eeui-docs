@@ -147,7 +147,7 @@ let sidebar = {
 
 module.exports = {
     title: 'EEUI.APP',
-    description: '一个基于 Vue.js 的高质量跨平台APP开发框架。',
+    description: '一个基于 Vue.js 的高质量跨平台开发（Android/iOS应用）框架。',
 
     themeConfig: {
         editLinks: true,
