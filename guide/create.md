@@ -80,7 +80,6 @@ pod install
 
 首次打开我们已经为您内置了由一些 `demo`，您可以看到相关的页面，下面在开发之前还需要进行一些相关的配置和调试的学习。
 
-
 ## 新建一个简单页面并跳转 
 
 #### 新建页面
@@ -93,7 +92,8 @@ pod install
 
 #### 跳转页面
 
-```
+```js
+
 //示例①
 const eeui = app.requireModule('eeui');
 eeui.openPage({
@@ -119,6 +119,7 @@ navigator.push({
 }, function(result) {
     //......
 });
+
 ```
 
 详情可查看 [怎么创建一个页面并做跳转](https://github.com/kuaifan/eeui/issues/13)
