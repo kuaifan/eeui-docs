@@ -50,8 +50,16 @@
 ## 配置说明
 
 ###### **`homePage`**: 主页的JS地址
-- 一般情况下留空。
-- 只有当项目把JS资源放到服务器上时需要把JS路径填写此项目。
+- 一般情况下留空，默认为：index.js（可自定义，比如填写：login.js时默认首页将是login.js）。
+- 也可以把JS资源放到服务器上然后把JS地址填写到这里。
+- 还可以通过 [eeui.setCustomConfig](http://localhost:8080/module/newPage.html#eeui-setcustomconfig) 动态设置主页。
+
+```js
+// 示例:
+eeui.setCustomConfig('homePage', 'login.js');  
+// 执行后下次启动App默认首页将是login.js；
+// 注意：有新的热更新或通过系统级清理app缓存后将失效。
+```
 
 ###### **` homePageParams`**: 主页的其他参数
 - 比如导航栏颜色等。

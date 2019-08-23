@@ -563,6 +563,38 @@ eeui.goDesktop()
 let appKey = eeui.getConfigString("appKey");
 ```
 
+## eeui.setCustomConfig
+
+* 自定义eeui.config.js配置参数（比如：用于动态设置homePage主页的JS地址）
+* **注意：有新的热更新或通过系统级清理app缓存后`eeui.setCustomConfig`设置的内容将失效**。
+
+```js
+/**
+ * @param key 参数名称（类型：字符串）
+ * @param value 参数值（类型：Object）
+ */
+eeui.setCustomConfig("homePage", "index.js");
+```
+
+## eeui.getCustomConfig
+
+* 获取eeui.config.js所有自定义的配置参数（仅返回自定义的配置参数）
+
+```js
+/**
+ * @return Object
+ */
+let config = eeui.getCustomConfig();
+```
+
+## eeui.clearCustomConfig
+
+* 清除eeui.config.js自定义的配置参数（仅清除自定义的配置参数）
+
+```js
+eeui.clearCustomConfig();
+```
+
 ## eeui.realUrl
 
 * 规范化url，删除多余的符号连接（比如'/./', '/../' 以及多余的'/'）
