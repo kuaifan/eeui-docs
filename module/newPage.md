@@ -37,10 +37,19 @@ eeui.openPage({params}, callback(result))
 | statusBarColor | `String` | - | 状态栏颜色值 | 继承 &gt; #3EB4FF |
 | statusBarAlpha | `Number` | - | 状态栏透明度， 0-255<br/><Stis>statusBarType 为 normal 时有效</Stis> | 0 |
 | statusBarStyle <New date="20190318"/> | `Boolean` | - | 状态栏字体颜色：<br/>`true` 状态栏的字体为白色<br/>`false` 状态栏的字体为黑色 | iOS:黑<br/>Android:白 |
-| softInputMode | `String` | - | 键盘弹出方式：<br/>`auto` 默认值，由系统决定如何处理<br/>`pan` 若键盘盖住输入框，页面不会自动上移<br/>`resize` 若键盘盖住输入框，页面会自动上移 | auto |
+| softInputMode | `String` | - | 键盘弹出方式：<br/>详见下文 `params.softInputMode 参数说明` | auto |
 | backgroundColor | `String` | - | 页面背景颜色 | 继承 &gt; #ffffff |
 | backPressedClose | `Boolean` | - | 允许按返回键关闭页面 <Android/> | true |
 | safeAreaBottom <New date="20190318"/> | `Number` | - | iPhone X+底部安全距离 <iOS/> | - |
+
+> params.softInputMode 参数说明
+
+| 值 | 说明 |
+| --- | --- |
+| auto | iOS：当显示软键盘时，自动调整window的布局；<br/>Android：系统去判断内容区域可滚动为pan,不可滚动为resize。|
+| pan | iOS：当显示软键盘时，自动调整window的布局；<br/>Android：当显示软键盘时，调整window的空白区域来显示软键盘。|
+| resize | 当显示软键盘时，自动调整window的布局。 |
+| nothing | 当显示软键盘时，不调整window的布局。 |
 
 > callback 回调`result`说明
 
