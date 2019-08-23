@@ -50,9 +50,9 @@
 ## 配置说明
 
 ###### **`homePage`**: 主页的JS地址
-- 一般情况下留空，默认为：index.js（可自定义，比如填写：login.js时默认首页将是login.js）。
+- 一般情况下留空，默认为：index.js（<New date="20190823"/> 可自定义，比如填写：login.js时默认首页将是login.js）。
 - 也可以把JS资源放到服务器上然后把JS地址填写到这里。
-- 还可以通过 [eeui.setCustomConfig](http://localhost:8080/module/newPage.html#eeui-setcustomconfig) 动态设置主页。
+- <New date="20190823"/> 还可以通过 <a href="http://localhost:8080/module/newPage.html#eeui-setcustomconfig">eeui.setCustomConfig</a> 动态设置主页。
 
 ```js
 // 示例:
