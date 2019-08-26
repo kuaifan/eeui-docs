@@ -52,7 +52,7 @@
 ###### **`homePage`**: 主页的JS地址
 - 一般情况下留空，默认为：index.js（<New date="20190823"/> 可自定义，比如填写：login.js时默认首页将是login.js）。
 - 也可以把JS资源放到服务器上然后把JS地址填写到这里。
-- <New date="20190823"/> 还可以通过 <a href="http://localhost:8080/module/newPage.html#eeui-setcustomconfig">eeui.setCustomConfig</a> 动态设置主页。
+- <New date="20190823"/> 还可以通过 <a href="../module/newPage.html#eeui-setcustomconfig">eeui.setCustomConfig</a> 动态设置主页。
 
 ```js
 // 示例:
@@ -64,7 +64,7 @@ eeui.setCustomConfig('homePage', 'login.js');
 
 ###### **` homePageParams`**: 主页的其他参数
 - 比如导航栏颜色等。
-- 详细设置请查阅 [eeui.openPage](https://eeui.app/module/newPage.html#eeui-openpage) params参数说明。
+- 详细设置请查阅 [eeui.openPage](../module/newPage.html#eeui-openpage) params参数说明。
 
 ###### **`appKey`**: 用于云平台管理
 - 建议填写16-32位随机字符串。
