@@ -24,7 +24,7 @@ eeui.openPage({params}, callback(result))
 | --- | --- | :-: | --- | --- |
 | url | `String` | √ | `App Js`或`Web Url`地址<br/>①支持本地地址，如：`xxx.js`<br/>②支持远程地址，如：`http://abc.com/xxx.js` | - |
 | pageName | `String` | - | 页面名称 | - |
-| pageTitle <New date="20190318"/> | `String` | - | 页面标题，设置显示标题栏<br/><Stis>statusBarType 为 normal 时有效</Stis> | - |
+| pageTitle <New date="20190318"/> | `String` | - | 页面标题，设置显示标题栏<br/><Stis>statusBarType 为 normal 时有效。[(标题栏更多设置)](./navigationBar.html)</Stis> | - |
 | pageType | `String` | - | 页面类型：`app`、`web`<br/><Stis>可填写 auto 系统自动识别 (不建议)</Stis> | app |
 | params |`Object`  | - | 页面传递参数，通过`app.config.params`获取         | -       |
 | cache | `Number` | - | 页面缓存时间，仅`app`类型且`非本地页面`有效，<br/>设置`0`不缓存（单位：毫秒） | 0 |

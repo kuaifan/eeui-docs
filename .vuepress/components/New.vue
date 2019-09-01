@@ -1,5 +1,5 @@
 <template>
-    <div :class="['md-badge-new', show ? 'md-badge-show' : '']">新</div>
+    <div :class="['md-badge-new', show ? 'md-badge-show' : '']" :title="title">新</div>
 </template>
 
 <style lang="stylus" scoped>
@@ -27,6 +27,7 @@
         data() {
             return {
                 show: false,
+                title: '',
             }
         },
         mounted() {
@@ -34,6 +35,7 @@
             let exc = reg.exec(this.date);
             if (new Date(exc[1] + "/" + exc[2] + "/" + exc[3]).getTime() > new Date().getTime() - 86400000 * 30) {
                 this.show = true;
+                this.title = "更新日期: " + this.date;
             }
         }
     }
