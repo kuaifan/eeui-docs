@@ -80,7 +80,7 @@
             activePath(path) {
                 if (typeof this.item.actives === "object" && typeof this.item.actives !== "undefined") {
                     let active = false;
-                    this.item.actives.forEach((item) => {
+                    this.item.actives.some((item) => {
                         if ((path).indexOf(item) === 0) {
                             active = true;
                             return true;

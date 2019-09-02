@@ -7,9 +7,12 @@
 
             <div class="title">EEUI.APP 插件市场</div>
 
-            <div class="search">
-                <input type="text" v-model="key" placeholder="搜索插件" @keydown.enter="search"/>
-                <em @click="search"></em>
+            <div class="search-opendoc">
+                <div class="search">
+                    <input type="text" v-model="key" placeholder="搜索插件" @keydown.enter="search"/>
+                    <em @click="search"></em>
+                </div>
+                <div class="opendoc" @click="opendoc">开发文档</div>
             </div>
 
             <div class="type">
@@ -81,39 +84,76 @@
             font-weight: 500;
         }
 
-        .search {
-            position: relative;
+        .search-opendoc {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             margin: 32px auto 0;
-            width: 380px;
-            input {
-                appearance: none;
-                -webkit-appearance: none;
-                width: 100%;
-                font-size: 14px;
-                padding: 6px 36px 6px 7px;
-                height: 38px;
-                line-height: 38px;
-                border: 1px solid #dcdee2;
-                border-radius: 4px;
-                color: #515a6e;
-                background-color: #fff;
-                background-image: none;
+            .search {
                 position: relative;
-                cursor: text;
-                outline: none;
+                width: 320px;
+                input {
+                    appearance: none;
+                    -webkit-appearance: none;
+                    width: 100%;
+                    font-size: 14px;
+                    padding: 6px 36px 6px 7px;
+                    height: 38px;
+                    line-height: 38px;
+                    border: 1px solid #dcdee2;
+                    border-radius: 4px;
+                    color: #515a6e;
+                    background-color: #fff;
+                    background-image: none;
+                    position: relative;
+                    cursor: text;
+                    outline: none;
+                }
+                em {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    height: 100%;
+                    width: 36px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background: url("./images/sreach.png") no-repeat center;
+                    background-size: 16px;
+                    cursor: pointer;
+                }
             }
-            em {
-                position: absolute;
-                top: 0;
-                right: 0;
-                height: 100%;
-                width: 36px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background: url("./images/sreach.png") no-repeat center;
-                background-size: 16px;
+            .opendoc {
+                position: relative;
+                margin-left: 18px;
+                padding-right: 19px;
+                font-size: 14px;
                 cursor: pointer;
+                font-weight: 500;
+                color: #3eb4ff;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 20px;
+                    height: 20px;
+                    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAOVBMVEUAAADvKmDwLGLvIGDwLGLwLWLwLGLvLGPvLWPvLWLvLWPvKGDvLWPvLGLwLGPxLGPvK2LwLGPwLWNKwKIqAAAAEnRSTlMAMMAQgO/gkKBgUCDw0LA/cM/kHkhUAAAAqUlEQVQ4y82SSw7DIAxE+TikCQVS3/+wdQHFjsJnV+UtkGBGgxmh/olOfmwwiB+wQwOx6L7BYWbr6TuJw4yAFUObA276gScUETHaq66RAWWXEsTQCfNSUHyCFQVGF7vvBKBzNUk+scXSuYHRouUm+8wA04TZDOk0bNhE9PBGRjTKADbwirG5vKttVRL9u8TKWUIRpMPJaYO9/Xpj8lrzWWdK9SnS/F49ii8nmhpOYjR3OgAAAABJRU5ErkJggg==) no-repeat center right;
+                    background-size: 16px;
+                    animation: opendoc-shake-hard 300ms ease-in-out infinite;
+                    @keyframes opendoc-shake-hard {
+                        33% {
+                            transform:rotate(-30deg)
+                        }
+                        66% {
+                            transform: rotate(30deg)
+                        }
+                        0%, 100% {
+                            transform:rotate(0)
+                        }
+                    }
+                }
             }
         }
 
@@ -534,6 +574,9 @@
             },
             detail(name) {
                 this.$router.push({path: 'detail.html', hash: name})
+            },
+            opendoc() {
+                this.$router.push({path: '/plugin/dev/create.html'})
             }
         }
     }

@@ -159,19 +159,25 @@ module.exports = {
 
         nav: [
             {text: '首页', link: '/'},
-            {text: '指南', link: '/guide/introduce.html', actives: ['/guide/', '/weex/styles/', '/weex/events/']},
-            {text: '组件', link: '/component/a.html', actives: ['/component/', '/weex/components/']},
-            {text: '模块', link: '/module/adDialog.html', actives: ['/module/', '/weex/modules/']},
-            {text: '热更新', link: '/update/'},
-            {text: '控制台', link: 'https://console.eeui.app/'},
-            {text: '社区', link: 'https://bbs.eeui.app/', isUnreadNotificationCount: true},
             {
-                text: '插件市场',
+                text: '文档',
+                items: [
+                    {text: '指南', link: '/guide/introduce.html', actives: ['/guide/', '/weex/styles/', '/weex/events/']},
+                    {text: '组件', link: '/component/a.html', actives: ['/component/', '/weex/components/']},
+                    {text: '模块', link: '/module/adDialog.html', actives: ['/module/', '/weex/modules/']},
+                ]
+            },
+            {
+                text: '插件',
                 items: [
                     {text: '插件市场', link: '/markets/'},
                     {text: '开发文档', link: '/plugin/dev/create.html', actives: ['/plugin/']},
                 ]
             },
+            {text: '热更新', link: '/update/'},
+            {text: '控制台', link: 'https://console.eeui.app/'},
+            {text: 'Editor', link: 'https://editor.eeui.app/'},
+            {text: '社区', link: 'https://bbs.eeui.app/', isUnreadNotificationCount: true},
         ],
 
         sidebar: {
