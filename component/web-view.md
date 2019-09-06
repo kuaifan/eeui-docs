@@ -54,11 +54,25 @@
 > 例如：
 
 ```vue
-<grid
+//示例1
+<web-view
     ref="reflectName"
     :eeui="{
         url: 'https://eeui.app'
-    }"></grid>
+    }"></web-view>
+    
+//示例2
+<web-view
+    ref="reflectName2"
+    :eeui="{
+        content: '网页内容.....'
+    }"></web-view>
+    
+//示例3
+<web-view
+    ref="reflectName3"
+    content="网页内容....."
+    ></web-view>
 ```
 
 > 注①：
