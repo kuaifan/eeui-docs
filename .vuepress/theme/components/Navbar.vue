@@ -112,6 +112,10 @@
             color $textColor
             position relative
 
+            @media (max-width: 860px)
+                display none
+
+
         .links
             padding-left 1.5rem
             box-sizing border-box

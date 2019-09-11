@@ -13,6 +13,7 @@
         :rel="isMailto(link) || isTel(link) ? null : 'noopener noreferrer'"
     >
         {{ item.text }}
+        <div v-if="item.important" class="importantDot"></div>
         <div v-if="item.isUnreadNotificationCount && unreadNotificationCount > 0" class="unreadNotificationCount">{{unreadNotificationCount}}</div>
     </a>
     <!--<a
@@ -28,6 +29,15 @@
 </template>
 
 <style scoped>
+    .importantDot {
+        position: absolute;
+        top: 0px;
+        right: -6px;
+        width: 8px;
+        height: 8px;
+        background: #ff0000;
+        border-radius: 50%;
+    }
     .unreadNotificationCount {
         position: absolute;
         top: -2px;
