@@ -34,7 +34,7 @@ eeui.openPage({params}, callback(result))
 | swipeBack | `Boolean` | - | 是否支持滑动返回：`true`、`false` | true |
 | swipeFullBack <New date="20190820"/> | `Boolean` | - | 是否支持全屏滑动返回：`true`、`false`<br/><Stis>swipeBack 为 true 时有效</Stis> | false |
 | statusBarType | `String` | - | 状态栏样式：<br/>`normal` 正常<br/>`fullscreen` 全屏<br/>`immersion` 沉浸式 | normal |
-| statusBarColor | `String` | - | 状态栏颜色值 | 继承 &gt; #3EB4FF |
+| statusBarColor | `String` | - | 状态栏颜色值<br/><Stis>statusBarType 为 normal 时有效</Stis> | 继承 &gt; #3EB4FF |
 | statusBarAlpha | `Number` | - | 状态栏透明度， 0-255<br/><Stis>statusBarType 为 normal 时有效</Stis> | 0 |
 | statusBarStyle <New date="20190318"/> | `Boolean` | - | 状态栏字体颜色：<br/>`true` 状态栏的字体为白色<br/>`false` 状态栏的字体为黑色 | iOS:黑<br/>Android:白 |
 | softInputMode | `String` | - | 键盘弹出方式：<br/>详见下文 `params.softInputMode 参数说明` | auto |
