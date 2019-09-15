@@ -62,9 +62,7 @@ pod install
 ```text
 ├── common                  // 公共文件
 │   ├── backup              // ├── 备份目录
-│   ├── demo                // ├── 演示文件
-│   ├── dist                // ├── 静态资源生成目录
-│   └── js                  // └── 封装的方法
+│   └── dist                // ├── 静态资源生成目录
 ├── node_modules            // node依赖
 ├── platforms               // 平台源码
 │   ├── android             // ├── 安卓平台源码
