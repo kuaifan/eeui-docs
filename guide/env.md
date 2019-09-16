@@ -4,13 +4,9 @@
 
 ## 基础环境
 
-Mac: 
+Mac 或 Windows: 
 
 * Node.js (>=9.x), npm version 4+ 
-
-Windows: 
-
-* Git bash (并确定已经设置为`.sh脚本的默认执行程序`)
 
 #### 安装工具
 
@@ -53,7 +49,7 @@ npm update eeui-cli -g
 
 ## 开发 Android
 
-开发平台: `Mac/Windows/Linux`
+开发平台: `Mac/Windows`
 
 #### 版本要求
 
@@ -70,8 +66,8 @@ JDK 是 JAVA 开发包，AndroidStudio 是 Android开发IDE，这两项不再做
 
 ## 模拟器或真机安装
 
-* ios 开发中 xcode 已经自带了模拟器
-* android 开发者也可以使用 android studio 自带模拟器
+* iOS 开发中 xcode 已经自带了模拟器
+* Android 开发者也可以使用 android studio 自带模拟器
 
 至此，所有的相关的工具和软件都已下载完毕，下面我们开始创建一个 `eeui-demo` 工程。
 

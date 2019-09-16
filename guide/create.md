@@ -15,12 +15,12 @@ eeui create projectName
 
 ::: tip 
 
-如遇到网络原因自动下载失败，请直接从github下载最新releases [https://github.com/kuaifan/eeui-template](https://github.com/kuaifan/eeui-template/releases)<br/>下载完解压缩到本地，终端cd进入解压得到的文件夹，然后执行`eeui setting`就可以按提示设置App名称、版本等App信息。
+如遇到网络原因自动下载失败，请直接从github下载最新releases [https://github.com/kuaifan/eeui-template](https://github.com/kuaifan/eeui-template/releases)<br/>下载完解压缩到本地，终端cd进入解压得到的文件夹；然后执行`eeui setting`就可以按提示设置App名称、版本等App信息，执行`eeui setdemo`就可以设置初始化演示模板。
 
 :::
 
 
-然后进入开发目录，执行 `npm install` 加载`node_modules`
+然后进入开发目录，执行 `npm install` 加载 `node_modules` Node.js基础模块
 
 ```bash
 cd projectName

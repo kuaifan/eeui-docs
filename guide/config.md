@@ -58,7 +58,7 @@
 // 示例:
 eeui.setCustomConfig('homePage', 'login.js');  
 // 执行后下次启动App默认首页将是login.js；
-// 注意1：有新的热更新或通过系统级清理app缓存后将失效。
+// 注意1：通过系统级清理app缓存后将失效。
 // 注意2：wifi同步模式下此设置将无效，开发者可直接修改配置参数homePage达到效果（wifi同步模式的首页采用的是发出wifi同步端的数据也就是电脑，但是eeui.setCustomConfig('homePage', 'xxxx')是保存在APP本地，所以wifi同步模式下无效）。
 ```
 
