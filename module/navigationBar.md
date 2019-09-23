@@ -23,10 +23,10 @@ navigationBar.setTitle({params}, callback(result))
 | 属性名 | 类型 | 必须 | 描述 | 默认值 |
 | --- | --- | :-: | --- | --- |
 | title | `String` | √ | 标题 | - |
-| titleColor | `String` | - | 标题字体颜色 | #232323 |
+| titleColor | `String` | - | 标题字体颜色 | - |
 | titleSize | `Float` | - | 标题字体大小 | 32.0 |
 | subtitle | `String` | - | 副标题 | - |
-| subtitleColor | `String` | - | 副标题字体颜色 | #232323 |
+| subtitleColor | `String` | - | 副标题字体颜色 | - |
 | subtitleSize | `Float` | - | 副标题字体大小 | 24.0 |
 | backgroundColor | `String` | - | 标题栏背景颜色 | #3EB4FF |
 
@@ -48,10 +48,10 @@ navigationBar.setLeftItem({params}, callback(result))
 | 属性名 | 类型 | 必须 | 描述 | 默认值 |
 | --- | --- | :-: | --- | --- |
 | title | `String` | - | 按钮标题（与图标必须一） | - |
-| titleColor | `String` | - | 按钮标题字体颜色 | #232323 |
+| titleColor | `String` | - | 按钮标题字体颜色 | - |
 | titleSize | `Float` | - | 按钮标题字体大小 | 28.0 |
 | icon | `String` | - | 按钮图标，注① | - |
-| iconColor | `String` | - | 按钮图标字体颜色 | #232323 |
+| iconColor | `String` | - | 按钮图标字体颜色 | - |
 | iconSize | `Float` | - | 按钮图标字体大小（图标大小） | 28.0 |
 | width | `Number` | - | 按钮宽度，留空自适应 | - |
 | spacing | `Number` | - | 按钮标题与按钮图标间距 | 10 |
