@@ -75,7 +75,7 @@ function renderLink (h, to, text, active) {
     }, subtitle));
   }
   if (date) {
-    titles.push(h('New', {
+    titles.push(h('Tag', {
       props: {
         date: date,
       },

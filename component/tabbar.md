@@ -183,7 +183,7 @@
 | tabBackgroundColor |`String`  |   设置tab的背景颜色         |  #3EB4FF，底部位置：#ffffff     |
 | tabWidth |`Number`  |   设置tab固定大小         |  -     |
 | tabPageAnimated |`Boolean`  |   开关页面切换动画         |  true     |
-| tabSlideSwitch <New date="20190811"/> |`Boolean`  |   手势滑动切换页面         |  true     |
+| tabSlideSwitch |`Boolean`  |   手势滑动切换页面         |  true     |
 | indicatorColor |`String`  |   设置tab显示器颜色         |  #ffffff    |
 | indicatorHeight |`Number`  |  设置tab显示器高度          |  4     |
 | indicatorWidth |`Number`  |   设置tab显示器固定宽度         |  20     |
@@ -198,11 +198,11 @@
 | textSize |`Number`  |  设置tab字体大小          |  26     |
 | textSelectColor |`String`  |  设置tab字体选中颜色          |  #ffffff，底部位置：#2C97DE     |
 | textUnselectColor |`String`  |   设置tab字体未选中颜色         |  #eeeeee，底部位置：#333333     |
-| iconVisible <Badge text="slidingTop 无效" type="warning"/> |`Boolean`  | 设置tab图标是否可见           |  false，底部位置：true     |
-| iconGravity <Badge text="slidingTop 无效" type="warning"/> |`Number`  |  设置tab图标显示位置，<br/>上方:`1`<br/>下方:`0`          |  1     |
-| iconWidth <Badge text="slidingTop 无效" type="warning"/> |`Number`  |  设置tab图标宽度          |  40     |
-| iconHeight <Badge text="slidingTop 无效" type="warning"/> |`Number`  |   设置tab图标高度         |  40     |
-| iconMargin <Badge text="slidingTop 无效" type="warning"/> |`Number`  |  设置tab图标与文字间距          |  10     |
+| iconVisible <Tag value="slidingTop 无效"/> |`Boolean`  | 设置tab图标是否可见           |  false，底部位置：true     |
+| iconGravity <Tag value="slidingTop 无效"/> |`Number`  |  设置tab图标显示位置，<br/>上方:`1`<br/>下方:`0`          |  1     |
+| iconWidth <Tag value="slidingTop 无效"/> |`Number`  |  设置tab图标宽度          |  40     |
+| iconHeight <Tag value="slidingTop 无效"/> |`Number`  |   设置tab图标高度         |  40     |
+| iconMargin <Tag value="slidingTop 无效"/> |`Number`  |  设置tab图标与文字间距          |  10     |
 
 > 例如：
 
@@ -227,6 +227,8 @@
 | cache | `Number` | tab页面缓存时间，设置`0`不缓存（单位：毫秒） | 0 |
 | message |`Number`  | tab未读信息数         | 0       |
 | dot |`Boolean`  | 是否显示tab未读红点         | false       |
+| loading <Tag date="20190924" value="1.0.16+"/> | `Boolean` | 是否显示等待效果：`true`、`false` | true |
+| loadingBackground <Tag date="20190924" :value="['仅 Android', '1.0.16+']"/> | `Boolean` | 是否显示等待效果过渡背景：`true`、`false` | false |
 | statusBarColor | `String` | 状态栏颜色值，默认：隐藏<br/><Stis>主要用于主页面沉浸式时设置每个页面不同的状态栏效果</Stis> | - |
 
 > 例如：

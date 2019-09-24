@@ -8,7 +8,7 @@ const eeui = app.requireModule('eeui');
 
 ## eeui.setCaches
 
-> 保存数据信息 <New date="20190901"/>
+> 保存数据信息
 
 ```js
 /**
@@ -21,7 +21,7 @@ eeui.setCaches(key, value, expired)
 
 ## eeui.getCaches
 
-> 获取数据信息 <New date="20190901"/>
+> 获取数据信息
 
 ```js
 /**
@@ -62,7 +62,7 @@ let variable = eeui.getCachesString(key, defaultVal)
 
 ## eeui.getAllCaches
 
-> 获取所有数据信息 <New date="20190901"/>
+> 获取所有数据信息
 
 ```js
 /**
@@ -73,7 +73,7 @@ let variable = eeui.getAllCaches()
 
 ## eeui.clearAllCaches
 
-> 清除所有数据信息 <New date="20190901"/>
+> 清除所有数据信息
 
 ```js
 eeui.clearAllCaches()
@@ -108,7 +108,7 @@ let variable = eeui.getVariate(key, defaultVal)
 
 ## eeui.getAllVariate
 
-> 获取所有全局变量 <New date="20190901"/>
+> 获取所有全局变量
 
 ```js
 /**
@@ -119,7 +119,7 @@ let variable = eeui.getAllVariate()
 
 ## eeui.clearAllVariate
 
-> 清除所有全局变量 <New date="20190901"/>
+> 清除所有全局变量
 
 ```js
 eeui.clearAllVariate()

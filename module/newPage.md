@@ -24,23 +24,24 @@ eeui.openPage({params}, callback(result))
 | --- | --- | :-: | --- | --- |
 | url | `String` | √ | `App Js`或`Web Url`地址<br/>①支持本地地址，如：`xxx.js`<br/>②支持远程地址，如：`http://abc.com/xxx.js` | - |
 | pageName | `String` | - | 页面名称 | - |
-| pageTitle <New date="20190318"/> | `String` | - | 页面标题，设置显示标题栏<br/><Stis>statusBarType 为 normal 时有效。[(标题栏更多设置)](./navigationBar.html)</Stis> | - |
+| pageTitle | `String` | - | 页面标题，设置显示标题栏<br/><Stis>statusBarType 为 normal 时有效。[(标题栏更多设置)](./navigationBar.html)</Stis> | - |
 | pageType | `String` | - | 页面类型：`app`、`web`<br/><Stis>可填写 auto 系统自动识别 (不建议)</Stis> | app |
 | params |`Object`  | - | 页面传递参数，通过`app.config.params`获取         | -       |
 | cache | `Number` | - | 页面缓存时间，仅`app`类型且`非本地页面`有效，<br/>设置`0`不缓存（单位：毫秒） | 0 |
 | loading | `Boolean` | - | 是否显示等待效果：`true`、`false` | true |
-| animated <New date="20190318"/> | `Boolean` | - | 是否进入页面需要动画效果：`true`、`false` | true |
-| animatedType <New date="20190820"/> | `String` | - | 页面动画效果类型：<br/>`push` 右侧打开<br/>`present` 底部弹出<br/><Stis>animated 为 true 时有效</Stis> | iOS:push<br/>Android:跟随系统 |
+| loadingBackground <Tag date="20190924" :value="['仅 Android', '1.0.16+']"/> | `Boolean` | - | 是否显示等待效果过渡背景：`true`、`false` | false |
+| animated | `Boolean` | - | 是否进入页面需要动画效果：`true`、`false` | true |
+| animatedType | `String` | - | 页面动画效果类型：<br/>`push` 右侧打开<br/>`present` 底部弹出<br/><Stis>animated 为 true 时有效</Stis> | iOS:push<br/>Android:跟随系统 |
 | swipeBack | `Boolean` | - | 是否支持滑动返回：`true`、`false` | true |
-| swipeFullBack <New date="20190820"/> | `Boolean` | - | 是否支持全屏滑动返回：`true`、`false`<br/><Stis>swipeBack 为 true 时有效</Stis> | false |
+| swipeFullBack | `Boolean` | - | 是否支持全屏滑动返回：`true`、`false`<br/><Stis>swipeBack 为 true 时有效</Stis> | false |
 | statusBarType | `String` | - | 状态栏样式：<br/>`normal` 正常<br/>`fullscreen` 全屏<br/>`immersion` 沉浸式 | normal |
 | statusBarColor | `String` | - | 状态栏颜色值<br/><Stis>statusBarType 为 normal 时有效</Stis> | 继承 &gt; #3EB4FF |
 | statusBarAlpha | `Number` | - | 状态栏透明度， 0-255<br/><Stis>statusBarType 为 normal 时有效</Stis> | 0 |
-| statusBarStyle <New date="20190318"/> | `Boolean` | - | 状态栏字体颜色：<br/>`true` 状态栏的字体为白色<br/>`false` 状态栏的字体为黑色 | iOS:黑<br/>Android:白 |
+| statusBarStyle | `Boolean` | - | 状态栏字体颜色：<br/>`true` 状态栏的字体为白色<br/>`false` 状态栏的字体为黑色 | iOS:黑<br/>Android:白 |
 | softInputMode | `String` | - | 键盘弹出方式：<br/>详见下文 `params.softInputMode 参数说明` | auto |
 | backgroundColor | `String` | - | 页面背景颜色 | 继承 &gt; #ffffff |
-| backPressedClose | `Boolean` | - | 允许按返回键关闭页面 <Android/> | true |
-| safeAreaBottom <New date="20190318"/> | `Number` | - | iPhone X+底部安全距离 <iOS/> | - |
+| backPressedClose | `Boolean` | - | 允许按返回键关闭页面 <Tag value="仅 Android"/> | true |
+| safeAreaBottom | `Number` | - | iPhone X+底部安全距离 <Tag value="仅 iOS"/> | - |
 
 > params.softInputMode 参数说明
 
@@ -238,7 +239,7 @@ eeui.setSoftInputMode('pageName_1', 'resize');
 
 ## eeui.setPageBackPressed
 
-* 拦截返回按键事件<Android/>
+* 拦截返回按键事件<Tag value="仅 Android"/>
 
 ```js
 /**
@@ -473,7 +474,7 @@ eeui.closePage({params})
 | 属性名 | 类型 | 必须 | 描述 | 默认值 |
 | --- | --- | :-: | --- | --- |
 | pageName | `String` | - | 页面名称，留空关闭当前页面（不建议留空） | - |
-| animated <New date="20190318"/> | `Boolean` | - | 是否弹出页面需要动画效果：`true`、`false` | true |
+| animated | `Boolean` | - | 是否弹出页面需要动画效果：`true`、`false` | true |
 
 > 简单示例
 
@@ -542,7 +543,7 @@ eeui.openWeb('https://eeui.app');
 
 ## eeui.goDesktop
 
-* 返回手机桌面<Android/>
+* 返回手机桌面<Tag value="仅 Android"/>
 
 ```js
 /**
