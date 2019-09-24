@@ -228,7 +228,7 @@
 | message |`Number`  | tab未读信息数         | 0       |
 | dot |`Boolean`  | 是否显示tab未读红点         | false       |
 | loading <Tag date="20190924" value="1.0.16+"/> | `Boolean` | 是否显示等待效果：`true`、`false` | true |
-| loadingBackground <Tag date="20190924" :value="['仅 Android', '1.0.16+']"/> | `Boolean` | 是否显示等待效果过渡背景：`true`、`false` | false |
+| loadingBackground <Tag date="20190924" :value="['仅Android', '1.0.16+']"/> | `Boolean` | 是否显示等待效果过渡背景：`true`、`false` | false |
 | statusBarColor | `String` | 状态栏颜色值，默认：隐藏<br/><Stis>主要用于主页面沉浸式时设置每个页面不同的状态栏效果</Stis> | - |
 
 > 例如：

@@ -133,7 +133,7 @@
 | pullTipsDefault |`String`  | 上拉加载默认的提示语           | 正在加载数据...       |
 | pullTipsLoad |`String`  | 上拉加载正在加载的提示语           | 正在加载更多...       |
 | pullTipsNo |`String`  | 上拉加载没有更多的提示语           | 没有更多数据了       |
-| itemDefaultAnimator |`Boolean`  | 打开关闭局部刷新默认动画<Tag value="仅 Android"/>           | false       |
+| itemDefaultAnimator |`Boolean`  | 打开关闭局部刷新默认动画<Tag value="仅Android"/>           | false       |
 
 > 例如：
 

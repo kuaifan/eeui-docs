@@ -29,7 +29,7 @@ eeui.openPage({params}, callback(result))
 | params |`Object`  | - | 页面传递参数，通过`app.config.params`获取         | -       |
 | cache | `Number` | - | 页面缓存时间，仅`app`类型且`非本地页面`有效，<br/>设置`0`不缓存（单位：毫秒） | 0 |
 | loading | `Boolean` | - | 是否显示等待效果：`true`、`false` | true |
-| loadingBackground <Tag date="20190924" :value="['仅 Android', '1.0.16+']"/> | `Boolean` | - | 是否显示等待效果过渡背景：`true`、`false` | false |
+| loadingBackground <Tag date="20190924" :value="['仅Android', '1.0.16+']"/> | `Boolean` | - | 是否显示等待效果过渡背景：`true`、`false` | false |
 | animated | `Boolean` | - | 是否进入页面需要动画效果：`true`、`false` | true |
 | animatedType | `String` | - | 页面动画效果类型：<br/>`push` 右侧打开<br/>`present` 底部弹出<br/><Stis>animated 为 true 时有效</Stis> | iOS:push<br/>Android:跟随系统 |
 | swipeBack | `Boolean` | - | 是否支持滑动返回：`true`、`false` | true |
@@ -40,8 +40,8 @@ eeui.openPage({params}, callback(result))
 | statusBarStyle | `Boolean` | - | 状态栏字体颜色：<br/>`true` 状态栏的字体为白色<br/>`false` 状态栏的字体为黑色 | iOS:黑<br/>Android:白 |
 | softInputMode | `String` | - | 键盘弹出方式：<br/>详见下文 `params.softInputMode 参数说明` | auto |
 | backgroundColor | `String` | - | 页面背景颜色 | 继承 &gt; #ffffff |
-| backPressedClose | `Boolean` | - | 允许按返回键关闭页面 <Tag value="仅 Android"/> | true |
-| safeAreaBottom | `Number` | - | iPhone X+底部安全距离 <Tag value="仅 iOS"/> | - |
+| backPressedClose | `Boolean` | - | 允许按返回键关闭页面 <Tag value="仅Android"/> | true |
+| safeAreaBottom | `Number` | - | iPhone X+底部安全距离 <Tag value="仅iOS"/> | - |
 
 > params.softInputMode 参数说明
 
@@ -239,7 +239,7 @@ eeui.setSoftInputMode('pageName_1', 'resize');
 
 ## eeui.setPageBackPressed
 
-* 拦截返回按键事件<Tag value="仅 Android"/>
+* 拦截返回按键事件<Tag value="仅Android"/>
 
 ```js
 /**
@@ -543,7 +543,7 @@ eeui.openWeb('https://eeui.app');
 
 ## eeui.goDesktop
 
-* 返回手机桌面<Tag value="仅 Android"/>
+* 返回手机桌面<Tag value="仅Android"/>
 
 ```js
 /**
