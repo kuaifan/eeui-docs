@@ -220,9 +220,10 @@ eeui.reloadPage('pageName_1');
 /**
  * @param params        页面名称参数
  * @param mode          键盘弹出方式：
-                           auto 默认值，由系统决定如何处理
-                           pan 若键盘盖住输入框，页面不会自动上移
-                           resize 若键盘盖住输入框，页面会自动上移
+                           auto: iOS：当显示软键盘时，自动调整window的布局；Android：系统去判断内容区域可滚动为pan,不可滚动为resize。
+                           pan: iOS：当显示软键盘时，自动调整window的布局；Android：当显示软键盘时，调整window的空白区域来显示软键盘。
+                           resize: 当显示软键盘时，自动调整window的布局。
+                           nothing: 当显示软键盘时，不调整window的布局。
  */
 eeui.setSoftInputMode({params}, mode)
 ```
