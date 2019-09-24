@@ -18,7 +18,7 @@ const eeui = app.requireModule('eeui');
 eeui.openPage({params}, callback(result))
 ```
 
-> params 参数说明
+> params 参数说明（参数支持url字符串请求，如：`http://abc.com/xxx.js?statusBarType=immersion`）
 
 | 属性名 | 类型 | 必须 | 描述 | 默认值 |
 | --- | --- | :-: | --- | --- |
@@ -101,6 +101,13 @@ eeui.openPage({
 
 //示例②
 eeui.openPage({
+    url: 'http://dotwe.org/raw/dist/ad0045a7cff0b3a680d9de6dd4806e81.bundle.wx?statusBarType=immersion',
+}, function(result) {
+    //......
+});
+
+//示例③
+eeui.openPage({
     pageName: 'pageName_1',
     pageType: 'app',
     url: 'xxxx.js'
@@ -108,7 +115,7 @@ eeui.openPage({
     //......
 });
 
-//示例③
+//示例④
 eeui.openPage({
     pageType: 'web',
     url: 'https://eeui.app'
