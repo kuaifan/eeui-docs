@@ -29,73 +29,73 @@
             <navbar-item type="back"></navbar-item>
 
             <navbar-item type="title">
-                <text>标题</text>
+                <text class="text">标题</text>
             </navbar-item>
 
         </navbar>
 
         <!--样式②-->
-        <navbar class="navbar" :eeui="{titleType:'left'}">
+        <navbar class="navbarb" :eeui="{titleType:'left'}">
 
             <navbar-item type="back"></navbar-item>
 
             <navbar-item type="title">
-                <text>标题</text>
+                <text class="text">标题</text>
             </navbar-item>
 
         </navbar>
 
         <!--样式③-->
-        <navbar class="navbar">
+        <navbar class="navbarb">
 
             <navbar-item type="back"></navbar-item>
 
             <navbar-item type="title">
-                <text>标题</text>
+                <text class="text">标题</text>
             </navbar-item>
 
             <navbar-item type="right">
-                <icon icon="refresh" class="icon"></icon>
+                <icon content="md-refresh" class="icon"></icon>
             </navbar-item>
 
         </navbar>
 
         <!--样式④-->
-        <navbar class="navbar">
+        <navbar class="navbarc">
 
             <navbar-item type="left">
-                <icon icon="navicon-round" class="icon"></icon>
+                <icon content="md-arrow-back" class="icon"></icon>
             </navbar-item>
 
             <navbar-item type="title">
-                <text>标题</text>
+                <text class="text">标题</text>
             </navbar-item>
 
             <navbar-item type="right">
-                <icon icon="refresh" class="icon"></icon>
+                <icon content="md-refresh" class="icon"></icon>
             </navbar-item>
 
         </navbar>
 
         <!--样式⑤-->
-        <navbar class="navbar">
+        <navbar class="navbarc">
 
             <!--返回按钮-->
             <navbar-item type="back"></navbar-item>
 
             <!--左边内容-->
             <navbar-item type="left">
-                <text>左边内容</text>
+                <text class="text">左边内容</text>
             </navbar-item>
 
             <!--中间内容(标题内容)-->
             <navbar-item type="title">
-                <text>中间(标题)内容</text>
+                <text class="text">中间(标题)内容</text>
             </navbar-item>
 
             <!--右边内容-->
             <navbar-item type="right">
-                <text>右边内容</text>
+                <text class="text">右边内容</text>
             </navbar-item>
 
         </navbar>
@@ -109,9 +109,23 @@
         height: 100px;
         margin-bottom: 50px;
     }
+    .navbarb {
+        width: 750px;
+        height: 100px;
+        margin-bottom: 50px;
+    }
+    .navbarc {
+        width: 750px;
+        height: 100px;
+        margin-bottom: 50px;
+        background-color: #FF5001;
+    }
     .icon {
         width: 100px;
         height: 100px;
+    }
+    .text {
+        font-size: 26px;
     }
 </style>
 ```
@@ -123,7 +137,6 @@
 | 属性名           | 类型     | 描述                          | 默认值     |
 | ------------- | ------ | -------------------------- | ------- |
 | titleType |`String`  | 标题对齐方式，`left`、`right`、`middle`         | middle       |
-| backgroundColor |`String`  | 背景颜色         | #3EB4FF       |
 
 > 例如：
 
