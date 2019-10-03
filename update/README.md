@@ -5,7 +5,7 @@
 热更新（修复）可以实现快速版本迭代，快速修复bug。不用发布新的apk或者ipa版本（只要把您改动的`页面`、`config配置`、`图片`上传）既可对你的app进行更新。
 
 ::: tip
-已支持在自己的服务器搭建服务端（热更新、动态设置启动图等），详阅[eeui.config.js配置文件](../guide/config.html)。<Tag value="1.0.17+"/>
+已支持在自己的服务器[搭建服务端](https://github.com/kuaifan/eeui-service)（热更新、动态设置启动图等），详阅[eeui.config.js配置文件](../guide/config.html)。<Tag value="1.0.17+"/>
 :::
 
 
