@@ -10,6 +10,8 @@
 
 ```javascript
 {
+    serviceUrl: "",         //服务端网址（可选）
+    
     homePage: "",           //主页的JS地址（可选）
     homePageParams: { },    //主页其他参数（可选）
      
@@ -49,6 +51,10 @@
 ```
 ## 配置说明
 
+###### **`serviceUrl`**: 服务端网址 <Tag value="1.0.17+"/>
+- 默认就用即可，留空默认为：eeui自带 [EEUI云平台](https://console.eeui.app) 服务。
+- 如果 [自搭建服务端](https://github.com/kuaifan/eeui-service)（热更新、动态设置启动图等）请填写自搭建网址。
+
 ###### **`homePage`**: 主页的JS地址
 - 一般情况下留空，默认为：index.js（可自定义，比如填写：login.js时默认首页将是login.js）。
 - 也可以把JS资源放到服务器上然后把JS地址填写到这里。
@@ -68,7 +74,7 @@ eeui.setCustomConfig('homePage', 'login.js');
 
 ###### **`appKey`**: 用于云平台管理
 - 建议填写16-32位随机字符串。
-- 主要用于 [EEUI云平台](https://console.eeui.app) 热更新、动态设置启动图等。
+- 主要用于 [EEUI云平台](https://console.eeui.app)（热更新、动态设置启动图等）。
 
 ###### **`wxpay`**: 微信支付相关配置
 - appid: 微信支付商户appid。
