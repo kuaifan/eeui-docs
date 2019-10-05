@@ -52,7 +52,7 @@
 ## 配置说明
 
 ###### **`serviceUrl`**: 服务端网址 <Tag value="1.0.17+"/>
-- 默认就用即可，留空默认为：eeui自带 [EEUI云平台](https://console.eeui.app) 服务。
+- 默认留空，留空默认为：eeui自带 [EEUI云平台](https://console.eeui.app) 服务。
 - 如果 [自搭建服务端](https://github.com/kuaifan/eeui-service)（热更新、动态设置启动图等）请填写自搭建网址。
 
 ###### **`homePage`**: 主页的JS地址
