@@ -512,3 +512,135 @@ this.$refs.reflectName.setRefresh();
 this.$refs.reflectName.refreshEnd();
 
 ```
+## [拓展]完全自定义tabbar
+### 在线示例
+https://editor.eeui.app/#/files/eeui/tabbar-tabcenter/tree/fcd0a82ee9ebd1a502f33c27943a5ed8/src/pages/index.vue
+
+### 示例代码
+
+```vue
+<template>
+    <div class="app">
+
+        <div class="nav">
+            <template v-for="(item, index) in tabPages">
+                <div class="nav-item">
+                    <text :class="[index === position ? 'nav-item-text-active' : 'nav-item-text']" @click="switchPage(index)">{{item.title}}</text>
+                    <div v-if="index === position" class="nav-item-active"></div>
+                </div>
+                <text v-if="index < tabPages.length - 1" class="nav-line"></text>
+            </template>
+        </div>
+
+        <tabbar
+                ref="reflectName"
+                class="tabbar"
+                :eeui="{ tabType: 'top', tabHeight: 0 }"
+                :tabPages="tabPages"
+                @pageSelected="pageSelected"></tabbar>
+
+    </div>
+</template>
+
+<style>
+    .app {
+        flex: 1
+    }
+
+    .nav {
+        width: 750px;
+        height: 100px;
+        background-color: #3EB4FF;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nav-item {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nav-item-text,
+    .nav-item-text-active {
+        position: relative;
+        width: 120px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        font-size: 28px;
+        color: #ffffff;
+        font-weight: 300;
+    }
+
+    .nav-item-text-active {
+        color: #E1C040;
+        font-weight: 600;
+    }
+
+    .nav-item-active {
+        position: absolute;
+        left: 40px;
+        bottom: 0;
+        width: 40px;
+        border-radius: 6px;
+        height: 6px;
+        background-color: #E1C040;
+    }
+
+    .nav-line {
+        height: 24px;
+        width: 1px;
+        background-color: #ffffff;
+    }
+
+    .tabbar {
+        flex: 1;
+        width: 750px;
+    }
+</style>
+
+<script>
+    export default {
+        data() {
+            return {
+                position: 0,
+
+                tabPages: [
+                    {
+                        tabName: 'home',
+                        title: '首页',
+                        url: 'http://dotwe.org/raw/dist/b5fd96d8d790f0100bdfc20b93eedf09.bundle.wx',
+                    },
+                    {
+                        tabName: 'friend',
+                        title: '好友',
+                        url: 'http://dotwe.org/raw/dist/ba938c9aaebe41e5f60b98f90bd0bf61.bundle.wx',
+                    },
+                    {
+                        tabName: 'group',
+                        title: '圈子',
+                        url: 'http://dotwe.org/raw/dist/fb6f016b0116969b6b503e1d3a35285f.bundle.wx',
+                    },
+                    {
+                        tabName: 'setting',
+                        title: '设置',
+                        url: 'http://dotwe.org/raw/dist/ad0045a7cff0b3a680d9de6dd4806e81.bundle.wx',
+                    },
+                ],
+            }
+        },
+        methods: {
+            pageSelected(data) {
+                this.position = data.position;
+            },
+            switchPage(index) {
+                this.position = index;
+                this.$refs.reflectName.setCurrentItem(this.tabPages[index].tabName);
+            }
+        }
+    };
+</script>
+
+```
+
