@@ -512,7 +512,7 @@ this.$refs.reflectName.setRefresh();
 this.$refs.reflectName.refreshEnd();
 
 ```
-## [拓展]完全自定义tabbar示例
+## [拓展]完全自定义tabbar
 ### 在线示例
 https://editor.eeui.app/#/files/eeui/tabbar-tabcenter/tree/fcd0a82ee9ebd1a502f33c27943a5ed8/src/pages/index.vue
 
