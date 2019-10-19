@@ -27,7 +27,9 @@ pageClass: getting-started
 * 如果你觉得 eeui 还不错，可以通过 Star 来表示你的喜欢
 
 ## 社群
-<img src="https://raw.githubusercontent.com/kang558/tool/master/904F6052B2D2B7695A782FE47443C8E1.png" width="280px">
+
+<p><img src="./media/qqgroup.png" width="280px"></p>
+
 
 ## 协议
 
