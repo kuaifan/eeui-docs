@@ -31,6 +31,7 @@ eeui.ajax({params}, callback(result))
 | dataType | `String` | - | 返回数据类型，`json`、`text` | json |
 | timeout | `Number` | - | 请求超时时间（单位：毫秒） | 15000 |
 | cache | `Number` | - | 缓存时间，0不缓存（单位：毫秒） | 0 |
+| beforeAfter | `Boolen` | - | 是否回调`前(ready)`、`后(complete)`事件 <Tag date="20191202" :value="['1.0.32+']"/> | false |
 | headers | `Object` | - | 请求头部headers | - |
 | data | `Object` | - | 发送数据 | - |
 | files | `Object` | - | 提交文件  | - |
@@ -41,10 +42,14 @@ eeui.ajax({params}, callback(result))
 ```js
 {
     status: 'success',      //状态，详见：注①
+    
+    code: 200,              //请求结果状态码
+    header: { ... },       //请求结果header信息
+    result: '...',         //请求结果
+    
     name: 'requestName',    //请求名称
     url: 'http://....',     //请求地址
     cache: false,           //请求结果是否为缓存
-    result: { .... },       //请求结果
 }
 ```
 
@@ -55,7 +60,9 @@ eeui.ajax({params}, callback(result))
 - `error`请求失败
 - `complete`请求结束
 
-流程：`ready` -> (`success` | `error`) -> `complete`
+回调过程：`ready` -> (`success` | `error`) -> `complete`；
+
+注: `ready`和`complete`事件仅在`beforeAfter=true`时有回调 <Tag date="20191202" :value="['1.0.32+']"/>。
 
 ### 简单示例
 
