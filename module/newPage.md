@@ -632,7 +632,7 @@ let newUrl = eeui.rewriteUrl("demo.js");
 
 ## eeui.checkUpdate
 
-* 客户端主动触发热更新事件
+* 客户端主动触发热更新事件 <Tag date="20191205" :value="['1.0.33+']"/>
 
 ```js
 eeui.checkUpdate();
