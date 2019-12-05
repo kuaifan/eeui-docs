@@ -630,3 +630,11 @@ let newUrl = eeui.realUrl("http://abc.com/aa/bb/cc/.././demo.js");
 let newUrl = eeui.rewriteUrl("demo.js");
 ```
 
+## eeui.checkUpdate
+
+* 客户端主动触发热更新事件
+
+```js
+eeui.checkUpdate();
+```
+

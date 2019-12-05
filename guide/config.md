@@ -17,6 +17,10 @@
      
     appKey: "",             //用于云平台管理（可选）
     
+	android: {
+        imageEngine: "",    //安卓图片适配器（可选）
+    },
+    
 	wxpay: {
 		appid: "xxx..."     //微信支付appid（可选）
 	},
@@ -76,15 +80,18 @@ eeui.setCustomConfig('homePage', 'login.js');
 - 建议填写16-32位随机字符串。
 - 主要用于 [EEUI云平台](https://console.eeui.app)（热更新、动态设置启动图等）。
 
+###### **`android`**: 安卓端相关配置 <Tag date="20191205" :value="['1.0.33+']"/>
+- `imageEngine`: 图片适配器ImageAdapter（可选：`picasso`、`glide`），留空默认：`glide`
+
 ###### **`wxpay`**: 微信支付相关配置
-- appid: 微信支付商户appid。
+- `appid`: 微信支付商户appid。
 
 ###### **`rongim`**: 融云相关配置（即时通讯模块）
-- enabled: 是否启用融云服务。
-- appKey、appSecret: 在融云平台申请。
+- `enabled`: 是否启用融云服务。
+- `appKey`、`appSecret`: 在融云平台申请。
 
 ###### **`umeng`**: 友盟相关配置（推送、统计模块）
-- enabled: 是否启用友盟服务。
-- appKey、messageSecret: 在友盟平台申请。
-- channel: 友盟统计渠道。
+- `enabled`: 是否启用友盟服务。
+- `appKey`、`messageSecret`: 在友盟平台申请。
+- `channel`: 友盟统计渠道。
 
