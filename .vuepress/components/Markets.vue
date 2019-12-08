@@ -537,7 +537,7 @@
             },
             load() {
                 this.loadError = '';
-                let timeOut = setTimeout(() => { this.$refs.myLoading.start(); }, 1000);
+                let timeOut = setTimeout(() => { this.$refs.myLoading.start(); }, 50);
                 //
                 axios.get('https://console.eeui.app/api/plugin?__Access-Control-Allow-Origin=1', {
                     params : {

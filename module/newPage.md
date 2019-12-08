@@ -32,9 +32,9 @@ eeui.openPage({params}, callback(result))
 | loadingBackground <Tag date="20190924" :value="['仅Android', '1.0.16+']"/> | `Boolean` | - | 是否显示等待效果过渡背景：`true`、`false` | false |
 | animated | `Boolean` | - | 是否进入页面需要动画效果：`true`、`false` | true |
 | animatedType | `String` | - | 页面动画效果类型：<br/>`push` 右侧打开<br/>`present` 底部弹出<br/><Stis>animated 为 true 时有效</Stis> | iOS:push<br/>Android:跟随系统 |
-| swipeBack | `Boolean` | - | 是否支持滑动返回：`true`、`false` | true<br/>首页:false |
+| swipeBack | `Boolean` | - | 是否支持滑动返回：`true`、`false` | true |
 | swipeFullBack | `Boolean` | - | 是否支持全屏滑动返回：`true`、`false`<br/><Stis>swipeBack 为 true 时有效</Stis> | false |
-| swipeColorBack <Tag date="20191202" :value="['仅Android', '1.0.32+']"/> | `Boolean` | - | 是否为滑动返回界面设置状态栏颜色跟随滑动：`true`、`false`<br/><Stis>swipeBack 为 true 时有效</Stis> | true<br/>首页:false |
+| swipeColorBack <Tag date="20191202" :value="['仅Android', '1.0.32+']"/> | `Boolean` | - | 是否为滑动返回界面设置状态栏颜色跟随滑动：`true`、`false`<br/><Stis>swipeBack 为 true 时有效</Stis> | true |
 | statusBarType | `String` | - | 状态栏样式：<br/>`normal` 正常<br/>`fullscreen` 全屏<br/>`immersion` 沉浸式 | normal |
 | statusBarColor | `String` | - | 状态栏颜色值<br/><Stis>statusBarType 为 normal 时有效</Stis> | 继承 &gt; #3EB4FF |
 | statusBarAlpha | `Number` | - | 状态栏透明度， 0-255<br/><Stis>statusBarType 为 normal 时有效</Stis> | 0 |
