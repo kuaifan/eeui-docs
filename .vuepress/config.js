@@ -102,15 +102,16 @@ let sidebar = {
                 ['/module/navigationBar', ['navigationBar', '标题栏', 20190318]],
                 ['/module/navigator', ['navigator', '路由功能', 20190318]],
                 ['/module/newPage', ['newPage', '页面功能']],
-                ['/module/openOtherApp', ['openOtherApp', '打开其他APP']],
+                ['/module/openOtherApp', ['openOtherApp', '打开其他APP', 20191214]],
                 ['/module/plate', ['plate', '复制粘贴']],
-                ['/module/saveImage', ['saveImage', '保存图片']],
+                ['/module/saveImage', ['saveImage', '保存图片', 20191214]],
                 ['/module/getImageSize', ['getImageSize', '图片尺寸']],
                 ['/module/scaner', ['scaner', '二维码扫描']],
                 ['/module/share', ['share', '文字图片分享']],
                 ['/module/storage', ['storage', '数据储存']],
                 ['/module/system', ['system', '系统信息']],
                 ['/module/toast', ['toast', '提示功能']],
+                ['/module/version', ['version', '版本相关', 20191214]],
             ]
         }, {
             title: 'weex模块',

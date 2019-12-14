@@ -50,50 +50,6 @@ let variable = eeui.getNavigationBarHeight()
 let variable = eeui.getNavigationBarHeightPx()
 ```
 
-## eeui.getVersion 
-
-> 获取eeui版本号
-
-```js
-/**
- * @return int
- */
-let variable = eeui.getVersion()
-```
-
-## eeui.getVersionName
-
-> 获取eeui版本号名称
-
-```js
-/**
- * @return String
- */
-let variable = eeui.getVersionName()
-```
-
-## eeui.getLocalVersion
-
-> 获取本地软件版本号
-
-```js
-/**
- * @return int
- */
-let variable = eeui.getLocalVersion()
-```
-
-## eeui.getLocalVersionName
-
-> 获取本地软件版本号名称
-
-```js
-/**
- * @return String
- */
-let variable = eeui.getLocalVersionName()
-```
-
 ## eeui.compareVersion
 
 > 比较版本号的大小,前者大则返回一个正数,后者大返回一个负数,相等则返回0
@@ -128,28 +84,6 @@ let variable = eeui.getImei()
  * @return String
  */
 let variable = eeui.getIfa()
-```
-
-## eeui.getSDKVersionCode
-
-> 获取设备系统版本号
-
-```js
-/**
-* @返回 Number
- */
-let variable = eeui.getSDKVersionCode()
-```
-
-## eeui.getSDKVersionName
-
-> 获取设备系统版本名称
-
-```js
-/**
-* @返回 String
- */
-let variable = eeui.getSDKVersionName()
 ```
 
 ## eeui.isIPhoneXType

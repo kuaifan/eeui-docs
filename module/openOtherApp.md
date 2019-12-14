@@ -32,7 +32,7 @@ eeui.openOtherApp("wx");
 ```
 
 
-## eeui.openOtherAppTo
+## eeui.openOtherAppTo <Tag date="20191214" :value="['1.0.34+']"/>
 
 > 打开其他第三方APP
 

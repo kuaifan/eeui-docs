@@ -79,6 +79,9 @@ function renderLink (h, to, text, active) {
       props: {
         date: date,
       },
+      style: {
+        marginLeft: '3px'
+      }
     }));
   }
   return h('router-link', {

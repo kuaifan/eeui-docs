@@ -45,7 +45,7 @@ eeui.saveImage("http://..../xxx.png", (res) => {
 ```
 
 
-## eeui.saveImageTo
+## eeui.saveImageTo <Tag date="20191214" :value="['1.0.34+']"/>
 
 > 保存图片至本地（指定目录名称，仅Android指定目录有效，iOS系统只能保存到系统相册）
 
