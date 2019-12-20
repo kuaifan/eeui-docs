@@ -54,6 +54,10 @@
 	            {
                     console.log('页面失活(暂停)');
                 }
+	            else if (e.status == 'destroy') 
+	            {
+                    console.log('页面停止(销毁)');    //destroy 状态 1.0.38+ 版本支持
+                }
 	        }
 	    }
   }
