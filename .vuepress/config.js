@@ -61,6 +61,7 @@ let sidebar = {
                 ['/component/side-panel', ['<side-panel>', '侧边栏容器']],
                 ['/component/tabbar', ['<tabbar>', '选项卡页面']],
                 ['/component/web-view', ['<web-view>', '浏览器组件']],
+                ['/component/WEcharts', ['<WEcharts>', '图表组件']]
             ]
         }, {
             title: 'weex组件',
