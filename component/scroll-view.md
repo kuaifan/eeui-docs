@@ -178,14 +178,14 @@
 @pullLoadListener = function(data) { ... }
 
 /**
- * 视图滚动事件（滚动完成后调用）
+ * 视图滚动事件
  * 返回参数：data = {x: 0, y: 100, dx: 0, dy: 3}
  */
 @scrolled = function(data) { ... }
 
 /**
- * 视图滚动状态发生变化
- * 返回参数：data = {x: 0, y: 100, newState: 0}
+ * 视图滚动状态发生变化（滚动完成后调用）
+ * 返回参数：data = {x: 0, y: 100}
  */
 @scrollStateChanged = function(data) { ... }
 ```
