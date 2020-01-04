@@ -66,7 +66,7 @@ let variable = eeui.compareVersion(version1, version2)
 
 ## eeui.getImei
 
-> 获取手机的IMEI（注：Android返回IMEI，iOS返回IFA）
+> 获取手机的IMEI（注：Android返回IMEI，iOS返回IFA；&lt;web-view&gt;组件不支持此方法，请使用eeui.getImeiAsync）
 
 ```js
 /**
@@ -75,15 +75,35 @@ let variable = eeui.compareVersion(version1, version2)
 let variable = eeui.getImei()
 ```
 
+## eeui.getImeiAsync <Tag date="20200104" :value="['1.0.40+']"/>
+
+> 获取手机的IMEI（异步方法）
+
+```js
+eeui.getImeiAsync(function(result) {
+    //result = {status:"success", content: imei}
+})
+```
+
 ## eeui.getIfa
 
-> 获取手机的IFA（注：Android返回IMEI，iOS返回IFA）
+> 获取手机的IFA（注：Android返回IMEI，iOS返回IFA；&lt;web-view&gt;组件不支持此方法，请使用eeui.getIfaAsync）
 
 ```js
 /**
  * @return String
  */
 let variable = eeui.getIfa()
+```
+
+## eeui.getIfaAsync <Tag date="20200104" :value="['1.0.40+']"/>
+
+> 获取手机的IFA（异步方法）
+
+```js
+eeui.getIfaAsync(function(result) {
+    //result = {status:"success", content: ifa}
+})
 ```
 
 ## eeui.isIPhoneXType
