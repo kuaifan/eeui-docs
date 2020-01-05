@@ -1,5 +1,5 @@
 <template>
-    <div v-if="show" class="md-badge-new-main"><div v-if="tags" v-for="tag in tags" class="md-badge-value">{{tag}}</div><div v-if="title" class="md-badge-new" :title="title">新</div></div>
+    <div v-if="show" class="md-badge-new-main"><div v-if="tags" v-for="tag in tags" class="md-badge-value" :style="{backgroundColor:valueBgcolor||'#e7c000'}">{{tag}}</div><div v-if="title" class="md-badge-new" :title="title">新</div></div>
 </template>
 
 <style lang="stylus" scoped>
@@ -27,7 +27,7 @@
 </style>
 <script>
     export default {
-        props: ['date','value'],
+        props: ['date','value','valueBgcolor'],
         data() {
             return {
                 show: false,

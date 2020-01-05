@@ -198,11 +198,12 @@
 | textSize |`Number`  |  设置tab字体大小          |  26     |
 | textSelectColor |`String`  |  设置tab字体选中颜色          |  #ffffff，底部位置：#2C97DE     |
 | textUnselectColor |`String`  |   设置tab字体未选中颜色         |  #eeeeee，底部位置：#333333     |
-| iconVisible <Tag value="slidingTop 无效"/> |`Boolean`  | 设置tab图标是否可见           |  false，底部位置：true     |
-| iconGravity <Tag value="slidingTop 无效"/> |`Number`  |  设置tab图标显示位置，<br/>上方:`1`<br/>下方:`0`          |  1     |
-| iconWidth <Tag value="slidingTop 无效"/> |`Number`  |  设置tab图标宽度          |  40     |
-| iconHeight <Tag value="slidingTop 无效"/> |`Number`  |   设置tab图标高度         |  40     |
-| iconMargin <Tag value="slidingTop 无效"/> |`Number`  |  设置tab图标与文字间距          |  10     |
+| iconVisible <Tag value="slidingTop 无效" valueBgcolor="#cccccc"/> |`Boolean`  | 设置tab图标是否可见           |  false，底部位置：true     |
+| iconGravity <Tag value="slidingTop 无效" valueBgcolor="#cccccc"/> |`Number`  |  设置tab图标显示位置，<br/>上方:`1`<br/>下方:`0`          |  1     |
+| iconWidth <Tag value="slidingTop 无效" valueBgcolor="#cccccc"/> |`Number`  |  设置tab图标宽度          |  40     |
+| iconHeight <Tag value="slidingTop 无效" valueBgcolor="#cccccc"/> |`Number`  |   设置tab图标高度         |  40     |
+| iconMargin <Tag value="slidingTop 无效" valueBgcolor="#cccccc"/> |`Number`  |  设置tab图标与文字间距          |  10     |
+| preload <Tag date="20200105" value="1.0.41+"/> |`Boolean`  |  是否预加载所有子页面：<br/>`true`: 预加载所有子页面；<br/>`false`: 第一次切换到时加载子页面。          |  false     |
 
 > 例如：
 
