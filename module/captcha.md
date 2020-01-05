@@ -58,7 +58,7 @@ eeui.swipeCaptcha(imgUrl, callback(result))
     export default {
         methods: {
             swipeCaptcha() {
-                eeui.swipeCaptcha(null, (res)=>{
+                eeui.swipeCaptcha("", (res)=>{
                     switch (res.status) {
                         case "success":
                             eeui.toast("验证成功");
@@ -101,7 +101,7 @@ eeui.swipeCaptcha(imgUrl, callback(result))
 
 ```js
 //示例①
-eeui.swipeCaptcha(null, function(result) {
+eeui.swipeCaptcha("", function(result) {
     //......
 });
 

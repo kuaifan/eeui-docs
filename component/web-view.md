@@ -138,7 +138,7 @@ eeui.adDialog("http://..../xxx.png", function(res) {
     <script type="text/javascript">
         function openScan() {
             let eeui = requireModuleJs("eeui");
-            eeui.openScaner(null, function(res) {
+            eeui.openScaner({}, function(res) {
                 switch (res.status) {
                     case "success":
                         eeui.toast("识别成功：" + res.text);

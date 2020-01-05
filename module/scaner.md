@@ -57,7 +57,7 @@ eeui.openScaner({params}, callback(result))
     export default {
         methods: {
             openScaner() {
-                eeui.openScaner(null, (res)=>{
+                eeui.openScaner({}, (res)=>{
                     switch (res.status) {
                         case "success":
                             eeui.toast("识别成功：" + res.text);
@@ -115,7 +115,7 @@ eeui.openScaner({params}, callback(result))
 
 ```js
 //示例①
-eeui.openScaner(null, function(result) {
+eeui.openScaner({}, function(result) {
     //......
 });
 
