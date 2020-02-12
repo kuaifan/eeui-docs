@@ -60,20 +60,21 @@ pod install
 ## 模板目录结构
 
 ```text
-├── common                  // 公共文件
-│   ├── backup              // ├── 备份目录
-│   └── dist                // ├── 静态资源生成目录
-├── node_modules            // node依赖
-├── platforms               // 平台源码
-│   ├── android             // ├── 安卓平台源码
-│   └── ios                 // └── iOS平台源码
-├── plugins                 // 平台插件程序
-├── src                     // 开发路径
-│   ├── appboard            // ├── appboard
-│   ├── components          // ├── 封装的组件
-│   └── pages               // └── 开发页面  
-├── eeui.config.js          // 客户端相关配置
-└── package.json            // npm项目及依赖说明
+项目根目录
+    ├── common                  // 公共文件
+    │   ├── backup              // ├── 备份目录
+    │   └── dist                // ├── 静态资源生成目录
+    ├── node_modules            // node依赖
+    ├── platforms               // 平台源码
+    │   ├── android             // ├── 安卓平台源码
+    │   └── ios                 // └── iOS平台源码
+    ├── plugins                 // 平台插件程序
+    ├── src                     // 开发路径
+    │   ├── appboard            // ├── appboard
+    │   ├── components          // ├── 封装的组件
+    │   └── pages               // └── 开发页面  
+    ├── eeui.config.js          // 客户端相关配置
+    └── package.json            // npm项目及依赖说明
 ```
 
 首次打开我们已经为您内置了由一些 `demo`，您可以看到相关的页面，下面在开发之前还需要进行一些相关的配置和调试的学习。

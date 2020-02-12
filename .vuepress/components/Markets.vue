@@ -1,55 +1,62 @@
 <template>
     <div class="markets-main">
 
-        <v-progress ref="myLoading"/>
+        <v-progress ref="myLoading" style="top:3.6rem"/>
 
         <div class="markets-body">
 
-            <div class="title">EEUI.APP 插件市场</div>
+            <div class="markets-menu">
 
-            <div class="search-opendoc">
-                <div class="search">
-                    <input type="text" v-model="key" placeholder="搜索插件" @keydown.enter="search"/>
-                    <em @click="search"></em>
-                </div>
-                <div class="opendoc" @click="opendoc">开发文档</div>
-            </div>
-
-            <div class="type">
-                <div :class="[type==='all' ? 'active' : '']" @click="type='all'">　全部　</div><div v-for="(item, index) in pluginsTypes" :key="index" :class="[type===item.name ? 'active' : '']" @click="type=item.name">{{item.title}}</div>
-            </div>
-
-            <div class="lists">
-                <div v-for="(item, index) in lists" class="item" :key="index" @click="detail(item.name)">
-                    <div class="card-title">
-                        <div class="name">
-                            <span>{{item.title}} | {{item.name}}</span>
-                            <div v-if="item.android === 1" class="logo-android"></div>
-                            <div v-if="item.ios === 1" class="logo-apple"></div>
+                <div class="markets-menu-box">
+                    <div class="markets-search">
+                        <div class="markets-search-box">
+                            <input type="text" v-model="key" placeholder="搜索插件" @keydown.enter="search"/>
+                            <em v-if="key" @click="delKey"><svg t="1581495858176" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3362" width="18" height="18"><path d="M265.28 310.72a32 32 0 0 1 45.44-45.44l448 448a32 32 0 0 1-45.44 45.44z" p-id="3363" fill="#777777"></path><path d="M713.28 265.28a32 32 0 0 1 45.44 45.44l-448 448a32 32 0 0 1-45.44-45.44z" p-id="3364" fill="#777777"></path></svg></em>
                         </div>
                     </div>
-                    <div class="up">
-                        <div class="author">
-                            <img :src="item.userimg"/>
-                            <span>{{item.username}}</span>
-                            <div v-if="item.userid === 1" class="volcano">官方</div>
-                            <div v-else class="purple">开发者</div>
-                        </div>
-                        <!--<div class="installcount">
-                            <div class="download-outline"></div><span>{{item.install}}</span>
-                        </div>-->
-                    </div>
-                    <div class="desc"><span>{{item.desc}}</span></div>
-                    <div class="low">
-                        <div class="rate">
-                            <em v-for="i in 5" :key="i"></em>
-                        </div>
-                        <button class="install">安装</button>
+
+                    <div class="markets-type">
+                        <div :class="[type === 'all' ? 'active' : '']" @click="type='all'">全部</div><div v-for="(item, index) in pluginsTypes" :key="index" :class="[type===item.name ? 'active' : '']" @click="type=item.name">{{item.title}}</div>
                     </div>
                 </div>
+
             </div>
-            <button v-if="nextPage > 1" @click="load" class="more">点击加载更多...</button>
-            <div class="error" v-else-if="loadError">{{loadError}}</div>
+
+            <div class="markets-list">
+
+                <div class="markets-title">
+                    <h2>EEUI.APP 插件市场</h2>&nbsp;
+                    <Tag class="tag" value="2.x"/>
+                    <div class="empty"></div>
+                    <div class="tlink" @click="oldmarkets">1.x 插件市场</div>
+                    <div class="tlink" @click="opendoc">开发文档</div>
+                </div>
+
+                <ul class="markets-ul">
+                    <li v-for="(item, index) in lists" :key="index">
+                        <div class="plugin-name">
+                            <div class="name">
+                                <span @click="detail(item)">{{item.username}}/{{item.name}}</span>
+                                <div v-if="item.userid === 1" class="official">官方</div>
+                            </div>
+                        </div>
+                        <div class="plugin-desc"><span>{{item.desc}}</span></div>
+                        <div class="plugin-bottom">
+                            <div class="rate">
+                                <em v-for="i in 5" :key="i"><svg viewBox="0 0 24 24" width="100%" height="100%"><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></em>
+                            </div>
+                            <div v-if="item.install > 5" class="install">{{item.install}}</div>
+                            <div v-if="item.android === 1" class="android">Android</div>
+                            <div v-if="item.ios === 1" class="ios">iOS</div>
+                            <div class="tags">
+                                <div v-for="tag in item.types">{{tagTitle(tag)}}</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="error" v-if="loadError">{{loadError}}</div>
+                <div class="page" v-else-if="lists.length > 0 && listTotal > 10"><Page :current="listPage" :total="listTotal" @on-change="setPage"></Page></div>
+            </div>
 
         </div>
     </div>
@@ -62,348 +69,311 @@
     }
 
     .markets-body {
-        max-width: 1200px;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+        display: flex;
         margin: 0 auto;
-        text-align: center;
-        font-family: PingFang SC, Helvetica Neue, Hiragino Sans GB, Segoe UI, Microsoft YaHei, 微软雅黑, sans-serif;
+        padding: 0;
         color: #232f40;
-        padding: 50px 0 0;
-        box-sizing: border-box;
         font-size: 14px;
+        line-height: 1.5;
+        box-sizing: border-box;
         -webkit-font-smoothing: antialiased;
         -webkit-overflow-scrolling: touch;
-        line-height: 1.5;
 
         * {
             box-sizing: border-box;
         }
 
-        .title {
-            text-align: center;
-            font-size: 38px;
-            font-weight: 500;
-        }
+        .markets-menu {
+            width: 260px;
 
-        .search-opendoc {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 32px auto 0;
-            .search {
-                position: relative;
-                width: 320px;
-                input {
-                    appearance: none;
-                    -webkit-appearance: none;
-                    width: 100%;
-                    font-size: 14px;
-                    padding: 6px 36px 6px 7px;
-                    height: 38px;
-                    line-height: 38px;
-                    border: 1px solid #dcdee2;
-                    border-radius: 4px;
-                    color: #515a6e;
-                    background-color: #fff;
-                    background-image: none;
-                    position: relative;
-                    cursor: text;
-                    outline: none;
-                }
-                em {
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    height: 100%;
-                    width: 36px;
+            .markets-menu-box {
+                padding-right: 32px;
+
+                .markets-search {
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    background: url("./images/sreach.png") no-repeat center;
-                    background-size: 16px;
-                    cursor: pointer;
-                }
-            }
-            .opendoc {
-                position: relative;
-                margin-left: 18px;
-                padding-right: 19px;
-                font-size: 14px;
-                cursor: pointer;
-                font-weight: 500;
-                color: #3eb4ff;
-
-                &:before {
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    width: 20px;
-                    height: 20px;
-                    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAOVBMVEUAAADvKmDwLGLvIGDwLGLwLWLwLGLvLGPvLWPvLWLvLWPvKGDvLWPvLGLwLGPxLGPvK2LwLGPwLWNKwKIqAAAAEnRSTlMAMMAQgO/gkKBgUCDw0LA/cM/kHkhUAAAAqUlEQVQ4y82SSw7DIAxE+TikCQVS3/+wdQHFjsJnV+UtkGBGgxmh/olOfmwwiB+wQwOx6L7BYWbr6TuJw4yAFUObA276gScUETHaq66RAWWXEsTQCfNSUHyCFQVGF7vvBKBzNUk+scXSuYHRouUm+8wA04TZDOk0bNhE9PBGRjTKADbwirG5vKttVRL9u8TKWUIRpMPJaYO9/Xpj8lrzWWdK9SnS/F49ii8nmhpOYjR3OgAAAABJRU5ErkJggg==) no-repeat center right;
-                    background-size: 16px;
-                    animation: opendoc-shake-hard 300ms ease-in-out infinite;
-                    @keyframes opendoc-shake-hard {
-                        33% {
-                            transform:rotate(-30deg)
+                    margin: 0;
+                    .markets-search-box {
+                        position: relative;
+                        width: 100%;
+                        input {
+                            appearance: none;
+                            -webkit-appearance: none;
+                            width: 100%;
+                            font-size: 14px;
+                            padding: 2px 32px;
+                            height: 38px;
+                            line-height: 38px;
+                            border: 1px solid #dcdee2;
+                            border-radius: 4px;
+                            color: #515a6e;
+                            background-color: #fff;
+                            background-image: none;
+                            position: relative;
+                            cursor: text;
+                            outline: none;
                         }
-                        66% {
-                            transform: rotate(30deg)
+                        &:before {
+                            content: ' ';
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            height: 100%;
+                            width: 36px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            background: url("./images/sreach.png") no-repeat center;
+                            background-size: 16px;
+                            cursor: pointer;
+                            z-index: 1;
                         }
-                        0%, 100% {
-                            transform:rotate(0)
+                        em {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            height: 100%;
+                            width: 36px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            cursor: pointer;
+                            z-index: 1;
                         }
                     }
                 }
-            }
-        }
 
-        .type {
-            display: block;
-            align-items: center;
-            justify-content: center;
-            margin: 38px auto;
-            > div {
-                display: inline-block;
-                transition: all .2s ease-in-out;
-                cursor: pointer;
-                border: 1px solid #dcdee2;
-                border-left: 0;
-                background: #fff;
-                position: relative;
-                margin: 0;
-                padding: 0 15px;
-                height: 36px;
-                line-height: 33px;
-                font-size: 14px;
-                white-space: nowrap;
-                &:first-child {
-                    border-left: 1px solid #dcdee2;
-                    border-radius: 3px 0 0 3px;
-                    &.active {
-                        box-shadow: none;
-                    }
-                }
-                &:last-child {
-                    border-radius: 0 3px 3px 0;
-                }
-                &:after,
-                &:before {
-                    content: "";
+                .markets-type {
                     display: block;
-                    position: absolute;
-                    width: 1px;
-                    height: 100%;
-                    left: -1px;
-                    top: 0;
-                    background: #dcdee2;
-                    -webkit-transition: all .2s ease-in-out;
-                    transition: all .2s ease-in-out;
-                }
-                &:hover {
-                    color: #2d8cf0;
-                }
-                &.active {
-                    color: #2d8cf0;
-                    border-color: #2d8cf0;
-                    box-shadow: -1px 0 0 0 #2d8cf0;
-                    z-index: 1;
-                    &:before {
-                        background: #2d8cf0;
-                        opacity: .1;
-                    }
-                    &:after {
-                        height: 36px;
-                        left: -1px;
-                        top: -3px;
-                        background: rgba(45,140,240,.2);
-                        opacity: 0;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 28px auto;
+                    > div {
+                        display: block;
+                        transition: all .2s ease-in-out;
+                        cursor: pointer;
+                        border-top: 1px solid #e8e8e8;
+                        border-right: 1px solid #e8e8e8;
+                        border-left: 1px solid #e8e8e8;
+                        color: #555;
+                        background: #fff;
+                        position: relative;
+                        margin: 0;
+                        padding: 0 15px;
+                        height: 38px;
+                        line-height: 36px;
+                        font-size: 14px;
+                        white-space: nowrap;
+                        &:first-child {
+                            border-radius: 3px 3px 0 0;
+                        }
+                        &:last-child {
+                            border-radius: 0 0 3px 3px;
+                            border-bottom: 1px solid #e8e8e8;
+                        }
+                        &:hover {
+                            color: #5FB4F9;
+                        }
+                        &.active {
+                            color: #5FB4F9;
+                            border-left-color: #5FB4F9;
+                            font-weight: 500;
+                        }
                     }
                 }
             }
         }
 
-        .lists {
-            display: flex;
-            flex-wrap: wrap;
-            margin: 0 -20px;
-            .item {
-                display: flex;
-                flex-wrap: wrap;
-                align-content: space-between;
-                width: calc(33.33% - 40px);
-                padding: 20px;
-                margin: 0 20px 40px;
-                border: 1px solid #f0f0f0;
-                border-radius: 3px;
-                background-color: #fff;
-                text-align: left;
-                transition: all .2s ease-in-out;
-                &:hover{
-                    box-shadow: 0 4px 10px rgba(3, 65, 157, .1);
-                }
-                .card-title {
-                    display: flex;
-                    align-items: center;
-                    width: 100%;
-                    margin-bottom: 0.75rem;
-                }
-                .name {
-                    display: flex;
-                    align-items: center;
-                    color: #666;
-                    font-size: 18px;
-                    font-weight: 500;
-                    width: 100%;
-                    span {
-                        flex: 1;
-                        margin-right: 6px;
-                        white-space: nowrap;
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                        cursor: pointer;
-                    }
-                    .logo-android,
-                    .logo-apple {
-                        display: inline-block;
-                        width: 28px;
-                        height: 28px;
-                        background: url("./images/android.png") no-repeat right;
-                        background-size: 16px;
-                    }
+        .markets-list {
+            flex: 1;
 
-                    .logo-apple {
-                        background-image: url("./images/ios.png");
+            .markets-title {
+                position: relative;
+                display: flex;
+                align-items: center;
+                padding-bottom: 16px;
+                border-bottom: 1px solid #e1e4e8;
+                h2 {
+                    font-size: 24px;
+                    font-weight: 500;
+                    border: 0;
+                    margin: 0;
+                    padding: 0;
+                }
+                .tag {
+                    margin-left: 6px;
+                }
+                .empty {
+                    flex: 1;
+                }
+                .tlink {
+                    margin-left: 12px;
+                    padding-right: 6px;
+                    font-size: 14px;
+                    cursor: pointer;
+                    font-weight: 500;
+                    color: #3eb4ff;
+                    &:hover {
+                        text-decoration: underline;
                     }
                 }
-                .card-title{
-                    .tag {
-                        flex-shrink: 0;
-                        padding: 4px 2px;
-                        margin-left: 5px;
-                        border: 1px solid #717b8e;
-                        font-size: 10px;
-                        color: #717b8e;
-                    }
-                }
-                .up {
+            }
+
+
+            ul.markets-ul {
+                display: block;
+                margin: 0;
+                padding: 6px 0 0 0;
+                > li {
                     display: flex;
-                    justify-content: space-between;
-                    align-items: center;
+                    flex-wrap: wrap;
+                    align-content: space-between;
                     width: 100%;
-                    color: #6f7b8e;
-                    padding-bottom: 10px;
-                }
-                .author {
-                    display: flex;
-                    align-items: center;
-                    img {
-                        width: 22px;
-                        height: 22px;
-                        margin-right: 6px;
-                        border-radius: 50%;
-                    }
-                    span {
-                        margin-right: 8px;
-                        line-height: normal;
-                    }
-                    .volcano,
-                    .purple {
-                        display: inline-block;
-                        height: 20px;
-                        line-height: 18px;
-                        margin: 2px 4px 2px 0;
-                        padding: 0 8px;
-                        border: 1px solid #ffbb96;
-                        border-radius: 3px;
-                        color: #fa541c;
-                        background: #fff2e8;
-                        font-size: 12px;
-                        vertical-align: middle;
-                        opacity: 1;
-                        overflow: hidden;
-                        cursor: pointer;
-                    }
-                    .purple {
-                        background: #f9f0ff;
-                        border-color: #d3adf7;
-                        color: #722ed1;
-                    }
-                }
-                .installcount {
-                    display: flex;
-                    align-items: center;
-                    .download-outline {
-                        display: inline-block;
-                        width: 28px;
-                        height: 28px;
-                        background: url("./images/down.png") no-repeat center;
-                        background-size: 16px;
-                    }
-                    span {
-                        padding-left: 6px;
-                    }
-                }
-                .desc {
-                    width: 100%;
-                    height: 60px;
-                    word-break: break-all;
-                    overflow: hidden;
-                    position: relative;
-                    color: #777;
-                    padding-bottom: 10px;
-                    &:after {
-                        content: '';
-                        width: 60px;
-                        height: 20px;
-                        background: linear-gradient(to right, rgba(255, 255, 255, 0), #fff);
-                        background: -webkit-linear-gradient(0deg, rgba(255, 255, 255, 0),#fff);
-                        position: absolute;
-                        bottom: 0;
-                        right: 0;
-                    }
-                }
-                .low {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    width: 100%;
-                    .rate {
+                    margin: 26px 0 0;
+                    padding-bottom: 22px;
+                    border-bottom: 1px solid #f0f0f0;
+                    background-color: #fff;
+                    text-align: left;
+                    transition: all .2s ease-in-out;
+                    .plugin-name {
                         display: flex;
                         align-items: center;
-                        em {
-                            width: 14px;
-                            height: 14px;
-                            margin-right: 4px;
-                            background-repeat: no-repeat;
-                            background-size: contain;
-                            background-position: left;
-                            background-image: url("./images/star.png");
-                        }
-                    }
-                    button {
-                        padding: 2px 14px;
-                        border: 1px solid;
-                        font-size: 14px;
-                        outline: none;
-                        cursor: pointer;
-                        border-radius: 2px;
-                        transition: color .2s ease, background-color .2s ease;
-                        &.install {
-                            border-color: #3EB4FF;
-                            color: #3EB4FF;
-                            background-color: #fff;
-                            &:hover {
-                                color: #fff;
-                                background-color: #3EB4FF;
+                        width: 100%;
+                        margin-bottom: 0.75rem;
+                        .name {
+                            display: flex;
+                            align-items: center;
+                            color: #666;
+                            font-size: 18px;
+                            font-weight: 500;
+                            width: 100%;
+                            span {
+                                margin-right: 6px;
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                cursor: pointer;
+                                color: #3eb4ff;
+                                &:hover {
+                                    text-decoration: underline;
+                                }
+                            }
+                            .official{
+                                font-weight: 400;
+                                color: #586069;
+                                background-color: initial;
+                                border: 1px solid rgba(27,31,35,.15);
+                                box-shadow: none;
+
+                                height: 20px;
+                                line-height: 18px;
+                                margin: 2px 2px 2px 0;
+                                padding: 0 5px;
+                                border-radius: 3px;
+                                font-size: 12px;
+                                overflow: hidden;
                             }
                         }
-                        &.uninstall {
-                            border-color:#5f6c81;
-                            color: #5f6c81;
-                            background-color: #fff;
-                            &:hover {
-                                color: #fff;
-                                background-color: #5f6c81;
+                    }
+                    .plugin-desc {
+                        color: #3c4043;
+                        width: 100%;
+                        max-height: 66px;
+                        line-height: 22px;
+                        word-break: break-all;
+                        overflow: hidden;
+                        position: relative;
+                        margin-bottom: 10px;
+                        &:after {
+                            content: '';
+                            width: 60px;
+                            height: 20px;
+                            background: linear-gradient(to right, rgba(255, 255, 255, 0), #fff);
+                            background: -webkit-linear-gradient(0deg, rgba(255, 255, 255, 0),#fff);
+                            position: absolute;
+                            bottom: 0;
+                            right: 0;
+                        }
+                    }
+                    .plugin-bottom {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        width: 100%;
+                        color: #5f6368;
+                        .rate {
+                            display: flex;
+                            align-items: center;
+                            em {
+                                width: 16px;
+                                height: 16px;
+                                svg {
+                                    fill: #5f6368;
+                                }
+                            }
+                        }
+                        .install {
+                            margin-left: 5px;
+                            line-height: normal;
+                        }
+                        .android,
+                        .ios {
+                            margin-left: 14px;
+                            padding-left: 14px;
+                            position: relative;
+                            line-height: normal;
+                            font-size: 13px;
+                            color: #666;
+                            &:before {
+                                position: absolute;
+                                content: " ";
+                                top: 50%;
+                                left: 0;
+                                transform: translate(0, -50%);
+                                width: 12px;
+                                height: 12px;
+                                border-radius: 50%;
+                                background: #AFBF5B;
+                            }
+                        }
+                        .ios {
+                            &:before {
+                                background: #818694;
+                            }
+                        }
+                        .tags {
+                            margin-left: 14px;
+                            flex: 1;
+                            height: 23px;
+                            overflow: hidden;
+                            div {
+                                margin: 0;
+                                padding: 2px 12px 0 0;
+                                display: inline-block;
+                                position: relative;
+                                vertical-align: top;
+                                line-height: normal;
+                                font-size: 13px;
+                                color: #666;
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                &:after {
+                                    position: absolute;
+                                    content: "、";
+                                    top: 0;
+                                    right: 0;
+                                    width: 12px;
+                                    overflow: hidden;
+                                }
+                                &:last-child {
+                                    padding-right: 0;
+                                    &:after {
+                                        content: '';
+                                    }
+                                }
                             }
                         }
                     }
@@ -413,73 +383,28 @@
 
         .error {
             color: #777;
+            padding: 18px 0 0;
         }
 
-        .more {
-            display: inline-block;
-            border: 1px solid #dcdee2;
-            white-space: nowrap;
-            padding: 8px 22px;
-            font-size: 12px;
-            border-radius: 3px;
-            transition: all .2s linear;
-            color: #515a6e;
-            background-color: #fff;
-            cursor: pointer;
-            outline: none;
-            &:hover {
-                color: #57a3f3;
-                background-color: #fff;
-                border-color: #57a3f3;
-            }
-        }
-    }
-
-    @media screen and (max-width: 1200px) {
-        .markets-body {
-            padding-left: 15px;
-            padding-right: 15px;
-            .lists {
-                margin: 0;
-                .item {
-                    width: calc(50% - 40px);
-                }
-            }
-        }
-    }
-
-    @media screen and (max-width: 800px) {
-        .markets-body {
-            padding-top: 42px;
-            padding-bottom: 42px;
-            .title {
-                font-size: 28px;
-            }
-            .search {
-                width: 85%;
-                height: 46px;
-            }
-            .lists {
-                margin-left: 6px;
-                margin-right: 6px;
-                margin-bottom: 20px;
-                .item {
-                    width: 100%;
-                    margin-left: 0;
-                    margin-right: 0;
-                    margin-bottom: 15px;
-                }
+        .page {
+            margin-top: 24px;
+            .ivu-page {
+                padding-left: 0;
             }
         }
     }
 </style>
 <script>
-    import {each, pluginsTypes} from "./js/common";
+    import { each, pluginsTypes } from "./js/common";
+    import { Page } from 'iview';
     import axios from 'axios'
     import VProgress from "./Progress";
+    import Tag from "./Tag";
+    import "./css/ivu-icon.scss"
+    import "./css/ivu-page.scss"
 
     export default {
-        components: {VProgress},
+        components: {Tag, VProgress, Page},
         data() {
             return {
                 pluginsTypes: pluginsTypes(),
@@ -487,96 +412,115 @@
                 key: '',
                 type: 'all',
 
+                loadIng: 0,
                 loadError: '',
                 lists: [],
-                nextPage: 1,
+                listPage: 1,
+                listTotal: 0,
             }
         },
         mounted() {
-            this.initTypeOrKey();
+            let query = this.$route.query || {};
+            this.key = query.key || '';
+            this.type = query.type || 'all';
+            this.listPage = Math.max(parseInt(query.page) || 1, 1);
             this.load();
         },
         watch: {
-            type(val) {
-                if (val) {
-                    window.location.replace("#" + (val === 'all' ? '' : val));
-                    this.key = '';
-                    this.nextPage = 1;
-                    this.lists = [];
-                    this.load();
-                }
+            '$route' () {
+                this.load();
+            },
+            type() {
+                this.listPage = 1;
+                this.key = '';
+                this.loadBefore();
             }
         },
         methods: {
-            initTypeOrKey() {
-                let hash = this.$route.hash + "";
-                if (hash.indexOf("#") === 0) {
-                    hash = hash.substr(1)
-                }
-                if (hash) {
-                    let isType = false;
-                    each(this.pluginsTypes, (index, item) => {
-                        if (hash === item.name) {
-                            this.key = '';
-                            this.type = hash;
-                            return isType = true;
-                        }
-                    });
-                    if (!isType) {
-                        this.key = decodeURIComponent(hash);
-                        this.type = '';
-                    }
+            delKey() {
+                this.key = "";
+                //
+                let query = this.$route.query || {};
+                let key = query.key || '';
+                if (key !== '') {
+                    this.search();
                 }
             },
             search() {
-                window.location.replace("#" + this.key);
-                this.type = this.key ? '' : 'all';
-                this.nextPage = 1;
-                this.lists = [];
-                this.load();
+                this.listPage = 1;
+                this.type = 'all';
+                this.loadBefore();
+            },
+            setPage(page) {
+                this.listPage = page;
+                this.loadBefore();
+            },
+            tagTitle(name) {
+                let lists = pluginsTypes();
+                let title = '';
+                each(lists, (key, info) => {
+                    if (info.name === name) {
+                        title = info.title;
+                    }
+                });
+                return title;
+            },
+            loadBefore() {
+                let query = {
+                    page: this.listPage
+                };
+                if (this.key) {
+                    query.key = this.key;
+                }
+                if (this.type) {
+                    query.type = this.type;
+                }
+                this.$router.push({ query: query });
             },
             load() {
                 this.loadError = '';
                 let timeOut = setTimeout(() => { this.$refs.myLoading.start(); }, 50);
                 //
-                axios.get('https://console.eeui.app/api/plugin?__Access-Control-Allow-Origin=1', {
+                this.loadIng++;
+                axios.get('https://console.eeui.app/api/plugins/client?__Access-Control-Allow-Origin=1', {
                     params : {
                         where: {
                             name: this.key,
                             type: this.type
                         },
-                        page: this.nextPage,
-                        pagesize: 30,
+                        page: Math.max(this.listPage, 1),
+                        pagesize: 10,
                     }
                 }).then((response) => {
                     clearInterval(timeOut);
                     this.$refs.myLoading.end();
+                    this.loadIng--;
                     //
                     if (response.status !== 200) {
-                        this.nextPage = 0;
+                        this.lists = [];
+                        this.listPage = 1;
                         this.loadError = "网络繁忙，请稍后再试......";
                         return;
                     }
                     let res = response.data;
                     if (res.ret === 1) {
-                        if (res.data.currentPage === 1) {
-                            this.lists = [];
-                        }
-                        res.data.lists.forEach((item) => {
-                            this.lists.push(item);
-                        });
-                        this.nextPage = res.data.hasMorePages ? res.data.currentPage + 1 : 0;
-                    }else{
-                        this.nextPage = 0;
+                        this.lists = res.data.lists;
+                        this.listTotal = res.data.total;
+                    } else {
+                        this.lists = [];
+                        this.listTotal = 0;
                         this.loadError = res.msg;
                     }
                 })
             },
-            detail(name) {
-                this.$router.push({path: 'detail.html', hash: name})
+            detail(item) {
+                this.$router.push({path: item.username + "/" + item.name})
+            },
+            oldmarkets() {
+                this.$router.push({path: '1x'})
             },
             opendoc() {
-                this.$router.push({path: '/plugin/dev/create.html'})
+                this.$router.push({path: '../plugin/dev/create.html'})
             }
         }
     }

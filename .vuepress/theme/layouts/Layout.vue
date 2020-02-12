@@ -31,6 +31,12 @@
 
         <Home v-if="$page.frontmatter.home"/>
 
+        <main v-else-if="isMarketsDetail" class="page">
+            <div class="theme-default-content content__default">
+                <MarketsDetail></MarketsDetail>
+            </div>
+        </main>
+
         <Page
             v-else
             :sidebar-items="sidebarItems"
@@ -53,12 +59,14 @@
     import Page from '@theme/components/Page.vue'
     import Sidebar from '@theme/components/Sidebar.vue'
     import {resolveSidebarItems} from '../util'
+    import MarketsDetail from "../../components/MarketsDetail";
 
     export default {
-        components: {Home, Page, Sidebar, Navbar},
+        components: {MarketsDetail, Home, Page, Sidebar, Navbar},
 
         data() {
             return {
+                isMarketsDetail: false,
                 isSidebarOpen: false
             }
         },
@@ -116,6 +124,9 @@
             this.$router.afterEach(() => {
                 this.isSidebarOpen = false
             });
+            if ((this.$route.path + "").match(/^\/markets\/(([^/]+)\/([^/]+))\/*$/)) {
+                this.isMarketsDetail = true;
+            }
         },
 
         methods: {

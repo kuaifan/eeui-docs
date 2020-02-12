@@ -2,9 +2,9 @@
     <div v-if="show" class="md-badge-new-main"><div v-if="tags" v-for="tag in tags" class="md-badge-value" :style="{backgroundColor:valueBgcolor||'#e7c000'}">{{tag}}</div><div v-if="title" class="md-badge-new" :title="title">新</div></div>
 </template>
 
-<style lang="stylus" scoped>
+<style lang="scss" scoped>
     .md-badge-new-main {
-        display inline-block;
+        display: inline-block;
         .md-badge-new,
         .md-badge-value {
             display:inline-block;

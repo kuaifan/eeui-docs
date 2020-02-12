@@ -1,9 +1,12 @@
 <template>
-    <div class="theme-container">
-        <div v-if="show" class="content">
-            <h1>404</h1>
-            <blockquote>{{ getMsg() }}</blockquote>
-            <router-link to="/">Take me home.</router-link>
+    <div>
+        <Layout v-if="isMarketsDetail"></Layout>
+        <div v-else class="theme-default-content">
+            <div v-if="show" class="theme-default-content">
+                <h1>404</h1>
+                <blockquote>{{ getMsg() }}</blockquote>
+                <router-link to="/">Take me home.</router-link>
+            </div>
         </div>
     </div>
 </template>
@@ -22,10 +25,15 @@
         data() {
             return {
                 show: false,
+                isMarketsDetail: false,
             }
         },
 
-        created() {
+        mounted() {
+            if ((this.$route.path + "").match(/^\/markets\/(([^/]+)\/([^/]+))\/*$/)) {
+                this.isMarketsDetail = true;
+                return;
+            }
             let newUrl = redirect[this.$route.path];
             if (typeof newUrl === "string" && newUrl) {
                 this.$router.replace(newUrl);

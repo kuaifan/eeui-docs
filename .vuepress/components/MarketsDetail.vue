@@ -1,7 +1,7 @@
 <template>
     <div class="markets-main">
 
-        <v-progress ref="myLoading"/>
+        <v-progress ref="myLoading" style="top:3.6rem"/>
 
         <div class="markets-body markets-detail">
 
@@ -12,40 +12,51 @@
             </div>
 
             <div v-if="detail.name" class="market-overview">
-                <div class="title">
-                    <div class="name">
-                        <span>{{detail.title}} | {{detail.name}}</span>
-                        <div v-if="detail.android === 1" class="logo-android"></div>
-                        <div v-if="detail.ios === 1" class="logo-apple"></div>
-                    </div>
-                </div>
-                <div class="tags">
-                    <div v-for="item in detail.types">{{tagTitle(item)}}</div>
-                </div>
-                <div class="desc">{{detail.desc}}</div>
-                <div class="detail">
-                    <div class="author">
-                        <img v-if="detail.userimg" :src="detail.userimg">
-                        <span>{{detail.username}}</span>
-                        <div v-if="detail.userid === 1" class="volcano">官方</div>
-                        <div v-else class="purple">开发者</div>
-                    </div>
-                    <div class="divide"></div>
-                    <!--<div class="installcount">
-                        <div class="download-outline"></div>
-                        <span>{{detail.install}}</span>
-                    </div>
-                    <div class="divide"></div>-->
-                    <div class="score">
-                        <div class="rate">
-                            <em v-for="i in 5" :key="i"></em>
+                <div class="market-overview-left">
+                    <div class="card-name">
+                        <div class="name">
+                            <span>{{detail.username}}/{{detail.name}}</span>
                         </div>
                     </div>
+                    <div class="desc">{{detail.desc}}</div>
+                    <div class="tags">
+                        <div v-for="item in detail.types">{{tagTitle(item)}}</div>
+                    </div>
+                    <div class="detail">
+                        <div class="author">
+                            <img v-if="detail.userimg" :src="detail.userimg">
+                            <span>{{detail.username}}</span>
+                            <div v-if="detail.userid === 1" class="official">官方</div>
+                        </div>
+                        <div class="divide"></div>
+                        <template v-if="detail.install > 5">
+                            <div class="installcount">
+                                <div class="download-outline"></div>
+                                <span>{{detail.install}}</span>
+                            </div>
+                            <div class="divide"></div>
+                        </template>
+                        <div class="score">
+                            <div class="rate">
+                                <em v-for="i in 5" :key="i"></em>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="market-overview-right">
+                    <Poptip v-if="installContent" placement="bottom-end">
+                        <Button type="info">安装到项目</Button>
+                        <div slot="content">
+                            <markdown-preview class="install-code" :initialValue="installContent" theme="oneDark"></markdown-preview>
+                        </div>
+                    </Poptip>
                 </div>
             </div>
 
             <div ref="marketmenu" class="market-menu" v-html="marketMenu" @click="clickMenu"></div>
-            <div ref="marketdoc" class="market-doc" v-html="detail.content"></div>
+            <div ref="marketview" class="market-view">
+                <markdown-preview :initialValue="detail.content" theme="oneDark"></markdown-preview>
+            </div>
 
         </div>
     </div>
@@ -54,14 +65,13 @@
 <style lang="scss">
     .markets-body {
         .market-menu {
-            padding-top: 10px;
-            border-top: 1px solid #d2d5da;
+            padding-top: 16px;
+            border-top: 2px solid #f1f3f4;
             .menu-0,.menu-1,.menu-2,.menu-3,.menu-4 {
                 position: relative;
                 color: #3eb4ff;
                 font-size: 16px;
                 line-height: 1.7;
-                cursor: pointer;
                 font-weight: 500;
                 text-decoration: none;
                 padding-left: 18px;
@@ -80,11 +90,12 @@
                     border-radius: 50%;
                     transform: translateY(-50%);
                 }
-                &:hover {
-                    text-decoration: underline;
-                }
                 > span {
                     display: inline-block;
+                    cursor: pointer;
+                    &:hover {
+                        text-decoration: underline;
+                    }
                 }
             }
             .menu-0 {
@@ -105,6 +116,32 @@
                 margin-left: 90px;
             }
         }
+        .market-view {
+            padding: 0 0 50px;
+            .markdown-preview {
+                padding: 12px !important;
+                h2, h3, h4, h5, h6 {
+                    border-bottom: 0;
+                }
+                table {
+                    border: 0;
+                }
+            }
+        }
+        .install-code {
+            .markdown-preview {
+                padding: 6px 6px 12px !important;
+                .code-block {
+                    pre {
+                        padding: 12px 10px!important;
+                        margin: 4px 0 !important;
+                    }
+                    .copy-code {
+                        top: 0 !important;
+                    }
+                }
+            }
+        }
     }
 </style>
 <style lang="scss" scoped>
@@ -112,13 +149,11 @@
         position: relative;
         background-color: #ffffff;
     }
-
     .markets-body {
-        max-width: 1200px;
+        font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
         margin: 0 auto;
-        font-family: PingFang SC, Helvetica Neue, Hiragino Sans GB, Segoe UI, Microsoft YaHei, 微软雅黑, sans-serif;
         color: #232f40;
-        padding: 46px 0 0;
+        padding: 0;
         box-sizing: border-box;
         font-size: 14px;
         -webkit-font-smoothing: antialiased;
@@ -131,7 +166,9 @@
         .market-breadcrumb {
             display: flex;
             padding-bottom: 20px;
-            font-size: 16px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #5f6368;
             .link {
                 color: #3EB4FF;
                 cursor: pointer;
@@ -142,193 +179,172 @@
         }
 
         .market-overview {
+            display: flex;
             width: 100%;
-            padding-bottom: 30px;
-
-            .title {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-            .name {
-                font-size: 28px;
-                font-weight: 500;
-                display: flex;
-                align-items: center;
-                span {
-                    display: inline-block;
-                    margin-right: 12px;
-                }
-                .logo-android,
-                .logo-apple {
-                    display: inline-block;
-                    width: 32px;
-                    height: 32px;
-                    background: url("./images/android.png") no-repeat right;
-                    background-size: 22px;
-                }
-
-                .logo-apple {
-                    background-image: url("./images/ios.png");
-                }
-            }
-            .tags {
-                padding: 6px 0 26px;
-                color: #1f2b40;
-                word-break: break-all;
-                > div {
-                    display: inline-block;
-                    height: 24px;
-                    line-height: 22px;
-                    margin: 2px 4px 2px 0;
-                    padding: 0 8px;
-                    border: 1px solid #e8eaec;
-                    border-radius: 3px;
-                    background: #f7f7f7;
-                    font-size: 12px;
-                    vertical-align: middle;
-                    opacity: 1;
-                    overflow: hidden;
-                    color: #515a6e;
-                }
-            }
-            .desc {
-                padding: 0 0 26px;
-                color: #1f2b40;
-                word-break: break-all;
-            }
-            .detail {
-                display: flex;
-                flex-wrap: wrap;
-                align-items: center;
-                color: #5e6b82;
-            }
-            .author {
-                display: flex;
-                align-items: center;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                img {
-                    width: 20px;
-                    height: 20px;
-                    margin-right: 6px;
-                    border-radius: 50%;
-                    vertical-align: middle;
-                }
-                span {
-                    margin-right: 8px;
-                    line-height: normal;
-                }
-                .repo {
-                    color: #5e6b82;
-                    transition: opacity .2s ease;
-                    &:hover {
-                        opacity: .8;
-                    }
-                }
-                .volcano,
-                .purple {
-                    display: inline-block;
-                    height: 20px;
-                    line-height: 18px;
-                    margin: 2px 4px 2px 0;
-                    padding: 0 8px;
-                    border: 1px solid #ffbb96;
-                    border-radius: 3px;
-                    color: #fa541c;
-                    background: #fff2e8;
-                    font-size: 12px;
-                    vertical-align: middle;
-                    opacity: 1;
-                    overflow: hidden;
-                    cursor: pointer;
-                }
-                .purple {
-                    background: #f9f0ff;
-                    border-color: #d3adf7;
-                    color: #722ed1;
-                }
-            }
-            .divide {
-                width: 1px;
-                height: 20px;
-                margin: 0 16px;
-                background-color: #d9dee6;
-            }
-            .installcount {
-                display: flex;
-                align-items: center;
-                .download-outline {
-                    display: inline-block;
-                    width: 28px;
-                    height: 28px;
-                    background: url("./images/down.png") no-repeat center;
-                    background-size: 16px;
-                }
-                span {
-                    padding-left: 6px;
-                }
-            }
-            .score {
-                display: flex;
-                align-items: center;
-                margin-right: 17px;
-                .rate {
+            padding-bottom: 22px;
+            .market-overview-left {
+                flex: 1;
+                .card-name {
                     display: flex;
+                    justify-content: space-between;
                     align-items: center;
-                    em {
-                        width: 18px;
-                        height: 18px;
-                        margin-right: 8px;
-                        background-repeat: no-repeat;
-                        background-size: contain;
-                        background-position: center;
-                        background-image: url("./images/star.png");
+                    .name {
+                        font-size: 28px;
+                        font-weight: 500;
+                        display: flex;
+                        align-items: center;
+                        span {
+                            display: inline-block;
+                            margin-right: 12px;
+                        }
+                        @media screen and (max-width: 800px) {
+                            font-size: 22px;
+                        }
+                    }
+                }
+                .desc {
+                    padding: 6px 0 0;
+                    color: #777777;
+                    word-break: break-all;
+                }
+                .tags {
+                    padding: 16px 0 0;
+                    color: #1f2b40;
+                    word-break: break-all;
+                    > div {
+                        display: inline-block;
+                        height: 24px;
+                        line-height: 22px;
+                        margin: 2px 6px 2px 0;
+                        padding: 0 8px;
+                        border: 1px solid #e8eaec;
+                        border-radius: 3px;
+                        background: #f7f7f7;
+                        font-size: 12px;
+                        vertical-align: middle;
+                        opacity: 1;
+                        overflow: hidden;
+                        color: #515a6e;
+                    }
+                }
+                .detail {
+                    padding: 16px 0 0;
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    color: #5e6b82;
+                    .author {
+                        display: flex;
+                        align-items: center;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        img {
+                            width: 20px;
+                            height: 20px;
+                            margin-right: 6px;
+                            border-radius: 50%;
+                            vertical-align: middle;
+                        }
+                        span {
+                            margin-right: 8px;
+                            line-height: normal;
+                        }
+                        .repo {
+                            color: #5e6b82;
+                            transition: opacity .2s ease;
+                            &:hover {
+                                opacity: .8;
+                            }
+                        }
+                        .official {
+                            display: inline-block;
+                            height: 20px;
+                            line-height: 18px;
+                            margin: 2px 4px 2px 0;
+                            padding: 0 8px;
+                            border: 1px solid #ffbb96;
+                            border-radius: 3px;
+                            color: #fa541c;
+                            background: #fff2e8;
+                            font-size: 12px;
+                            vertical-align: middle;
+                            opacity: 1;
+                            overflow: hidden;
+                            cursor: pointer;
+                        }
+                    }
+                    .divide {
+                        width: 1px;
+                        height: 20px;
+                        margin: 0 16px;
+                        background-color: #d9dee6;
+                    }
+                    .installcount {
+                        display: flex;
+                        align-items: center;
+                        .download-outline {
+                            display: inline-block;
+                            width: 28px;
+                            height: 28px;
+                            background: url("./images/down.png") no-repeat center;
+                            background-size: 16px;
+                        }
+                        span {
+                            padding-left: 6px;
+                        }
+                    }
+                    .score {
+                        display: flex;
+                        align-items: center;
+                        margin-right: 17px;
+                        .rate {
+                            display: flex;
+                            align-items: center;
+                            em {
+                                width: 18px;
+                                height: 18px;
+                                margin-right: 8px;
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                                background-position: center;
+                                background-image: url("./images/star.png");
+                            }
+                        }
                     }
                 }
             }
+            .market-overview-right {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding-left: 22px;
+            }
         }
 
-        .market-doc {
+        .market-view {
             padding: 10px 0 50px;
-        }
-    }
-    @media screen and (max-width: 1200px) {
-        .markets-body {
-            padding-left: 10px;
-            padding-right: 10px;
-        }
-    }
-
-    @media screen and (max-width: 800px) {
-        .markets-body {
-            .market-breadcrumb {
-                font-size: 14px;
-            }
-            .market-overview {
-                .name {
-                    font-size: 22px;
-                }
-            }
         }
     }
 </style>
 <script>
     import axios from 'axios'
-    import {each, count, leftExists, pluginsTypes} from "./js/common";
-
-    import "./css/markets.code.scss"
+    import { each, count, leftExists, pluginsTypes } from "./js/common";
+    import { Poptip, Button } from 'iview';
     import VProgress from "./Progress";
+    import MarkdownPreview from './MDEditor/preview';
+    import "./css/ivu-poptip.scss"
+    import "./css/ivu-button.scss"
 
     export default {
-        components: {VProgress},
+        components: {VProgress, MarkdownPreview, Poptip, Button},
         data() {
             return {
                 name: '',
                 detail: {},
 
                 marketMenu: '',
+                installContent: ''
             }
         },
         mounted() {
@@ -347,6 +363,11 @@
             },
 
             getName() {
+                let match = (this.$route.path + "").match(/^\/markets\/(([^/]+)\/([^/]+))\/*$/);
+                if (match) {
+                    this.setTile("插件详情 - 插件市场");
+                    return match[1];
+                }
                 let name = $.trim(this.$route.query.name);
                 return count(name) > 0 ? name : this.getHash();
             },
@@ -362,7 +383,7 @@
             load() {
                 let timeOut = setTimeout(() => { this.$refs.myLoading.start(); }, 1000);
                 //
-                axios.get('https://console.eeui.app/api/plugin/' + this.name + '?__Access-Control-Allow-Origin=1', {
+                axios.get('https://console.eeui.app/api/plugins/client/' + this.name + '?__Access-Control-Allow-Origin=1', {
                     params : {
                         detail: 1
                     }
@@ -379,6 +400,14 @@
                         this.detail = res.data;
                         this.codeColor();
                         this.createMenu();
+                        //
+                        this.installContent = "##### 安装插件到项目" +
+                            "\n\n\n\n" +
+                            "```\neeui plugin install eeui/picture\n```" +
+                            "\n\n\n\n" +
+                            "##### 从项目中卸载此插件" +
+                            "\n\n\n\n" +
+                            "```\neeui plugin uninstall eeui/picture\n```";
                     }
                 })
             },
@@ -396,7 +425,7 @@
             createMenu() {
                 this.$nextTick(() => {
                     let min = 9;
-                    let lists = $(this.$refs.marketdoc).find("h1,h2,h3");
+                    let lists = $(this.$refs.marketview).find("h1,h2,h3");
                     let html = '';
                     lists.each((index, item) => {
                         let size = parseInt(item.tagName.replace(/\h/gi, ''));
@@ -415,7 +444,7 @@
                             let title = $(item).text();
                             if (leftExists(title, "#")) title = title.substring(1);
                             if (count($.trim(title)) > 0) {
-                                html+= '<div class="menu-' + (size - min) + '" data-id="' + id + '" data-title="' + title + '">' + title + '</div>';
+                                html+= '<div class="menu-' + (size - min) + '"><span data-id="' + id + '" data-title="' + title + '">' + title + '</span></div>';
                                 $(item).attr("id", id);
                             }
                         }
@@ -423,7 +452,7 @@
                     this.marketMenu = html;
                     this.$nextTick(() => {
                         if (this.getHash() !== this.getName()) {
-                            let m = $(this.$refs.marketmenu).find("div[data-title='" + decodeURIComponent(this.getHash()) + "']");
+                            let m = $(this.$refs.marketmenu).find("span[data-title='" + decodeURIComponent(this.getHash()) + "']");
                             if (count(m) > 0) {
                                 this.clickMenu(m.attr("data-id"));
                             }
@@ -433,7 +462,7 @@
             },
 
             clickMenu(e) {
-                let m = $(this.$refs.marketdoc).find("#" + (typeof e === 'string' ? e : $(e.target).attr("data-id")));
+                let m = $(this.$refs.marketview).find("#" + (typeof e === 'string' ? e : $(e.target).attr("data-id")));
                 if (count(m) > 0) {
                     $('html, body').scrollTop(m.offset().top - $("header").outerHeight());
                 }
@@ -448,6 +477,24 @@
                     }
                 });
                 return title;
+            },
+
+            setTile(title) {
+                document.title = title;
+                let mobile = navigator.userAgent.toLowerCase();
+                if (/iphone|ipad|ipod/.test(mobile)) {
+                    let iframe = document.createElement('iframe');
+                    iframe.style.display = 'none';
+                    iframe.setAttribute('src', '/favicon.ico');
+                    let iframeCallback = function () {
+                        setTimeout(function () {
+                            iframe.removeEventListener('load', iframeCallback);
+                            document.body.removeChild(iframe)
+                        }, 0)
+                    };
+                    iframe.addEventListener('load', iframeCallback);
+                    document.body.appendChild(iframe)
+                }
             }
         }
     }

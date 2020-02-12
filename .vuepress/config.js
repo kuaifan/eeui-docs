@@ -172,7 +172,7 @@ module.exports = {
             {
                 text: '插件',
                 items: [
-                    {text: '插件市场', link: '/markets/'},
+                    {text: '插件市场', link: '/markets/', actives: ['/markets/']},
                     {text: '开发文档', link: '/plugin/dev/create.html', actives: ['/plugin/']},
                 ]
             },
