@@ -1,0 +1,296 @@
+.ivu-tabs {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    color: #515a6e;
+    zoom: 1
+}
+
+.ivu-tabs:after,.ivu-tabs:before {
+    content: "";
+    display: table
+}
+
+.ivu-tabs:after {
+    clear: both;
+    visibility: hidden;
+    font-size: 0;
+    height: 0
+}
+
+.ivu-tabs-bar {
+    outline: 0
+}
+
+.ivu-tabs-ink-bar {
+    height: 2px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: #2d8cf0;
+    position: absolute;
+    left: 0;
+    bottom: 1px;
+    z-index: 1;
+    -webkit-transition: -webkit-transform .3s ease-in-out;
+    transition: -webkit-transform .3s ease-in-out;
+    transition: transform .3s ease-in-out;
+    transition: transform .3s ease-in-out,-webkit-transform .3s ease-in-out;
+    -webkit-transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    transform-origin: 0 0
+}
+
+.ivu-tabs-bar {
+    border-bottom: 1px solid #dcdee2;
+    margin-bottom: 16px
+}
+
+.ivu-tabs-nav-container {
+    margin-bottom: -1px;
+    line-height: 1.5;
+    font-size: 14px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    zoom: 1
+}
+
+.ivu-tabs-nav-container:after,.ivu-tabs-nav-container:before {
+    content: "";
+    display: table
+}
+
+.ivu-tabs-nav-container:after {
+    clear: both;
+    visibility: hidden;
+    font-size: 0;
+    height: 0
+}
+
+.ivu-tabs-nav-container:focus {
+    outline: 0
+}
+
+.ivu-tabs-nav-container:focus .ivu-tabs-tab-focused {
+    border-color: #57a3f3!important
+}
+
+.ivu-tabs-nav-container-scrolling {
+    padding-left: 32px;
+    padding-right: 32px
+}
+
+.ivu-tabs-nav-wrap {
+    overflow: hidden;
+    margin-bottom: -1px
+}
+
+.ivu-tabs-nav-scroll {
+    overflow: hidden;
+    white-space: nowrap
+}
+
+.ivu-tabs-nav-right {
+    float: right;
+    margin-left: 5px
+}
+
+.ivu-tabs-nav-prev {
+    position: absolute;
+    line-height: 32px;
+    cursor: pointer;
+    left: 0
+}
+
+.ivu-tabs-nav-next {
+    position: absolute;
+    line-height: 32px;
+    cursor: pointer;
+    right: 0
+}
+
+.ivu-tabs-nav-scrollable {
+    padding: 0 12px
+}
+
+.ivu-tabs-nav-scroll-disabled {
+    display: none
+}
+
+.ivu-tabs-nav {
+    padding-left: 0;
+    margin: 0;
+    float: left;
+    list-style: none;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    -webkit-transition: -webkit-transform .5s ease-in-out;
+    transition: -webkit-transform .5s ease-in-out;
+    transition: transform .5s ease-in-out;
+    transition: transform .5s ease-in-out,-webkit-transform .5s ease-in-out
+}
+
+.ivu-tabs-nav:after,.ivu-tabs-nav:before {
+    display: table;
+    content: " "
+}
+
+.ivu-tabs-nav:after {
+    clear: both
+}
+
+.ivu-tabs-nav .ivu-tabs-tab-disabled {
+    pointer-events: none;
+    cursor: default;
+    color: #ccc
+}
+
+.ivu-tabs-nav .ivu-tabs-tab {
+    display: inline-block;
+    height: 100%;
+    padding: 8px 16px;
+    margin-right: 16px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    -webkit-transition: color .3s ease-in-out;
+    transition: color .3s ease-in-out
+}
+
+.ivu-tabs-nav .ivu-tabs-tab:hover {
+    color: #57a3f3
+}
+
+.ivu-tabs-nav .ivu-tabs-tab:active {
+    color: #2b85e4
+}
+
+.ivu-tabs-nav .ivu-tabs-tab .ivu-icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 8px
+}
+
+.ivu-tabs-nav .ivu-tabs-tab-active {
+    color: #2d8cf0
+}
+
+.ivu-tabs-mini .ivu-tabs-nav-container {
+    font-size: 14px
+}
+
+.ivu-tabs-mini .ivu-tabs-tab {
+    margin-right: 0;
+    padding: 8px 16px;
+    font-size: 12px
+}
+
+.ivu-tabs .ivu-tabs-content-animated {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    will-change: transform;
+    -webkit-transition: -webkit-transform .3s ease-in-out;
+    transition: -webkit-transform .3s ease-in-out;
+    transition: transform .3s ease-in-out;
+    transition: transform .3s ease-in-out,-webkit-transform .3s ease-in-out
+}
+
+.ivu-tabs .ivu-tabs-tabpane {
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    width: 100%;
+    -webkit-transition: opacity .3s;
+    transition: opacity .3s;
+    opacity: 1;
+    outline: 0
+}
+
+.ivu-tabs .ivu-tabs-tabpane-inactive {
+    opacity: 0;
+    height: 0
+}
+
+.ivu-tabs.ivu-tabs-card>.ivu-tabs-bar .ivu-tabs-nav-container {
+    height: 32px
+}
+
+.ivu-tabs.ivu-tabs-card>.ivu-tabs-bar .ivu-tabs-ink-bar {
+    visibility: hidden
+}
+
+.ivu-tabs.ivu-tabs-card>.ivu-tabs-bar .ivu-tabs-tab {
+    margin: 0;
+    margin-right: 4px;
+    height: 31px;
+    padding: 5px 16px 4px;
+    border: 1px solid #dcdee2;
+    border-bottom: 0;
+    border-radius: 4px 4px 0 0;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    background: #f8f8f9
+}
+
+.ivu-tabs.ivu-tabs-card>.ivu-tabs-bar .ivu-tabs-tab-active {
+    height: 32px;
+    padding-bottom: 5px;
+    background: #fff;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    border-color: #dcdee2;
+    color: #2d8cf0
+}
+
+.ivu-tabs.ivu-tabs-card>.ivu-tabs-bar .ivu-tabs-nav-wrap {
+    margin-bottom: 0
+}
+
+.ivu-tabs.ivu-tabs-card>.ivu-tabs-bar .ivu-tabs-tab .ivu-tabs-close {
+    width: 0;
+    height: 22px;
+    font-size: 22px;
+    margin-right: 0;
+    color: #999;
+    text-align: right;
+    vertical-align: middle;
+    overflow: hidden;
+    position: relative;
+    top: -1px;
+    -webkit-transform-origin: 100% 50%;
+    -ms-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out
+}
+
+.ivu-tabs.ivu-tabs-card>.ivu-tabs-bar .ivu-tabs-tab .ivu-tabs-close:hover {
+    color: #444
+}
+
+.ivu-tabs.ivu-tabs-card>.ivu-tabs-bar .ivu-tabs-tab-active .ivu-tabs-close,.ivu-tabs.ivu-tabs-card>.ivu-tabs-bar .ivu-tabs-tab:hover .ivu-tabs-close {
+    width: 22px;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    margin-right: -6px
+}
+
+.ivu-tabs-no-animation>.ivu-tabs-content {
+    -webkit-transform: none!important;
+    -ms-transform: none!important;
+    transform: none!important
+}
+
+.ivu-tabs-no-animation>.ivu-tabs-content>.ivu-tabs-tabpane-inactive {
+    display: none
+}

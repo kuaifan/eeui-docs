@@ -187,15 +187,23 @@ this.$refs.reflectName.hideBack();
 </navbar-item>
 ```
 
-### navbar-item 配置参数
+### navbar-item.type 配置参数
 
 >说明：子组件类型；数据格式：字符串。
 
 | 类型     | 描述                          | 默认值     |
 | ------ | -------------------------- | ------- |
-|`String`  | 所属类型 (`back`/`left`/`title`/`right`)           | -       |
+|`String`  | 所属类型 ，详见：注①           | title       |
 
 注意：`type='back'`类型不支持子组件
+
+> 注①：
+
+- `back`返回按钮
+- `left`左边内容
+- `title`标题内容
+- `right`右边内容
+
 > 例如：
 
 ```vue

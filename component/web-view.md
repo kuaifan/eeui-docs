@@ -50,6 +50,7 @@
 | enableApi |`Boolean`  | 开启eeui等原生交互模块，详见：注①           | true       |
 | userAgent |`String`  | 自定义浏览器userAgent（保留原有的UA）           | -       |
 | customUserAgent |`String`  | 完全自定义浏览器userAgent（去除原有的UA）           | -       |
+| transparency <Tag date="20200213" value="2.0.0+"/> |`Boolean`  | 设置背景透明（前提是网页背景也是透明，否则无效）           | false       |
 
 > 例如：
 

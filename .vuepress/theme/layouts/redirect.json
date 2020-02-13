@@ -1,9 +1,17 @@
 {
-    "/module/plugin/citypicker.html": "/plugin/citypicker.html",
-    "/module/plugin/pay.html": "/plugin/pay.html",
-    "/module/plugin/picture.html": "/plugin/picture.html",
-    "/module/plugin/rongim.html": "/plugin/rongim.html",
-    "/module/plugin/screenshots.html": "/plugin/screenshots.html",
-    "/module/plugin/umeng.html": "/plugin/umeng.html",
-    "/module/plugin/websocket.html": "/plugin/websocket.html"
+    "/module/plugin/citypicker.html": "/markets/eeui/citypicker",
+    "/module/plugin/pay.html": "/markets/eeui/pay",
+    "/module/plugin/picture.html": "/markets/eeui/picture",
+    "/module/plugin/rongim.html": "/markets/eeui/rongim",
+    "/module/plugin/screenshots.html": "/markets/eeui/screenshots",
+    "/module/plugin/umeng.html": "/markets/eeui/umeng",
+    "/module/plugin/websocket.html": "/markets/eeui/websocket",
+
+    "/plugin/citypicker.html": "/markets/eeui/citypicker",
+    "/plugin/pay.html": "/markets/eeui/pay",
+    "/plugin/picture.html": "/markets/eeui/picture",
+    "/plugin/rongim.html": "/markets/eeui/rongim",
+    "/plugin/screenshots.html": "/markets/eeui/screenshots",
+    "/plugin/umeng.html": "/markets/eeui/umeng",
+    "/plugin/websocket.html": "/markets/eeui/websocket"
 }

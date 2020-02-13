@@ -7,7 +7,7 @@
             <div class="welcome_desc">一次撰写，多端运行。</div>
             <div class="welcome_button">
                 <a class="welcome_buttoni" href="javascript:;" @click="isHide=2">开始使用</a>
-                <a class="welcome_buttoni github" href="https://github.com/kuaifan/eeui" target="_blank">GitHub</a>
+                <a v-if="repoLink" class="welcome_buttoni github" :href="repoLink" target="_blank">GitHub</a>
             </div>
         </div>
         <a class="welcome_link" target="_blank" :href="src">[<span>查看原视频</span>]</a>
@@ -128,6 +128,16 @@
             }else{
                 setTimeout(() => { this.isHide = 1; }, 100);
             }
+        },
+        computed: {
+            repoLink() {
+                const {repo} = this.$site.themeConfig
+                if (repo) {
+                    return /^https?:/.test(repo)
+                        ? repo
+                        : `https://github.com/${repo}`
+                }
+            },
         }
     }
 </script>

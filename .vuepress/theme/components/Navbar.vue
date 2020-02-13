@@ -18,6 +18,14 @@
                 v-if="$siteTitle"
                 :class="{ 'can-hide': $site.themeConfig.logo }"
             >{{ $siteTitle }}</span>
+            <span
+                v-if="gitVersion"
+                :class="{ 'version': true, 'can-hide': $site.themeConfig.logo }">
+                <a :href="this.repoLink" target="_blank" class="version-bg">
+                    <img src="./version-bg.svg" :alt="gitVersion">
+                    <span class="version-no">{{gitVersion}}</span>
+                </a>
+            </span>
         </router-link>
 
         <div
@@ -51,7 +59,9 @@
             return {
                 isCustomSearch: true,
 
-                linksWrapMaxWidth: null
+                linksWrapMaxWidth: null,
+
+                gitVersion: '',
             }
         },
 
@@ -68,9 +78,38 @@
             }
             handleLinksWrapWidth()
             window.addEventListener('resize', handleLinksWrapWidth, false)
+            //
+            ;(()=>{
+                if (!this.repoLink) {
+                    return;
+                }
+                if (typeof window.sessionStorage['__gitVersion__'] === "string") {
+                    this.gitVersion = window.sessionStorage['__gitVersion__'];
+                    return;
+                }
+                const {repo} = this.$site.themeConfig;
+                $.ajax({
+                    url: "https://api.github.com/repos/" + repo + "/releases/latest",
+                    success: (result) => {
+                        if (typeof result === "object" && typeof result.tag_name === 'string') {
+                            this.gitVersion = result.tag_name;
+                            window.sessionStorage['__gitVersion__'] = this.gitVersion;
+                        }
+                    }
+                });
+            })();
         },
 
         computed: {
+            repoLink() {
+                const {repo} = this.$site.themeConfig
+                if (repo) {
+                    return /^https?:/.test(repo)
+                        ? repo
+                        : `https://github.com/${repo}`
+                }
+            },
+
             algolia() {
                 return this.$themeLocaleConfig.algolia || this.$site.themeConfig.algolia || {}
             },
@@ -92,30 +131,43 @@
 <style lang="stylus">
     $navbar-vertical-padding = 0.7rem
     $navbar-horizontal-padding = 1.5rem
-
     .navbar
         padding $navbar-vertical-padding $navbar-horizontal-padding
         line-height $navbarHeight - 1.4rem
-
         a, span, img
             display inline-block
-
         .logo
             height $navbarHeight - 1.4rem
             min-width $navbarHeight - 1.4rem
-            margin-right 0.8rem
+            margin-right 0.2rem
             vertical-align top
-
         .site-name
             font-size 1.3rem
             font-weight 600
             color $textColor
             position relative
-
             @media (max-width: 860px)
                 display none
-
-
+        .version
+            position: relative;
+            @media (max-width: 860px)
+                display none
+            .version-bg
+                position: absolute;
+                line-height: 0;
+                top: -14px;
+                left: -1px;
+                .version-no
+                    position: absolute;
+                    top: -2px;
+                    left: 1px;
+                    font-size: 12px;
+                    transform: scale(0.84);
+                    color: #fff;
+                    width: 40px;
+                    text-align: center;
+                    line-height: 18px;
+                    letter-spacing: -0.01rem;
         .links
             padding-left 1.5rem
             box-sizing border-box
@@ -126,18 +178,14 @@
             right $navbar-horizontal-padding
             top $navbar-vertical-padding
             display flex
-
             .search-box
                 flex: 0 0 auto
                 vertical-align top
-
     @media (max-width: $MQMobile)
         .navbar
             padding-left 4rem
-
             .can-hide
                 display none
-
             .links
                 padding-left 1.5rem
 </style>

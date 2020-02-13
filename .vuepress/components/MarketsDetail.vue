@@ -403,11 +403,11 @@
                         //
                         this.installContent = "##### 安装插件到项目" +
                             "\n\n\n\n" +
-                            "```\neeui plugin install eeui/picture\n```" +
+                            "```\neeui plugin install " + this.detail.username + "/" + this.detail.name + "\n```" +
                             "\n\n\n\n" +
-                            "##### 从项目中卸载此插件" +
+                            "##### 从项目中移除此插件" +
                             "\n\n\n\n" +
-                            "```\neeui plugin uninstall eeui/picture\n```";
+                            "```\neeui plugin uninstall " + this.detail.username + "/" + this.detail.name + "\n```";
                     }
                 })
             },
