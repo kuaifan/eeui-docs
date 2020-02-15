@@ -112,14 +112,15 @@
             &.dropdown-active,
             &:hover
                 position relative
+                color $accentColor
                 &:after
                     content ''
                     position absolute
-                    bottom -2px
+                    bottom -1.02rem
                     left 0
                     right 11px
-                    height 2px
-                    background-color #4dbaff
+                    height 3px
+                    background-color $accentColor
 
             .arrow
                 vertical-align middle

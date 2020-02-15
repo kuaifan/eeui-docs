@@ -18,14 +18,15 @@
                 v-if="$siteTitle"
                 :class="{ 'can-hide': $site.themeConfig.logo }"
             >{{ $siteTitle }}</span>
-            <span
-                v-if="gitVersion"
-                :class="{ 'version': true, 'can-hide': $site.themeConfig.logo }">
-                <a :href="this.repoLink" target="_blank" class="version-bg">
-                    <img src="./version-bg.svg" :alt="gitVersion">
-                    <span class="version-no">{{gitVersion}}</span>
-                </a>
-            </span>
+        </router-link>
+        <router-link
+            v-if="gitReleases"
+            :to="$localePath + 'releases/'"
+            :class="{ 'releases': true, 'can-hide': $site.themeConfig.logo }">
+            <div class="releases-bg">
+                <img src="./releases-bg.svg" :alt="gitReleases">
+                <span class="releases-no">{{gitReleases}}</span>
+            </div>
         </router-link>
 
         <div
@@ -61,7 +62,7 @@
 
                 linksWrapMaxWidth: null,
 
-                gitVersion: '',
+                gitReleases: '',
             }
         },
 
@@ -80,20 +81,20 @@
             window.addEventListener('resize', handleLinksWrapWidth, false)
             //
             ;(()=>{
-                if (!this.repoLink) {
-                    return;
-                }
-                if (typeof window.sessionStorage['__gitVersion__'] === "string") {
-                    this.gitVersion = window.sessionStorage['__gitVersion__'];
-                    return;
-                }
                 const {repo} = this.$site.themeConfig;
+                if (!repo) {
+                    return;
+                }
+                if (typeof window.sessionStorage['__gitReleases__'] === "string") {
+                    this.gitReleases = window.sessionStorage['__gitReleases__'];
+                    return;
+                }
                 $.ajax({
                     url: "https://api.github.com/repos/" + repo + "/releases/latest",
                     success: (result) => {
                         if (typeof result === "object" && typeof result.tag_name === 'string') {
-                            this.gitVersion = result.tag_name;
-                            window.sessionStorage['__gitVersion__'] = this.gitVersion;
+                            this.gitReleases = result.tag_name;
+                            window.sessionStorage['__gitReleases__'] = this.gitReleases;
                         }
                     }
                 });
@@ -148,26 +149,28 @@
             position relative
             @media (max-width: 860px)
                 display none
-        .version
-            position: relative;
+        .releases
+            position relative
+            display inline-block
+            cursor pointer
             @media (max-width: 860px)
                 display none
-            .version-bg
-                position: absolute;
-                line-height: 0;
-                top: -14px;
-                left: -1px;
-                .version-no
-                    position: absolute;
-                    top: -2px;
-                    left: 1px;
-                    font-size: 12px;
-                    transform: scale(0.84);
-                    color: #fff;
-                    width: 40px;
-                    text-align: center;
-                    line-height: 18px;
-                    letter-spacing: -0.01rem;
+            .releases-bg
+                position absolute
+                line-height 0
+                top -14px
+                left -1px
+                .releases-no
+                    position absolute
+                    top -2px
+                    left 1px
+                    font-size 12px
+                    transform scale(0.84)
+                    color #fff
+                    width 40px
+                    text-align center
+                    line-height 18px
+                    letter-spacing -0.01rem
         .links
             padding-left 1.5rem
             box-sizing border-box

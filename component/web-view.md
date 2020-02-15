@@ -78,7 +78,7 @@
 
 > 注①：
 
-JS支持调用的原生模块如下：
+JS支持调用的原生模块如下：（另注：插件市场内的插件是否支持web-view调用且看每个插件开发而异。）
 
 ```js
 //综合模块
@@ -90,17 +90,17 @@ let navigator = requireModuleJs("navigator");
 //导航标题栏模块
 let navigationBar = requireModuleJs("navigationBar");
 
-//城市选择器
-let citypicker = requireModuleJs("citypicker");
-
-//图片选择模块
-let picture = requireModuleJs("picture");
-
-//支付模块
-let pay = requireModuleJs("pay");
-
 //浏览器调用方法
 let webview = requireModuleJs("webview");
+
+//【插件市场】城市选择器
+let citypicker = requireModuleJs("eeui/citypicker");
+
+//【插件市场】图片选择模块
+let picture = requireModuleJs("eeui/picture");
+
+//【插件市场】支付模块
+let pay = requireModuleJs("eeui/pay");
 ```
 
 例如：
@@ -115,9 +115,9 @@ eeui.adDialog("http://..../xxx.png", function(res) {
 - `eeui`：综合模块，如：[eeui.adDialog](../module/adDialog.html)
 - `navigator`：[路由模块](../module/navigator.html)
 - `navigationBar`：[导航标题栏模块](../navigationBar.html)
-- `citypicker`：[城市选择器](../markets/detail.html#citypicker)
-- `picture`：[图片选择模块](../markets/detail.html#picture)
-- `pay`：[支付模块](../markets/detail.html#pay)
+- `citypicker`：[城市选择器](../markets/eeui/citypicker)
+- `picture`：[图片选择模块](../markets/eeui/picture)
+- `pay`：[支付模块](../markets/eeui/pay)
 - `webview`：[浏览器调用方法](../component/web-view.html#浏览器调用方法)
 
 #### JS调用原生API示例

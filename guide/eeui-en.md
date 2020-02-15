@@ -57,22 +57,22 @@ In addition to Weex's original modules, EEUI comes with many useful modules:
 
 EEUI provides a complete plug-in market, which can add more business needs through the plug-in market when the original components and modules are not enough for business needs:
 
-- [websocket](https://eeui.app/markets/detail.html#websocket) - instant messaging
-- [screenshots](https://eeui.app/markets/detail.html#screenshots) - Screenshot function components
-- [citypicker](https://eeui.app/markets/detail.html#citypicker) - city selector
-- [picture](https://eeui.app/markets/detail.html#picture) - picture selector, video selection, picture taking, video recording, compressed picture, preview picture, preview video
-- [rongim](https://eeui.app/markets/detail.html#rongim) - connection login, chat room business
-- [umeng](https://eeui.app/markets/detail.html#umeng) - Push module
-- [pay](https://eeui.app/markets/detail.html#pay) - third party payment module (Alipay, WeChat payment)
-- [audio](https://eeui.app/markets/detail.html#audio) - audio playback, audio duration
-- [deviceInfo](https://eeui.app/markets/detail.html#deviceInfo) - device information, network status, device vibration, screen information, volume information, battery information
-- [amap](https://eeui.app/markets/detail.html#amap) - amap
-- [videoView](https://eeui.app/markets/detail.html#videoView) - video player component
-- [communication](https://eeui.app/markets/detail.html#communication) - make calls directly, send text messages, send mail
-- [geolocation](https://eeui.app/markets/detail.html#geolocation) - get the current location, real-time monitoring and positioning
-- [recorder](https://eeui.app/markets/detail.html#recorder) - Recorder support channel, band
-- [accelerometer](https://eeui.app/markets/detail.html#accelerometer) - accelerator, get the current acceleration, real-time monitoring acceleration
-- [compass](https://eeui.app/markets/detail.html#compass) - compass, get the current azimuth, real-time monitoring azimuth
+- [websocket](https://eeui.app/markets/eeui/websocket) - instant messaging
+- [screenshots](https://eeui.app/markets/eeui/screenshots) - Screenshot function components
+- [citypicker](https://eeui.app/markets/eeui/citypicker) - city selector
+- [picture](https://eeui.app/markets/eeui/picture) - picture selector, video selection, picture taking, video recording, compressed picture, preview picture, preview video
+- [rongim](https://eeui.app/markets/eeui/rongim) - connection login, chat room business
+- [umeng](https://eeui.app/markets/eeui/umeng) - Push module
+- [pay](https://eeui.app/markets/eeui/pay) - third party payment module (Alipay, WeChat payment)
+- [audio](https://eeui.app/markets/eeui/audio) - audio playback, audio duration
+- [deviceInfo](https://eeui.app/markets/eeui/deviceInfo) - device information, network status, device vibration, screen information, volume information, battery information
+- [amap](https://eeui.app/markets/eeui/amap) - amap
+- [videoView](https://eeui.app/markets/eeui/video) - video player component
+- [communication](https://eeui.app/markets/eeui/communication) - make calls directly, send text messages, send mail
+- [geolocation](https://eeui.app/markets/eeui/geolocation) - get the current location, real-time monitoring and positioning
+- [recorder](https://eeui.app/markets/eeui/recorder) - Recorder support channel, band
+- [accelerometer](https://eeui.app/markets/eeui/accelerometer) - accelerator, get the current acceleration, real-time monitoring acceleration
+- [compass](https://eeui.app/markets/eeui/compass) - compass, get the current azimuth, real-time monitoring azimuth
 - [Plugin market](https://eeui.app/markets/)、[Development plugin](https://eeui.app/plugin/dev/create.html)
 
 

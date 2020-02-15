@@ -57,22 +57,22 @@ EEUI 是三方框架, 不由 Apache Weex 开发或维护。
 
 EEUI提供完整的插件市场，在原有的组件、模块不够业务需求时可以通过插件市场来补充更多的业务需求：
 
-- [websocket](https://eeui.app/markets/detail.html#websocket) - 即时通讯
-- [screenshots](https://eeui.app/markets/detail.html#screenshots) - 组件截图功能
-- [citypicker](https://eeui.app/markets/detail.html#citypicker) - 城市选择器
-- [picture](https://eeui.app/markets/detail.html#picture) - 图片选择器、视频选择、图片拍照、视频录制、压缩图片、预览图片、预览视频
-- [rongim](https://eeui.app/markets/detail.html#rongim) - 融云连接登录、聊天室业务
-- [umeng](https://eeui.app/markets/detail.html#umeng) - 友盟推送模块
-- [pay](https://eeui.app/markets/detail.html#pay) - 第三方支付模块（支付宝、微信支付）
-- [audio](https://eeui.app/markets/detail.html#audio) - 音频播放、获取音频时长
-- [deviceInfo](https://eeui.app/markets/detail.html#deviceInfo) - 设备信息、网络状态、设备震动、屏幕信息、音量信息、电池信息
-- [amap](https://eeui.app/markets/detail.html#amap) - 高德地图
-- [videoView](https://eeui.app/markets/detail.html#videoView) - 视频播放器组件
-- [communication](https://eeui.app/markets/detail.html#communication) - 直接拨打电话、发送短信、发送邮件
-- [geolocation](https://eeui.app/markets/detail.html#geolocation) - 获取当前位置、实时监听定位
-- [recorder](https://eeui.app/markets/detail.html#recorder) - 录音机支持声道、波段
-- [accelerometer](https://eeui.app/markets/detail.html#accelerometer) - 加速器，获取当前加速度、实时监听加速度
-- [compass](https://eeui.app/markets/detail.html#compass) - 指南针，获取当前方位角、实时监听方位角
+- [websocket](https://eeui.app/markets/eeui/websocket) - 即时通讯
+- [screenshots](https://eeui.app/markets/eeui/screenshots) - 组件截图功能
+- [citypicker](https://eeui.app/markets/eeui/citypicker) - 城市选择器
+- [picture](https://eeui.app/markets/eeui/picture) - 图片选择器、视频选择、图片拍照、视频录制、压缩图片、预览图片、预览视频
+- [rongim](https://eeui.app/markets/eeui/rongim) - 融云连接登录、聊天室业务
+- [umeng](https://eeui.app/markets/eeui/umeng) - 友盟推送模块
+- [pay](https://eeui.app/markets/eeui/pay) - 第三方支付模块（支付宝、微信支付）
+- [audio](https://eeui.app/markets/eeui/audio) - 音频播放、获取音频时长
+- [deviceInfo](https://eeui.app/markets/eeui/deviceInfo) - 设备信息、网络状态、设备震动、屏幕信息、音量信息、电池信息
+- [amap](https://eeui.app/markets/eeui/amap) - 高德地图
+- [videoView](https://eeui.app/markets/eeui/video) - 视频播放器组件
+- [communication](https://eeui.app/markets/eeui/communication) - 直接拨打电话、发送短信、发送邮件
+- [geolocation](https://eeui.app/markets/eeui/geolocation) - 获取当前位置、实时监听定位
+- [recorder](https://eeui.app/markets/eeui/recorder) - 录音机支持声道、波段
+- [accelerometer](https://eeui.app/markets/eeui/accelerometer) - 加速器，获取当前加速度、实时监听加速度
+- [compass](https://eeui.app/markets/eeui/compass) - 指南针，获取当前方位角、实时监听方位角
 - [插件市场](https://eeui.app/markets/)、[开发插件](https://eeui.app/plugin/dev/create.html)
 
 

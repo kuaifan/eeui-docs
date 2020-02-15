@@ -154,7 +154,16 @@
                 color $textColor
 
         .nav-item > a:not(.external)
-            &:hover, &.router-link-active
-                margin-bottom -2px
-                border-bottom 2px solid lighten($accentColor, 8%)
+            &:hover
+                color $accentColor
+            &.router-link-active
+                color $accentColor
+                &::after
+                    content ""
+                    display block
+                    width 100%
+                    height 3px
+                    position absolute
+                    bottom -.77rem
+                    background-color $accentColor
 </style>

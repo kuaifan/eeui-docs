@@ -16,7 +16,9 @@
                     </div>
 
                     <div class="markets-type">
-                        <div :class="[type === 'all' ? 'active' : '']" @click="type='all'">全部</div><div v-for="(item, index) in pluginsTypes" :key="index" :class="[type===item.name ? 'active' : '']" @click="type=item.name">{{item.title}}</div>
+                        <div :class="[type === 'all' ? 'active' : '', 'markets-type-all']" @click="type='all'">全部</div>
+                        <div :class="[type === 'official' ? 'active' : '', 'markets-type-official']" @click="type='official'">官方发布</div>
+                        <div v-for="(item, index) in pluginsTypes" :key="index" :class="[type===item.name ? 'active' : '', 'markets-type-' + item.name]" @click="type=item.name">{{item.title}}</div>
                     </div>
                 </div>
 
@@ -166,6 +168,9 @@
                         line-height: 36px;
                         font-size: 14px;
                         white-space: nowrap;
+                        &.markets-type-official {
+                            font-weight: 500;
+                        }
                         &:first-child {
                             border-radius: 3px 3px 0 0;
                         }
@@ -420,10 +425,6 @@
             }
         },
         mounted() {
-            let query = this.$route.query || {};
-            this.key = query.key || '';
-            this.type = query.type || 'all';
-            this.listPage = Math.max(parseInt(query.page) || 1, 1);
             this.load();
         },
         watch: {
@@ -433,7 +434,7 @@
             type() {
                 this.listPage = 1;
                 this.key = '';
-                this.loadBefore();
+                this.loadQuery();
             }
         },
         methods: {
@@ -449,23 +450,13 @@
             search() {
                 this.listPage = 1;
                 this.type = 'all';
-                this.loadBefore();
+                this.loadQuery();
             },
             setPage(page) {
                 this.listPage = page;
-                this.loadBefore();
+                this.loadQuery();
             },
-            tagTitle(name) {
-                let lists = pluginsTypes();
-                let title = '';
-                each(lists, (key, info) => {
-                    if (info.name === name) {
-                        title = info.title;
-                    }
-                });
-                return title;
-            },
-            loadBefore() {
+            loadQuery() {
                 let query = {
                     page: this.listPage
                 };
@@ -478,6 +469,11 @@
                 this.$router.push({ query: query });
             },
             load() {
+                let query = this.$route.query || {};
+                this.key = query.key || '';
+                this.type = query.type || 'all';
+                this.listPage = Math.max(parseInt(query.page) || 1, 1);
+                //
                 this.loadError = '';
                 let timeOut = setTimeout(() => { this.$refs.myLoading.start(); }, 50);
                 //
@@ -521,7 +517,17 @@
             },
             opendoc() {
                 this.$router.push({path: '../plugin/dev/create.html'})
-            }
+            },
+            tagTitle(name) {
+                let lists = pluginsTypes();
+                let title = '';
+                each(lists, (key, info) => {
+                    if (info.name === name) {
+                        title = info.title;
+                    }
+                });
+                return title;
+            },
         }
     }
 </script>

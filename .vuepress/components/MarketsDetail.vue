@@ -159,6 +159,7 @@
         -webkit-font-smoothing: antialiased;
         -webkit-overflow-scrolling: touch;
         line-height: 1.5;
+        transform: rotateZ(0deg);
 
         * {
             box-sizing: border-box;
@@ -349,6 +350,9 @@
         },
         mounted() {
             this.name = this.getName();
+            if (this.name === null) {
+                return;
+            }
             this.marketMenu = '';
             this.detail = {};
             this.load();
@@ -369,7 +373,38 @@
                     return match[1];
                 }
                 let name = $.trim(this.$route.query.name);
-                return count(name) > 0 ? name : this.getHash();
+                name = count(name) > 0 ? name : this.getHash();
+                //
+                let newName = null;
+                if ([
+                    'websocket',
+                    'screenshots',
+                    'citypicker',
+                    'picture',
+                    'rongim',
+                    'umeng',
+                    'pay',
+                    'audio',
+                    'deviceInfo',
+                    'communication',
+                    'geolocation',
+                    'recorder',
+                    'accelerometer',
+                    'compass',
+                    'amap',
+                    'seekbar',
+                    'network',
+                ].indexOf(name) !== -1) {
+                    newName = 'eeui/' + name;
+                }
+                if (name === 'networkTransfer') newName = 'eeui/network';
+                if (name === 'videoView') newName = 'eeui/video';
+                if (newName !== null) {
+                    name = null;
+                    this.$router.push({path: newName});
+                }
+                //
+                return name;
             },
 
             getHash() {
