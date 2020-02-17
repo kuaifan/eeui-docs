@@ -349,13 +349,12 @@
             }
         },
         mounted() {
-            this.name = this.getName();
-            if (this.name === null) {
-                return;
-            }
-            this.marketMenu = '';
-            this.detail = {};
             this.load();
+        },
+        watch: {
+            '$route' () {
+                this.load();
+            }
         },
         methods: {
             goBack() {
@@ -416,8 +415,14 @@
             },
 
             load() {
-                let timeOut = setTimeout(() => { this.$refs.myLoading.start(); }, 1000);
+                this.name = this.getName();
+                if (this.name === null) {
+                    return;
+                }
+                this.marketMenu = '';
+                this.detail = {};
                 //
+                let timeOut = setTimeout(() => { this.$refs.myLoading.start(); }, 1000);
                 axios.get('https://console.eeui.app/api/plugins/client/' + this.name + '?__Access-Control-Allow-Origin=1', {
                     params : {
                         detail: 1
