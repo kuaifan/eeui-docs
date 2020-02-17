@@ -236,7 +236,7 @@
 
             goMarkets(item) {
                 this.focused = false;
-                this.$router.push({path: item.username + "/" + item.name})
+                this.$router.push({path: this.$localePath + "markets/" + item.username + "/" + item.name})
             }
         },
     }
