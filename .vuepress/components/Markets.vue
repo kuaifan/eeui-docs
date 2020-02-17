@@ -16,9 +16,9 @@
                     </div>
 
                     <div class="markets-type">
-                        <div :class="[type === 'all' ? 'active' : '', 'markets-type-all']" @click="type='all'">全部</div>
-                        <div :class="[type === 'official' ? 'active' : '', 'markets-type-official']" @click="type='official'">官方发布</div>
-                        <div v-for="(item, index) in pluginsTypes" :key="index" :class="[type===item.name ? 'active' : '', 'markets-type-' + item.name]" @click="type=item.name">{{item.title}}</div>
+                        <div :class="[type === 'all' ? 'active' : '', 'markets-type-all']" @click="setType('all')">全部</div>
+                        <div :class="[type === 'official' ? 'active' : '', 'markets-type-official']" @click="setType('official')">官方发布</div>
+                        <div v-for="(item, index) in pluginsTypes" :key="index" :class="[type===item.name ? 'active' : '', 'markets-type-' + item.name]" @click="setType(item.name)">{{item.title}}</div>
                     </div>
                 </div>
 
@@ -430,11 +430,6 @@
         watch: {
             '$route' () {
                 this.load();
-            },
-            type() {
-                this.listPage = 1;
-                this.key = '';
-                this.loadQuery();
             }
         },
         methods: {
@@ -450,6 +445,12 @@
             search() {
                 this.listPage = 1;
                 this.type = 'all';
+                this.loadQuery();
+            },
+            setType(type) {
+                this.listPage = 1;
+                this.type = type;
+                this.key = '';
                 this.loadQuery();
             },
             setPage(page) {
