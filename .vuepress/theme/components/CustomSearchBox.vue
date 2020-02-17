@@ -254,6 +254,7 @@
         padding 0.4rem 0.6rem 0.6rem
         list-style-type none
         box-sizing border-box
+        z-index 1
         .custom-search-accent
             display inline-block
             font-style normal

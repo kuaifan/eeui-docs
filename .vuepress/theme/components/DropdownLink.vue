@@ -201,7 +201,8 @@
 
     @media (min-width: $MQMobile)
         .dropdown-wrapper
-            height 1.8rem
+            height 3rem
+            margin -0.6rem 0
 
             &:hover .nav-dropdown
                 // override the inline style.
