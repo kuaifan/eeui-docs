@@ -369,10 +369,10 @@
                 let match = (this.$route.path + "").match(/^\/markets\/(([^/]+)\/([^/]+))\/*$/);
                 if (match) {
                     this.setTile("插件详情 - 插件市场");
-                    return match[1];
+                    return this.delRHtml(match[1]);
                 }
                 let name = $.trim(this.$route.query.name);
-                name = count(name) > 0 ? name : this.getHash();
+                name = this.delRHtml(count(name) > 0 ? name : this.getHash());
                 //
                 let newName = null;
                 if ([
@@ -412,6 +412,29 @@
                     temp = temp.substr(1)
                 }
                 return temp;
+            },
+
+            delRHtml(name) {
+                name = this.rightDelete(name, ".html");
+                name = this.rightDelete(name, ".htm");
+                return name;
+            },
+
+            rightExists(string, find) {
+                string += "";
+                find += "";
+                string = string.toLowerCase();
+                find = find.toLowerCase();
+                return (string.substring(string.length - find.length) === find);
+            },
+
+            rightDelete(string, find) {
+                string += "";
+                find += "";
+                if (this.rightExists(string, find)) {
+                    string = string.substring(0, string.length - find.length)
+                }
+                return string ? string : '';
             },
 
             load() {
