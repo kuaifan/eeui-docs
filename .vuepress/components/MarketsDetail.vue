@@ -62,7 +62,7 @@
             </div>
 
             <ul v-if="fileinfo.length > 1" class="fileinfo">
-                <li v-for="item in fileinfo">
+                <li v-for="(item, index) in fileinfo" :key="index" v-if="index < 5">
                     <div class="fileinfo-date">{{fileinfoDate(item.date)}}</div><div class="fileinfo-desc">：{{item.desc && item.desc != item.date ? item.desc : '-'}}</div>
                 </li>
             </ul>
