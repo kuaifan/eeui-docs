@@ -28,14 +28,22 @@
                             <span>{{detail.username}}</span>
                             <div v-if="detail.userid === 1" class="official">官方</div>
                         </div>
-                        <div class="divide"></div>
+                        <template v-if="detail.android === 1">
+                            <div class="divide"></div>
+                            <div class="android">Android</div>
+                        </template>
+                        <template v-if="detail.ios === 1">
+                            <div class="divide"></div>
+                            <div class="ios">iOS</div>
+                        </template>
                         <template v-if="detail.install > 5">
+                            <div class="divide"></div>
                             <div class="installcount">
                                 <div class="download-outline"></div>
                                 <span>{{detail.install}}</span>
                             </div>
-                            <div class="divide"></div>
                         </template>
+                        <div class="divide"></div>
                         <div class="score">
                             <div class="rate">
                                 <em v-for="i in 5" :key="i"></em>
@@ -328,6 +336,30 @@
                         height: 20px;
                         margin: 0 16px;
                         background-color: #d9dee6;
+                    }
+                    .android,
+                    .ios {
+                        padding-left: 22px;
+                        position: relative;
+                        line-height: normal;
+                        font-size: 13px;
+                        color: #666;
+                        &:before {
+                            position: absolute;
+                            content: " ";
+                            top: 50%;
+                            left: 0;
+                            transform: translate(0, -50%);
+                            width: 12px;
+                            height: 12px;
+                            border-radius: 50%;
+                            background: #AFBF5B;
+                        }
+                    }
+                    .ios {
+                        &:before {
+                            background: #818694;
+                        }
                     }
                     .installcount {
                         display: flex;
