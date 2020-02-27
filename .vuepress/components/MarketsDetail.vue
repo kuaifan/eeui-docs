@@ -53,18 +53,27 @@
                 </div>
             </div>
 
+            <ul v-if="fileinfo.length > 0" class="fileinfo">
+                <li v-for="item in fileinfo">
+                    <div class="fileinfo-date">{{fileinfoDate(item.date)}}</div><div class="fileinfo-desc">：{{item.desc && item.desc != item.date ? item.desc : '-'}}</div>
+                </li>
+            </ul>
+
             <div ref="marketmenu" class="market-menu" v-html="marketMenu" @click="clickMenu"></div>
             <div ref="marketview" class="market-view">
                 <markdown-preview :initialValue="detail.content" theme="oneDark"></markdown-preview>
             </div>
 
         </div>
+
+        <div v-if="marketSideMenuShow" ref="marketsidemenu" class="market-side-menu" v-html="marketMenu" @click="clickMenu"></div>
     </div>
 </template>
 
 <style lang="scss">
-    .markets-body {
-        .market-menu {
+    .markets-main {
+        .market-menu,
+        .market-side-menu {
             padding-top: 16px;
             border-top: 2px solid #f1f3f4;
             .menu-0,.menu-1,.menu-2,.menu-3,.menu-4 {
@@ -116,6 +125,43 @@
                 margin-left: 90px;
             }
         }
+        .market-side-menu {
+            position: fixed;
+            top: 96px;
+            left: 50%;
+            right: 22px;
+            z-index: 1;
+            border: 0;
+            padding-top: 0;
+            margin-left: 496px;
+            .menu-0,.menu-1,.menu-2,.menu-3,.menu-4 {
+                font-size: 14px;
+                padding-left: 12px;
+                overflow: unset;
+                text-overflow: unset;
+                white-space: unset;
+                &:before {
+                    top: 12px;
+                    width: 5px;
+                    height: 5px;
+                }
+            }
+            .menu-1 {
+                margin-left: 21px;
+            }
+            .menu-2 {
+                margin-left: 39px;
+            }
+            .menu-3 {
+                margin-left: 57px;
+            }
+            .menu-4 {
+                margin-left: 75px;
+            }
+            @media (max-width: 1398px) {
+                display: none;
+            }
+        }
         .market-view {
             padding: 0 0 50px;
             .markdown-preview {
@@ -160,10 +206,12 @@
         -webkit-overflow-scrolling: touch;
         line-height: 1.5;
         transform: rotateZ(0deg);
+        z-index: 2;
 
         * {
             box-sizing: border-box;
         }
+
         .market-breadcrumb {
             display: flex;
             padding-bottom: 20px;
@@ -326,6 +374,27 @@
         .market-view {
             padding: 10px 0 50px;
         }
+
+        .fileinfo {
+            font-size: 14px;
+            border-top: 2px solid #f1f3f4;
+            padding: 16px 28px;
+            margin: 0;
+            color: rgba(39,40,44,.7);
+            li {
+                padding: 0;
+                margin: 0;
+                line-height: 24px;
+                .fileinfo-date {
+                    display: inline-block;
+                    font-family: arial,sans-serif;
+                }
+                .fileinfo-desc {
+                    padding-left: 2px;
+                    display: inline-block;
+                }
+            }
+        }
     }
 </style>
 <script>
@@ -344,12 +413,17 @@
                 name: '',
                 detail: {},
 
+                fileinfo: [],
+
                 marketMenu: '',
-                installContent: ''
+                installContent: '',
+
+                marketSideMenuShow: false,
             }
         },
         mounted() {
             this.load();
+            $(window).scroll(this.sideMenuScroll);
         },
         watch: {
             '$route' () {
@@ -357,10 +431,27 @@
             }
         },
         methods: {
+            sideMenuScroll() {
+                if (this.$refs.marketview == null) {
+                    $(window).unbind('scroll', this.sideMenuScroll);
+                    return;
+                }
+                let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                this.marketSideMenuShow = scrollTop > this.$refs.marketview.offsetTop;
+            },
+
+            fileinfoDate(date) {
+                date += "";
+                if (date.indexOf(" ") !== -1) {
+                    return date.substring(0,date.indexOf(" "));
+                }
+                return date;
+            },
+
             goBack() {
                 if (window.sessionStorage['__FromPath__'] === '/markets/') {
                     window.history.go(-1);
-                }else{
+                } else {
                     this.$router.push({path: '/markets'});
                 }
             },
@@ -461,6 +552,7 @@
                     if (res.ret === 1) {
                         res.data.content = res.data.content || '暂无更多详细信息......';
                         this.detail = res.data;
+                        this.fileinfo = $.isArray(res.data.fileinfo) ? res.data.fileinfo : [];
                         this.codeColor();
                         this.createMenu();
                         //

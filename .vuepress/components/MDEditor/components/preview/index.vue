@@ -79,9 +79,9 @@
                             const code = btns[i].parentNode.querySelectorAll(
                                 'pre'
                             )[0].innerText;
-                            const aux = document.createElement('input');
-                            aux.setAttribute('value', code);
+                            const aux = document.createElement('textarea');
                             document.body.appendChild(aux);
+                            aux.value = code;
                             aux.select();
                             document.execCommand('copy');
                             document.body.removeChild(aux);
