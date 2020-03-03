@@ -17,9 +17,6 @@
      
     appKey: "",             //用于云平台管理（可选）
     
-    socketHost: "",         // WiFi真机同步服务器 ip 地址（可选）
-    socketPort: "",         // WiFi真机同步服务器端口（可选）
-    
 	android: {
         imageEngine: "",    //安卓图片适配器（可选）
     },
@@ -54,6 +51,9 @@
             channel: "",
         }
     },
+    
+    socketHost: "",         //WiFi真机同步服务器 ip 地址（可选，dev自动生成）
+    socketPort: ""          //WiFi真机同步服务器端口（可选，dev自动生成）
 }
 ```
 ## 配置说明
@@ -83,10 +83,6 @@ eeui.setCustomConfig('homePage', 'login.js');
 - 建议填写16-32位随机字符串。
 - 主要用于 [EEUI云平台](https://console.eeui.app)（热更新、动态设置启动图等）。
 
-###### **`socketHost、socketPort`**: WiFi真机调试配置
-- `socketHost`: WiFi真机调试服务器 ip 地址
-- `socketPort`: WiFi真机调试服务器端口
-
 ###### **`android`**: 安卓端相关配置 <Tag date="20191205" :value="['1.0.33+']"/>
 - `imageEngine`: 图片适配器ImageAdapter（可选：`picasso`、`glide`），留空默认：`glide`
 
@@ -101,4 +97,8 @@ eeui.setCustomConfig('homePage', 'login.js');
 - `enabled`: 是否启用友盟服务。
 - `appKey`、`messageSecret`: 在友盟平台申请。
 - `channel`: 友盟统计渠道。
+
+###### **`socketHost、socketPort`**: WiFi真机调试配置，dev模式自动生成
+- `socketHost`: WiFi真机调试服务器 ip 地址
+- `socketPort`: WiFi真机调试服务器端口
 
