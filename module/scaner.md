@@ -63,7 +63,7 @@ eeui.openScaner({params}, callback(result))
                             eeui.toast("识别成功：" + res.text);
                             break;
 
-                        case "failed":
+                        case "error":
                             eeui.toast("识别失败");
                             break;
                     }
@@ -78,8 +78,9 @@ eeui.openScaner({params}, callback(result))
 
 | 属性名 | 类型 | 必须 | 描述 | 默认值 |
 | --- | --- | :-: | --- | --- |
-| desc | `String` | - | 描述文字 | 将二维码图片对准扫描框即可自动扫描 |
-| successClose | `Boolean` | - | 扫描成功过自动关闭页面 | true |
+| title | `String` | - | 扫码页面标题 <Tag value="2.2.2+"/> | - |
+| desc | `String` | - | 扫码页面描述文字 | - |
+| continuous | `Boolean` | - | 是否连续扫码 <Tag value="2.2.2+"/> | false |
 
 
 ### callback 回调`result`说明
@@ -106,8 +107,6 @@ eeui.openScaner({params}, callback(result))
 - `destroy`页面已销毁
 - `success`扫码识别成功
 - `error`扫码识别失败
-- `changeQr`切换二维码扫描
-- `changeBar`切换条形码扫描
 - `openLight`打开闪光灯
 - `offLight`关闭闪光灯
 
@@ -121,6 +120,7 @@ eeui.openScaner({}, function(result) {
 
 //示例②
 eeui.openScaner({
+    desc: '二维码/条码',
     desc: '对准中间就开始扫吧',
 }, function(result) {
     //......
