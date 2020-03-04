@@ -11,7 +11,7 @@ pageClass: getting-started
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/kuaifan/eeui/blob/master/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/kuaifan/eeui.svg?style=social&label=Stars)](https://github.com/kuaifan/eeui)
 
-一个基于 Vue.js 的高质量跨平台开发（Android/iOS应用）框架。
+使用 Vue.js 跨平台开发高质量原生（Android/iOS）应用。
 
 ## 演示
 
