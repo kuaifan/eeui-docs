@@ -115,15 +115,31 @@
                 try {
                     let date = new Date(at);
                     let Y = date.getFullYear() + '-',
-                        M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-',
-                        D = date.getDate() + ' ',
-                        h = date.getHours() + ':',
-                        m = date.getMinutes() + ':',
-                        s = date.getSeconds();
+                        M = this.zeroFill((date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-', 2),
+                        D = this.zeroFill(date.getDate(), 2) + ' ',
+                        h = this.zeroFill(date.getHours(), 2) + ':',
+                        m = this.zeroFill(date.getMinutes(), 2) + ':',
+                        s = this.zeroFill(date.getSeconds(), 2);
                     return Y + M + D + h + m + s;
-                }catch (e) {
+                } catch (e) {
                     return '-';
                 }
+            },
+            zeroFill(str, length, after) {
+                str += "";
+                if (str.length >= length) {
+                    return str;
+                }
+                let _str = '', _ret = '';
+                for (let i = 0; i < length; i++) {
+                    _str += '0';
+                }
+                if (after || typeof after === 'undefined') {
+                    _ret = (_str + "" + str).substr(length * -1);
+                } else {
+                    _ret = (str + "" + _str).substr(0, length);
+                }
+                return _ret;
             },
             bodys(content) {
                 return content.split("\r\n");
