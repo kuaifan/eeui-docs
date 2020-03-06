@@ -93,9 +93,12 @@
                 } catch (e) {
 
                 }
+                let timeOut = setTimeout(() => { this.$refs.myLoading.start(); }, 50);
                 $.ajax({
                     url: "https://api.github.com/repos/" + repo + "/releases",
                     success: (result) => {
+                        clearInterval(timeOut);
+                        this.$refs.myLoading.end();
                         if (typeof result === "object") {
                             this.gitReleasesNote = result;
                             window.localStorage['__gitReleasesNote__'] = JSON.stringify({
@@ -109,7 +112,18 @@
         },
         methods: {
             published_at(at) {
-                return at.replace("T", " ").replace("Z", "");
+                try {
+                    let date = new Date(at);
+                    let Y = date.getFullYear() + '-',
+                        M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-',
+                        D = date.getDate() + ' ',
+                        h = date.getHours() + ':',
+                        m = date.getMinutes() + ':',
+                        s = date.getSeconds();
+                    return Y + M + D + h + m + s;
+                }catch (e) {
+                    return '-';
+                }
             },
             bodys(content) {
                 return content.split("\r\n");
