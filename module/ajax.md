@@ -10,7 +10,7 @@ const eeui = app.requireModule('eeui');
 
 > 跨域请求
 
-* 支持自定义header
+* 支持自定义headers
 * 支持上传文件
 
 ```js
@@ -44,7 +44,7 @@ eeui.ajax({params}, callback(result))
     status: 'success',      //状态，详见：注①
     
     code: 200,              //请求结果状态码
-    header: { ... },       //请求结果header信息
+    headers: { ... },       //请求结果headers信息
     result: '...',         //请求结果
     
     name: 'requestName',    //请求名称
