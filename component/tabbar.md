@@ -221,7 +221,7 @@
 | ------------- | ------ | -------------------------- | ------- |
 | tabName |`String`  | tab页签名称         | -       |
 | title |`String`  | tab名称         | New Page       |
-| url |`String`  | App Js文件`url`地址<br/>①支持本地地址，如：`xxx.js`<br/>②支持远程地址，如：`http://abc.com/xxx.js`         | -       |
+| url |`String`  | 页面地址<br/>①支持本地地址，如：`xxx.js`<br/>②支持远程地址，如：`http://abc.com/xxx.js`<br/><Stis>可使用 <strong>root://</strong> 表示 <strong>src</strong> 目录，比如首页: <strong>root://pages/index.js</strong></Stis>         | -       |
 | unSelectedIcon |`String`  | tab未选图标         | home       |
 | selectedIcon |`String`  | tab已选图标         | home       |
 | params |`Object`  | tab页面传递参数，通过`app.config.params`获取         | -       |

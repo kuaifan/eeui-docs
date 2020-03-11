@@ -63,7 +63,7 @@
     <tr>
         <td>href</td>
         <td><code>String</code></td>
-        <td>待跳转的页面 URL，<code>-1</code>为关闭当前页面</td>
+        <td>待跳转的页面 URL，<code>-1</code>为关闭当前页面<br/><Stis>可使用 <strong>root://</strong> 表示 <strong>src</strong> 目录，比如首页: <strong>root://pages/index.js</strong></Stis></td>
         <td>-</td>
     </tr>
     <tr>
