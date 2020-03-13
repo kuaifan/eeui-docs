@@ -13,5 +13,7 @@
     "/plugin/rongim.html": "/markets/eeui/rongim",
     "/plugin/screenshots.html": "/markets/eeui/screenshots",
     "/plugin/umeng.html": "/markets/eeui/umeng",
-    "/plugin/websocket.html": "/markets/eeui/websocket"
+    "/plugin/websocket.html": "/markets/eeui/websocket",
+
+    "/app/android.apk": "https://console.eeui.app/android/download"
 }

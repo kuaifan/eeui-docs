@@ -36,7 +36,12 @@
             }
             let newUrl = redirect[this.$route.path];
             if (typeof newUrl === "string" && newUrl) {
-                this.$router.replace(newUrl);
+                if (newUrl.substring(0, 7) === "http://"
+                    || newUrl.substring(0, 8) === "https://") {
+                    window.location.href = newUrl;
+                } else {
+                    this.$router.replace(newUrl);
+                }
                 return;
             }
             this.show = true;

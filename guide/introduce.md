@@ -15,7 +15,7 @@ pageClass: getting-started
 
 ## 演示
 
-<a href="https://eeui.app/app/android.apk" target="_blank"><img src="https://eeui.app/app/android.png" width="220px"></a>
+<a href="https://console.eeui.app/android/download" target="_blank"><img src="https://eeui.app/app/android.png" width="220px"></a>
 
 <a href="javascript:alert('没钱申请开发者账号上架！');"><img src="https://eeui.app/app/ios.png" width="220px"></a>
 
