@@ -134,6 +134,7 @@
 | pullTipsLoad |`String`  | 上拉加载正在加载的提示语           | 正在加载更多...       |
 | pullTipsNo |`String`  | 上拉加载没有更多的提示语           | 没有更多数据了       |
 | itemDefaultAnimator |`Boolean`  | 打开关闭局部刷新默认动画<Tag value="仅Android"/>           | false       |
+| scrollBarEnabled <Tag date="20200325" value="2.3.0+"/> |`Boolean`  | 是否显示滚动条           | false       |
 
 > 例如：
 
