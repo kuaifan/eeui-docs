@@ -121,6 +121,8 @@
                     right 11px
                     height 3px
                     background-color $accentColor
+                    @media (max-width: 719px)
+                        bottom -0.52rem
 
             .arrow
                 vertical-align middle
