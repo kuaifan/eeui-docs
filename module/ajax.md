@@ -31,10 +31,11 @@ eeui.ajax({params}, callback(result))
 | dataType | `String` | - | 返回数据类型，`json`、`text` | json |
 | timeout | `Number` | - | 请求超时时间（单位：毫秒） | 15000 |
 | cache | `Number` | - | 缓存时间，0不缓存（单位：毫秒） | 0 |
-| beforeAfter | `Boolen` | - | 是否回调`前(ready)`、`后(complete)`事件 <Tag date="20191202" :value="['1.0.32+']"/> | false |
 | headers | `Object` | - | 请求头部headers | - |
 | data | `Object` | - | 发送数据 | - |
-| files | `Object` | - | 提交文件  | - |
+| files | `Object` | - | 提交/上传文件  | - |
+| beforeAfter | `Boolen` | - | 是否回调`前(ready)`、`后(complete)`事件 <Tag date="20191202" :value="['1.0.32+']"/> | false |
+| progressCall | `Boolen` | - | 是否回调上传进度事件 <Tag date="20200411" :value="['2.3.2+']"/> | false |
 
 
 ### callback 回调`result`说明
@@ -45,24 +46,38 @@ eeui.ajax({params}, callback(result))
     
     code: 200,              //请求结果状态码
     headers: { ... },       //请求结果headers信息
-    result: '...',         //请求结果
+    result: '...',          //请求结果
     
     name: 'requestName',    //请求名称
     url: 'http://....',     //请求地址
     cache: false,           //请求结果是否为缓存
+
+    progress: {             //上传进度信息
+        current: 10240,     // 当前进度大小
+        total: 20480,       // 总进度大小
+        fraction: 0.5,      // 进度比0~1
+    }
 }
 ```
 
 > 注①：
 
 - `ready`就绪
+- `progress`上传进度更新
 - `success`请求成功
 - `error`请求失败
 - `complete`请求结束
 
-回调过程：`ready` -> (`success` | `error`) -> `complete`；
+回调过程：`ready` -> [`progress`] -> (`success` | `error`) -> `complete`；
 
-注: `ready`和`complete`事件仅在`beforeAfter=true`时有回调 <Tag date="20191202" :value="['1.0.32+']"/>。
+:::warning 状态提示
+
+* `ready`和`complete`事件仅在`beforeAfter=true`时有回调 <Tag date="20191202" :value="['1.0.32+']"/>，
+
+* `progress`事件仅在`上传文件`且`progressCall=true`时有回调 <Tag date="20200411" :value="['2.3.2+']"/>。
+
+:::
+
 
 ### 简单示例
 
