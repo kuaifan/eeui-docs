@@ -49,6 +49,7 @@ let sidebar = {
             collapsable: false,
             children: [
                 ['/component/a', ['<a>', '跳转链接', 20190410]],
+                ['/component/view', ['<view>', '视图容器', 20200418]],
                 ['/component/banner', ['<banner>', '轮播组件']],
                 ['/component/button', ['<button>', '预设按钮']],
                 ['/component/grid', ['<grid>', '网格容器']],

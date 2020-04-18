@@ -14,10 +14,10 @@
 
 ```vue
 <template>
-    <scroll-view class="lists" :eeui="{ row: 5, pullTipsNo: '' }">
+    <scroll-view class="lists" pullTipsNo="">
 
         <div v-for="item in iconLists" class="item" @click="copyIcon(item)">
-            <icon class="icon" :eeui="{ content: item, fontSize: 38 }"></icon>
+            <icon class="icon" :content="item" fontSize="38"></icon>
             <text class="text">{{item}}</text>
         </div>
 
@@ -66,7 +66,7 @@
 
 ```
 
-## 配置参数 `eeui`
+## 配置参数
 >说明：ui自定义；数据格式：对象数据。
 
 | 属性名           | 类型     | 描述                          | 默认值     |
@@ -87,8 +87,8 @@
 ```vue
 <icon 
         ref="reflectName"
-        style="width:50px; height:50px;" 
-        :eeui="{content: 'home spin', fontSize:'60px', color:'#ff0000'}" >
+        style="width:50px;height:50px;color:#ff0000;font-size:60px" 
+        content="home spin">
 </icon>
 ```
 

@@ -46,7 +46,7 @@
 ```
 
 
-## 配置参数 `eeui`
+## 配置参数
 
 >说明：打开页面自定义参数；数据格式：对象数据。
 
@@ -89,7 +89,7 @@
 ```vue
 <a 
     href="http://.../xxx.js"
-    :eeui="{statusBarColor:'#ff0000'}"><text>红色导航栏</text></a>
+    statusBarColor="#ff0000"><text>红色导航栏</text></a>
 ```
 
 

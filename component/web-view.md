@@ -38,7 +38,7 @@
 ```
 
 
-## 配置参数 `eeui`
+## 配置参数
 >说明：ui自定义；数据格式：对象数据。
 
 | 属性名           | 类型     | 描述                          | 默认值     |
@@ -58,22 +58,12 @@
 //示例1
 <web-view
     ref="reflectName"
-    :eeui="{
-        url: 'https://eeui.app'
-    }"></web-view>
+    url="https://eeui.app"></web-view>
     
 //示例2
 <web-view
     ref="reflectName2"
-    :eeui="{
-        content: '网页内容.....'
-    }"></web-view>
-    
-//示例3
-<web-view
-    ref="reflectName3"
-    content="网页内容....."
-    ></web-view>
+    content="网页内容....."></web-view>
 ```
 
 > 注①：

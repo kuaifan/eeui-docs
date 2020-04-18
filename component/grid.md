@@ -75,7 +75,7 @@
 ```
 
 
-## 配置参数 `eeui`
+## 配置参数
 >说明：ui自定义；数据格式：对象数据。
 
 | 属性名           | 类型     | 描述                          | 默认值     |
@@ -98,10 +98,8 @@
 ```vue
 <grid
     ref="reflectName"
-    :eeui="{
-        row: 3,
-        columns: 3
-    }"></grid>
+    row="3"
+    columns="3"></grid>
 ```
 
 ## 事件回调 `callback`

@@ -15,7 +15,7 @@
         <tabbar
                 ref="reflectName"
                 class="tabbar"
-                :eeui="{ tabType: 'bottom' }"
+                tabType="bottom"
                 :tabPages="tabPages"></tabbar>
 
     </div>

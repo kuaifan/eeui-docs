@@ -21,11 +21,9 @@
         <side-panel
                 ref="reflectName"
                 class="side_panel"
-                :eeui="{
-                        width: '380px',
-                        scrollbar: false,
-                        backgroundColor: '#26c9ff'
-                    }"
+                width="380px"
+                scrollbar="false"
+                backgroundColor="#26c9ff"
                 @itemClick="itemClick"
                 @switchListener="switchListener">
 
@@ -138,7 +136,7 @@
 ```
 
 
-## 配置参数 `eeui`
+## 配置参数
 >说明：ui自定义；数据格式：对象数据。
 
 | 属性名           | 类型     | 描述                          | 默认值     |
@@ -152,11 +150,10 @@
 ```vue
 <side-panel
     ref="reflectName"
-    :eeui="{
-        width: '380px',
-        scrollbar: false,
-        backgroundColor: '#26c9ff'
-    }"></side-panel>
+    width="380px"
+    scrollbar="false"
+    backgroundColor="#26c9ff"
+    ></side-panel>
 ```
 
 ## 事件回调 `callback`

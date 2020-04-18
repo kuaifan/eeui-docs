@@ -26,13 +26,16 @@
         <tabbar
                 ref="reflectName"
                 class="tabbar"
-                :eeui="{ tabType: 'bottom' }"
+                tabType="bottom"
                 @pageSelected="pageSelected"
                 @tabReselect="tabReselect">
 
             <!--页签①-->
-            <tabbar-page ref="name_1" @refreshListener="refreshListener"
-                         :eeui="{ tabName: 'name_1', title:'首页', selectedIcon:'md-home' }">
+            <tabbar-page ref="name_1" 
+                    @refreshListener="refreshListener"
+                    tabName="name_1"
+                    title="首页"
+                    selectedIcon="md-home">
                 <navbar class="page-navbar">
                     <navbar-item type="back"></navbar-item>
                     <navbar-item type="title">
@@ -50,7 +53,11 @@
 
             <!--页签②-->
             <tabbar-page ref="name_2" @refreshListener="refreshListener"
-                         :eeui="{ tabName: 'name_2', title:'好友', message:3, selectedIcon:'https://eeui.app/assets/images/cartoon/m8.png' , unSelectedIcon:'https://eeui.app/assets/images/cartoon/m7.png' }">
+                            tabName="name_2"
+                            title="好友"
+                            message="3"
+                            selectedIcon="https://eeui.app/assets/images/cartoon/m8.png"
+                            unSelectedIcon="https://eeui.app/assets/images/cartoon/m7.png">
                 <navbar class="page-navbar">
                     <navbar-item type="title">
                         <text class="page-navbar-title">好友</text>
@@ -62,8 +69,12 @@
             </tabbar-page>
 
             <!--页签③-->
-            <tabbar-page ref="name_3" @refreshListener="refreshListener"
-                         :eeui="{ tabName: 'name_3', title:'圈子', message:99, selectedIcon:'md-aperture' }">
+            <tabbar-page ref="name_3" 
+                        @refreshListener="refreshListener"
+                        tabName="name_3"
+                        title="圈子"
+                        message="99"
+                        selectedIcon="md-aperture">
                 <navbar class="page-navbar">
                     <navbar-item type="title">
                         <text class="page-navbar-title">圈子</text>
@@ -75,8 +86,12 @@
             </tabbar-page>
 
             <!--页签④-->
-            <tabbar-page ref="name_4" @refreshListener="refreshListener"
-                         :eeui="{ tabName: 'name_4', title:'设置', dot:true, selectedIcon:'md-cog' }">
+            <tabbar-page ref="name_4" 
+                    @refreshListener="refreshListener"
+                    tabName="name_4"
+                    title="设置"
+                    dot="true"
+                    selectedIcon="md-cog">
                 <navbar class="page-navbar">
                     <navbar-item type="title">
                         <text class="page-navbar-title">设置</text>
@@ -172,7 +187,7 @@
 
 ```
 
-## 配置参数 `eeui`
+## 配置参数
 
 >说明：tab自定义ui；数据格式：对象数据。
 
@@ -210,7 +225,7 @@
 ```vue
 <tabbar
     ref="reflectName"
-    :eeui="{ tabType: 'bottom' }"></tabbar>
+    tabType="bottom"></tabbar>
 ```
 
 ## 配置参数 `tabPages`
@@ -447,12 +462,10 @@ this.$refs.reflectName.setTabSlideSwitch(false);
 ```vue
 <tabbar-page 
     ref="reflectName"
-    :eeui="{ 
-        tabName: 'name_3', 
-        title:'圈子', 
-        message:99, 
-        selectedIcon:'md-aperture' 
-    }">
+    tabName="name_3"
+    title="圈子"
+    message="99"
+    selectedIcon="md-aperture">
     <div>
         <text>支持任何子组件</text>
     </div>
@@ -476,12 +489,10 @@ this.$refs.reflectName.setTabSlideSwitch(false);
 ```vue
 <tabbar-page 
     ref="reflectName"
-    :eeui="{ 
-        tabName: 'name_3', 
-        title:'圈子', 
-        message:99, 
-        selectedIcon:'md-aperture' 
-    }">
+        tabName="name_3"
+        title="圈子"
+        message="99"
+        selectedIcon="md-aperture">
     .....
 </tabbar-page>
 ```
@@ -536,7 +547,8 @@ this.$refs.reflectName.refreshEnd();
         <tabbar
                 ref="reflectName"
                 class="tabbar"
-                :eeui="{ tabType: 'top', tabHeight: 0 }"
+                tabType="top"
+                tabHeight="0"
                 :tabPages="tabPages"
                 @pageSelected="pageSelected"></tabbar>
 

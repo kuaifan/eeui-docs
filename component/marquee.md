@@ -21,35 +21,22 @@
         <marquee
                 ref="reflectName"
                 class="marquee"
-                style="width:750px"
-                :eeui="{
-                        text: scrollText,
-                        fontSize: 24,
-                    }"
+                style="width:750px;height:50px;font-size:24px"
+                :text="scrollText"
         ></marquee>
 
         <marquee
                 ref="reflectName2"
                 class="marquee"
-                style="width:375px"
-                :eeui="{
-                        text: scrollText,
-                        fontSize: 24,
-                        color: '#ff0000',
-                        backgroundColor: '#00ffff'
-                    }"
+                style="width:375px;height:50px;font-size:24px;color:#ff0000;background-color:#00ffff"
+                :text="scrollText"
         ></marquee>
 
         <marquee
                 ref="reflectName3"
                 class="marquee"
-                style="width:200px"
-                :eeui="{
-                        text: scrollText,
-                        fontSize: 24,
-                        color: '#6e0a92',
-                        backgroundColor: '#c8e7ff'
-                    }"
+                style="width:200px;height:50px;font-size:24px;color:#6e0a92;background-color:#c8e7ff"
+                :text="scrollText"
         ></marquee>
 
 
@@ -80,7 +67,7 @@
 ```
 
 
-## 配置参数 `eeui`
+## 配置参数
 >说明：ui自定义；数据格式：对象数据。
 
 | 属性名           | 类型     | 描述                          | 默认值     |
@@ -97,12 +84,10 @@
 ```vue
 <marquee
     ref="reflectName"
-    :eeui="{
-        text: '地方不够放时才滚动',
-        fontSize: 24,
-        color: '#6dff28',
-        backgroundColor: '#c8e7ff'
-    }"></marquee>
+    text="地方不够放时才滚动"
+    fontSize="24"
+    color="#6dff28"
+    backgroundColor="#c8e7ff"></marquee>
 ```
 
 ## 事件回调 `callback`

@@ -21,37 +21,31 @@
         <scroll-text
                 ref="reflectName"
                 class="scroll_text"
-                :eeui="{
-                        text: scrollText,
-                        speed: 2,
-                        fontSize: 32,
-                    }"
+                text="scrollText"
+                speed="2"
+                fontSize="32"
                 @itemClick="itemClick"
         ></scroll-text>
 
         <scroll-text
                 ref="reflectName2"
                 class="scroll_text"
-                :eeui="{
-                        text: scrollText,
-                        speed: 10,
-                        fontSize: 32,
-                        color: '#ff0000',
-                        backgroundColor: '#00ffff'
-                    }"
+                text="scrollText"
+                speed="10"
+                fontSize="32"
+                color="#ff0000"
+                backgroundColor="#00ffff"
                 @itemClick="itemClick"
         ></scroll-text>
 
         <scroll-text
                 ref="reflectName3"
                 class="scroll_text"
-                :eeui="{
-                        text: scrollText,
-                        speed: 5,
-                        fontSize: 24,
-                        color: '#6dff28',
-                        backgroundColor: '#c8e7ff'
-                    }"
+                text="scrollText"
+                speed="5"
+                fontSize="24"
+                color="#6dff28"
+                backgroundColor="#c8e7ff"
                 @itemClick="itemClick"
         ></scroll-text>
 
@@ -89,7 +83,7 @@
 ```
 
 
-## 配置参数 `eeui`
+## 配置参数
 >说明：ui自定义；数据格式：对象数据。
 
 | 属性名           | 类型     | 描述                          | 默认值     |
@@ -106,13 +100,12 @@
 ```vue
 <scroll-text
     ref="reflectName"
-    :eeui="{
-        text: '滚动的文字',
-        speed: 5,
-        fontSize: 24,
-        color: '#6dff28',
-        backgroundColor: '#c8e7ff'
-    }"></scroll-text>
+    text="滚动的文字"
+    speed="5"
+    fontSize="24"
+    color="#6dff28"
+    backgroundColor="#c8e7ff"
+    ></scroll-text>
 ```
 
 ## 事件回调 `callback`

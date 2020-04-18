@@ -23,9 +23,7 @@
         <scroll-view
                 ref="reflectName"
                 class="list"
-                :eeui="{
-                        pullTips: true,
-                    }"
+                pullTips="true"
                 @itemClick="itemClick"
                 @pullLoadListener="pullLoadListener"
                 @refreshListener="refreshListener">
@@ -41,7 +39,7 @@
 
 <style scoped>
     .box {
-        width: 750px;
+        width="750px;"
         flex: 1
     }
     .list {
@@ -123,7 +121,7 @@
 ```
 
 
-## 配置参数 `eeui`
+## 配置参数
 >说明：ui自定义；数据格式：对象数据。
 
 | 属性名           | 类型     | 描述                          | 默认值     |
@@ -141,9 +139,8 @@
 ```vue
 <scroll-view
     ref="reflectName"
-    :eeui="{
-        pullTips: true,
-    }"></scroll-view>
+    pullTips: true,
+    ></scroll-view>
 ```
 
 ## 事件回调 `callback`

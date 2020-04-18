@@ -21,33 +21,33 @@
             <text class="list-title">预设样式</text>
 
             <div class="list-item">
-                <button class="button" :eeui="{text:'默认'}"></button>
-                <button class="button" :eeui="{text:'红色', model:'red'}"></button>
+                <button class="button" text="默认"></button>
+                <button class="button" text="红色" model="red"></button>
             </div>
 
             <div class="list-item">
-                <button class="button" :eeui="{text:'绿色', model:'green'}"></button>
-                <button class="button" :eeui="{text:'蓝色', model:'blue'}"></button>
+                <button class="button" text="绿色" model="green"></button>
+                <button class="button" text="蓝色" model="blue"></button>
             </div>
 
             <div class="list-item">
-                <button class="button" :eeui="{text:'粉红', model:'pink'}"></button>
-                <button class="button" :eeui="{text:'黄色', model:'yellow'}"></button>
+                <button class="button" text="粉红" model="pink"></button>
+                <button class="button" text="黄色" model="yellow"></button>
             </div>
 
             <div class="list-item">
-                <button class="button" :eeui="{text:'橙色', model:'orange'}"></button>
-                <button class="button" :eeui="{text:'灰色', model:'gray'}"></button>
+                <button class="button" text="橙色" model="orange"></button>
+                <button class="button" text="灰色" model="gray"></button>
             </div>
 
             <div class="list-item">
-                <button class="button" :eeui="{text:'黑色', model:'black'}"></button>
-                <button class="button" :eeui="{text:'白色', model:'white'}"></button>
+                <button class="button" text="黑色" model="black"></button>
+                <button class="button" text="白色" model="white"></button>
             </div>
 
             <div class="list-item">
-                <button class="button" :eeui="{text:'加载中', loading:true}"></button>
-                <button class="button" :eeui="{text:'禁用', disabled:true}"></button>
+                <button class="button" text="加载中" loading="true"></button>
+                <button class="button" text="禁用" disabled="true"></button>
             </div>
 
             <text class="list-title">自定义样式</text>
@@ -238,7 +238,7 @@
 ```
 
 
-## 配置参数 `eeui`
+## 配置参数
 >说明：ui自定义；数据格式：对象数据。
 
 | 属性名           | 类型     | 描述                          | 默认值     |
@@ -266,7 +266,7 @@
 <button 
     ref="reflectName"
     class="button" 
-    :eeui="{text:'红色', model:'red'}"></button>
+    text="红色" model="red"></button>
 ```
 
 ## 事件回调 `callback`
