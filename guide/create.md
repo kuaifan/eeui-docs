@@ -120,3 +120,15 @@ navigator.push({
 ```
 
 详情可查看 [怎么创建一个页面并做跳转](https://github.com/kuaifan/eeui/issues/13)
+
+## 第三方UI组件库
+
+#### 推荐以下组件库，基于weex的组件库，包含了大量的界面组件以及交互组件，帮助开发者APP快速成型
+#### 都可以用于eeui，安装使用方法见各个UI库的文档
+
+【weex 官方组件库】[https://github.com/alibaba/weex-ui](https://github.com/alibaba/weex-ui)
+
+【amui 组件丰富】[https://hminghe.github.io/weex-amui/#/?id=weex-amui](https://hminghe.github.io/weex-amui/#/?id=weex-amui)
+
+【bui 还不错】[http://dev.bingocc.com/buiweex/docs/](http://dev.bingocc.com/buiweex/docs/)
+
