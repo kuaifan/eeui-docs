@@ -41,6 +41,7 @@ pageClass: getting-started
 |<img src="https://eeui.app/images/wxdonate.jpg" width="240px" alt="微信支付捐赠">  |
 
 ## 社群
+
 <img src="https://eeui.app/images/qqgroup.png" width="280px">
 
 ## 协议
