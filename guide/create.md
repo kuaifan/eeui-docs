@@ -123,8 +123,8 @@ navigator.push({
 
 ## 第三方UI组件库
 
-#### 推荐以下组件库，基于weex的组件库，包含了大量的界面组件以及交互组件，帮助开发者APP快速成型
-#### 都可以用于eeui，安装使用方法见各个UI库的文档
+* 推荐以下组件库，基于weex的组件库，包含了大量的界面组件以及交互组件，帮助开发者APP快速成型
+* 都可以用于eeui，安装使用方法见各个UI库的文档
 
 【weex 官方组件库】[https://github.com/alibaba/weex-ui](https://github.com/alibaba/weex-ui)
 
