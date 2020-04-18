@@ -42,7 +42,7 @@ pageClass: getting-started
 
 ## 社群
 
-<img src="https://eeui.app/images/qqgroup.png" width="280px">
+<p><img src="https://eeui.app/images/qqgroup.png" width="280px"></p>
 
 ## 协议
 
