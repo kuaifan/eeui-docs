@@ -49,8 +49,8 @@ let sidebar = {
             collapsable: false,
             children: [
                 ['/component/a', ['<a>', '跳转链接', 20190410]],
-                ['/component/view', ['<view>', '视图容器', 20200418]],
                 ['/component/banner', ['<banner>', '轮播组件']],
+                ['/component/blur', ['<blur>', '模糊视图', 20200421]],
                 ['/component/button', ['<button>', '预设按钮']],
                 ['/component/grid', ['<grid>', '网格容器']],
                 ['/component/icon', ['<icon>', '字体图标']],
@@ -61,6 +61,7 @@ let sidebar = {
                 ['/component/scroll-view', ['<scroll-view>', '列表容器']],
                 ['/component/side-panel', ['<side-panel>', '侧边栏容器']],
                 ['/component/tabbar', ['<tabbar>', '选项卡页面']],
+                ['/component/view', ['<view>', '视图容器', 20200418]],
                 ['/component/web-view', ['<web-view>', '浏览器组件']],
                 ['/component/WEcharts', ['<WEcharts>', '图表组件']]
             ]
