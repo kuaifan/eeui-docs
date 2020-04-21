@@ -300,31 +300,6 @@ this.$refs.reflectName.setTextColor('#FF0000');
 this.$refs.reflectName.setTextSize(20);
 
 /**
- * 设置按钮风格
- * 参数一：风格
- */
-this.$refs.reflectName.setModel('red');
-
-/**
- * 设置圆角半径
- * 参数一：半径值
- */
-this.$refs.reflectName.setRadius(15);
-
-/**
- * 设置背景颜色
- * 参数一：颜色代码
- */
-this.$refs.reflectName.setBackgroundColor('#FF0000');
-
-/**
- * 设置边框
- * 参数一：边框尺寸
- * 参数二：颜色代码
- */
-this.$refs.reflectName.setBorder(2, '#00ff00');
-
-/**
  * 设置是否禁用
  * 参数一：true|false
  */
