@@ -1,0 +1,1 @@
+rewrite "^/markets/(.+?)/(.+?)$" /404.html last;

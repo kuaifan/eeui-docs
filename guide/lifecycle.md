@@ -1,18 +1,17 @@
-# 生命周期
+# 生命周期 <Tag value="2.3.7+"/>
+
+[2.3.6版本之前请参考这里](./lifecycle_old.html)
 
 :::tip
-除了自有的[生命周期钩子](#生命周期钩子)以外，eeui还支持的原生生命周期回调lifecycle，含：页面挂载、页面恢复、页面暂停。
+除了自有的[生命周期钩子](#生命周期钩子)以外，<br/>eeui还另外支持`APP进入后台`、`APP进入前台`、`页面挂载`、`页面激活`、`页面失活`、`页面停止`。
 :::
 
 ```vue
 <template>
-	<div @lifecycle="lifecycle">
-		...
-	</div>
+	...
 </template>
 
 <script>
-
     export default {
 	    beforeCreate: function (){
 	        console.log('beforeCreate');
@@ -38,29 +37,26 @@
 	    destroyed: function () {
 	        console.log('destroyed');
 	    },
-	    methods: {
-	        //生命周期回调
-	        lifecycle(e){
-	            console.log(e.status);
-	            if (e.status == 'ready')
-	            {
-                    console.log('页面挂载(初始化)');
-	            }
-	            else if (e.status == 'resume') 
-	            {
-                    console.log('页面激活(恢复)');
-	            }
-	            else if (e.status == 'pause') 
-	            {
-                    console.log('页面失活(暂停)');
-                }
-	            else if (e.status == 'destroy') 
-	            {
-                    console.log('页面停止(销毁)');    //destroy 状态 1.0.38+ 版本支持
-                }
-	        }
-	    }
-  }
+
+        appActive: function (data) {
+            console.log('APP进入前台：App从【后台】切换至【前台】时触发');
+        },
+        appDeactive: function (data) {
+            console.log('APP进入后台：App从【前台】切换至【后台】时触发');
+        },
+        pageReady: function (data) {
+            console.log('页面挂载：页面【渲染完成】时触发');
+        },
+        pageResume: function (data) {
+            console.log('页面激活：页面【恢复】时触发（渲染完成时也会触发1次）');
+        },
+        pagePause: function (data) {
+            console.log('页面失活：页面【暂停】时触发');
+        },
+        pageDestroy: function (data) {
+            console.log('页面停止：页面【销毁】时触发');
+        }
+    }
 </script>
 ```
 
@@ -81,6 +77,13 @@ Vue 组件的实例生命周期钩子将在特定的阶段发出，详情请参�
 | [beforeDestroy](https://cn.vuejs.org/v2/api/#beforeDestroy) | <b class="tag-yes">支持</b> | - |
 | [destroyed](https://cn.vuejs.org/v2/api/#destroyed)         | <b class="tag-yes">支持</b> | - |
 | [errorCaptured](https://cn.vuejs.org/v2/api/#errorCaptured) | <b class="tag-yes">支持</b> | - |
+| 以下是`eeui`特有： |  |  |
+| appActive | <b class="tag-yes">支持</b> | APP进入前台：App从【后台】切换至【前台】时触发 |
+| appDeactive | <b class="tag-yes">支持</b> | APP进入后台：App从【前台】切换至【后台】时触发 |
+| pageReady | <b class="tag-yes">支持</b> | 页面挂载：页面【渲染完成】时触发 |
+| pageResume | <b class="tag-yes">支持</b> | 页面激活：页面【恢复】时触发（渲染完成时也会触发1次） |
+| pagePause | <b class="tag-yes">支持</b> | 页面失活：页面【暂停】时触发 |
+| pageDestroy | <b class="tag-yes">支持</b> | 页面停止：页面【销毁】时触发 |
 
 ::: warning 关于 "mounted" 生命周期
 
