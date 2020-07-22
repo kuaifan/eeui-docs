@@ -14,16 +14,18 @@
     
     homePage: "",           //主页的JS地址（可选）
     homePageParams: { },    //主页其他参数（可选）
+
+    navigationBarStyle: {}, //全局配置导航栏默认样式（可选）
      
     appKey: "",             //用于云平台管理（可选）
     
-	android: {
+    android: {
         imageEngine: "",    //安卓图片适配器（可选）
     },
     
-	wxpay: {
-		appid: "xxx..."     //微信支付appid（可选）
-	},
+    wxpay: {
+        appid: "xxx..."     //微信支付appid（可选）
+    },
 
     rongim: {               //融云模块配置（可选）
         andorid: {
@@ -78,6 +80,10 @@ eeui.setCustomConfig('homePage', 'login.js');
 ###### **` homePageParams`**: 主页的其他参数
 - 比如导航栏颜色等。
 - 详细设置请查阅 [eeui.openPage](../module/newPage.html#eeui-openpage) params参数说明。
+
+###### **` navigationBarStyle`**: 全局配置导航栏默认样式
+- [配置示例](./config-navigationBarStyle.html)。
+
 
 ###### **`appKey`**: 用于云平台管理
 - 建议填写16-32位随机字符串。

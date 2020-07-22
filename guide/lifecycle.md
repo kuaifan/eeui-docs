@@ -1,4 +1,4 @@
-# 生命周期 <Tag value="2.3.7+"/>
+# 生命周期 <Tag date="20200709" value="2.3.7+"/>
 
 [2.3.6版本之前请参考这里](./lifecycle_old.html)
 
