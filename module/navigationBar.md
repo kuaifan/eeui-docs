@@ -30,7 +30,7 @@ navigationBar.setTitle({params}, callback(result))
 | subtitleColor | `String` | - | 副标题字体颜色 | - |
 | subtitleSize | `Float` | - | 副标题字体大小 | 24.0 |
 | backgroundColor | `String` | - | 标题栏背景颜色 | #3EB4FF |
-| barHeight <Tag date="20200722" :value="['仅Android', '2.3.8b+']"/> | `Number` | - | 状态栏高度 | - |
+| barHeight <Tag date="20200722" :value="['仅Android', '2.3.8b+']"/> | `Number` | - | 标题栏高度 | - |
 
 
 ## navigationBar.setLeftItem
