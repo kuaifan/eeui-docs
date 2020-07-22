@@ -25,6 +25,7 @@ navigationBar.setTitle({params}, callback(result))
 | title | `String` | √ | 标题 | - |
 | titleColor | `String` | - | 标题字体颜色 | - |
 | titleSize | `Float` | - | 标题字体大小 | 32.0 |
+| titleBold <Tag value="2.3.8+"/> | `Boolean` | - | 标题粗体 | false |
 | subtitle | `String` | - | 副标题 | - |
 | subtitleColor | `String` | - | 副标题字体颜色 | - |
 | subtitleSize | `Float` | - | 副标题字体大小 | 24.0 |
@@ -50,6 +51,7 @@ navigationBar.setLeftItem({params}, callback(result))
 | title | `String` | - | 按钮标题（与图标必须一） | - |
 | titleColor | `String` | - | 按钮标题字体颜色 | - |
 | titleSize | `Float` | - | 按钮标题字体大小 | 28.0 |
+| titleBold <Tag value="2.3.8+"/> | `Boolean` | - | 按钮标题粗体 | false |
 | icon | `String` | - | 按钮图标，注① | - |
 | iconColor | `String` | - | 按钮图标字体颜色 | - |
 | iconSize | `Float` | - | 按钮图标字体大小（图标大小） | 28.0 |
