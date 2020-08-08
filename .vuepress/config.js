@@ -182,7 +182,7 @@ module.exports = {
             {text: '热更新', link: '/update/'},
             {text: '控制台', link: 'https://console.eeui.app/'},
             {text: 'Editor', link: 'https://editor.eeui.app/'},
-            {text: '例子', link: 'https://editor.eeui.app/#/case', important: true},
+            {text: '例子', link: 'https://editor.eeui.app/case'},
             {text: '社区', link: 'https://bbs.eeui.app/', isUnreadNotificationCount: true},
         ],
 
