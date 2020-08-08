@@ -5,7 +5,7 @@
 
         <div class="markets-body">
 
-            <div class="markets-menu">
+            <div class="markets-menu" :class="{'menu-full':menuShow}">
 
                 <div class="markets-menu-box">
                     <div class="markets-search">
@@ -23,16 +23,28 @@
                     </div>
                 </div>
 
+                <div class="markets-menu-close"><em @click="menuShow=false"></em></div>
+
+            </div>
+
+            <div class="markets-menuicon" @click="menuShow=true">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512">
+                    <path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z" class=""></path>
+                </svg>
             </div>
 
             <div class="markets-list">
 
                 <div class="markets-title">
-                    <h2>EEUI.APP 插件市场</h2>&nbsp;
-                    <Tag class="tag" value="2.x"/>
+                    <div class="markets-title-left">
+                        <h2>EEUI.APP 插件市场</h2>&nbsp;
+                        <Tag class="tag" value="2.x"/>
+                    </div>
                     <div class="empty"></div>
-                    <div class="tlink" @click="oldmarkets">1.x 插件市场</div>
-                    <div class="tlink" @click="opendoc">开发文档</div>
+                    <div class="markets-title-right">
+                        <div class="tlink" @click="oldmarkets">1.x 插件市场</div>
+                        <div class="tlink" @click="opendoc">开发文档</div>
+                    </div>
                 </div>
 
                 <ul class="markets-ul">
@@ -107,8 +119,8 @@
                             width: 100%;
                             font-size: 14px;
                             padding: 2px 32px;
-                            height: 38px;
-                            line-height: 38px;
+                            height: 40px;
+                            line-height: 40px;
                             border: 1px solid #dcdee2;
                             border-radius: 4px;
                             color: #515a6e;
@@ -165,8 +177,8 @@
                         position: relative;
                         margin: 0;
                         padding: 0 15px;
-                        height: 38px;
-                        line-height: 36px;
+                        height: 40px;
+                        line-height: 38px;
                         font-size: 14px;
                         white-space: nowrap;
                         &.markets-type-official {
@@ -190,6 +202,93 @@
                     }
                 }
             }
+
+            @media (max-width: 768px) {
+                position: fixed;
+                top: 57px;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: auto;
+                z-index: 10;
+                padding: 24px;
+                background: #ffffff;
+                display: flex;
+                flex-direction: column;
+                transform: translate(-150%, 0);
+                transition: all 0.2s;
+                overflow: hidden;
+                &.menu-full {
+                    transform: translate(0, 0);
+                }
+                .markets-menu-box {
+                    flex: 1;
+                    padding: 0;
+                    overflow: auto;
+                    .markets-search {
+                        .markets-search-box {
+                            input {
+                                height: 42px;
+                                line-height: 42px;
+                            }
+                        }
+                    }
+                    .markets-type {
+                        > div {
+                            height: 42px;
+                            line-height: 40px;
+                        }
+                    }
+                }
+                .markets-menu-close {
+                    text-align: center;
+                    margin-top: 32px;
+                    em {
+                        display: inline-block;
+                        position: relative;
+                        width: 42px;
+                        height: 42px;
+                        &:before,
+                        &:after {
+                            content: "";
+                            position: absolute;
+                            top: 16px;
+                            left: 0;
+                            width: 100%;
+                            height: 2px;
+                            border-radius: 2px;
+                            background-color: #1f1f1f;
+                        }
+                        &:before {
+                            transform: rotate(45deg);
+                        }
+                        &:after {
+                            transform: rotate(135deg);
+                        }
+                    }
+                }
+            }
+        }
+
+        .markets-menuicon {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            left: 16px;
+            bottom: 16px;
+            z-index: 9;
+            width: 46px;
+            height: 46px;
+            background: #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.12);
+            svg {
+                width: 18px;
+            }
+            @media (max-width: 768px) {
+                display: flex;
+            }
         }
 
         .markets-list {
@@ -201,6 +300,15 @@
                 align-items: center;
                 padding-bottom: 16px;
                 border-bottom: 1px solid #e1e4e8;
+                .markets-title-left {
+                    display: flex;
+                    align-items: center;
+                }
+                .markets-title-right {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                }
                 h2 {
                     font-size: 24px;
                     font-weight: 500;
@@ -223,6 +331,12 @@
                     color: #3eb4ff;
                     &:hover {
                         text-decoration: underline;
+                    }
+                }
+                @media (max-width: 490px) {
+                    display: block;
+                    .markets-title-right {
+                        margin-top: 12px;
                     }
                 }
             }
@@ -423,6 +537,8 @@
                 lists: [],
                 listPage: 1,
                 listTotal: 0,
+
+                menuShow: false,
             }
         },
         mounted() {
@@ -468,6 +584,7 @@
                 if (this.type) {
                     query.type = this.type;
                 }
+                this.menuShow = false;
                 this.$router.push({ query: query });
             },
             load() {
