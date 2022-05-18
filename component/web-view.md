@@ -40,16 +40,17 @@
 
 ## 配置参数
 
-| 属性名           | 类型     | 描述                          | 默认值     |
-| ------------- | ------ | -------------------------- | ------- |
-| url |`String`  | 网页地址           | -       |
-| content |`String`  | 网页内容           | -       |
-| progressbarVisibility |`Boolean`  | 是否显示进度条           | true       |
-| scrollEnabled |`Boolean`  | 是否可以滚动           | true       |
-| enableApi |`Boolean`  | 开启eeui等原生交互模块，详见：注①           | true       |
-| userAgent |`String`  | 自定义浏览器userAgent（保留原有的UA）           | -       |
-| customUserAgent |`String`  | 完全自定义浏览器userAgent（去除原有的UA）           | -       |
-| transparency <Tag date="20200213" value="2.0.0+"/> |`Boolean`  | 设置背景透明（前提是网页背景也是透明，否则无效）           | false       |
+| 属性名                                                             | 类型     | 描述                          | 默认值     |
+|-----------------------------------------------------------------| ------ | -------------------------- | ------- |
+| url                                                             |`String`  | 网页地址           | -       |
+| content                                                         |`String`  | 网页内容           | -       |
+| progressbarVisibility                                           |`Boolean`  | 是否显示进度条           | true       |
+| scrollEnabled                                                   |`Boolean`  | 是否可以滚动           | true       |
+| enableApi                                                       |`Boolean`  | 开启eeui等原生交互模块，详见：注①           | true       |
+| userAgent                                                       |`String`  | 自定义浏览器userAgent（保留原有的UA）           | -       |
+| customUserAgent                                                 |`String`  | 完全自定义浏览器userAgent（去除原有的UA）           | -       |
+| transparency <Tag date="20200213" value="2.0.0+"/>              |`Boolean`  | 设置背景透明（前提是网页背景也是透明，否则无效）           | false       |
+| hiddenDone <Tag date="20220518" :value="['仅iOS', '2.5.1+']"/> |`Boolean`  | 隐藏键盘done部分           | false       |
 
 > 例如：
 
