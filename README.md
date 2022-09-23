@@ -10,7 +10,7 @@ features:
   details: 你可以使用同一份代码编译成不同目标文件分别在 Android 和 iOS 平台上运行。
 - title: 贴近前端生态
   details: 支持了最常用 CSS 样式以及最流行的前端框架，在未来或许还可以支持更多。
-footer: MIT Licensed | Copyright © 2019 eeui.app
+footer: MIT Licensed | Copyright © 2019-present eeui.app | 桂ICP备2021003642号-3
 ---
 
 <Home/>

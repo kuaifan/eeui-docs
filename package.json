@@ -22,7 +22,7 @@
         "stylus": "^0.54.8",
         "stylus-loader": "^3.0.2",
         "iview": "^3.5.4",
-        "vuepress": "^1.5.3",
-        "vuepress-plugin-container": "^2.1.4"
+        "vuepress": "^1.9.7",
+        "vuepress-plugin-container": "^2.1.5"
     }
 }
