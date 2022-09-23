@@ -207,6 +207,6 @@ module.exports = {
     },
 
     head: [
-        ['script', { src: '//libs.baidu.com/jquery/2.0.3/jquery.min.js' }]
+        ['script', { src: '//cdn.staticfile.org/jquery/2.0.3/jquery.min.js' }]
     ]
 };

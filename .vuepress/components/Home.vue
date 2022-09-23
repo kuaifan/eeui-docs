@@ -12,9 +12,7 @@
             if (this.leftExists(hash, "#/markets/")) {
                 this.$router.push("markets/detail.html#" + hash.substring(10))
             }
-            setTimeout(_ => {
-                $(".footer").html("MIT Licensed | Copyright © 2019-present eeui.app | <a href=\"http://beian.miit.gov.cn/\">桂ICP备2021003642号-3</a>")
-            }, 300)
+            $(".footer").html("MIT Licensed | Copyright © 2019-present eeui.app | <a href=\"http://beian.miit.gov.cn/\">桂ICP备2021003642号-3</a>")
         },
         methods: {
             leftExists(string, find, lower) {
